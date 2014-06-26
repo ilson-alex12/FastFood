@@ -1,0 +1,16 @@
+[
+{
+  "modid": "fastfood",
+  "name": "Fast Food",
+  "description": "Fast Food Mod.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["danielm59"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
