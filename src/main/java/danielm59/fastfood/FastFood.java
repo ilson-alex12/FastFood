@@ -8,19 +8,16 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import danielm59.fastfood.proxy.IProxy;
+import danielm59.fastfood.reference.Reference;
 
-@Mod(modid = FastFood.MODID, name = FastFood.MODNAME, version = FastFood.VERSION)
+@Mod(modid = Reference.MODID, name = Reference.MODNAME, version = Reference.VERSION)
 public class FastFood
 {
-    //TODO move to reference class
-	public static final String MODID = "fastfood";
-    public static final String MODNAME = "Fast Food Mod";
-    public static final String VERSION = "0.0.1";
     
-    @Mod.Instance(FastFood.MODID)
+    @Mod.Instance(Reference.MODID)
     public static FastFood instance;
     
-    @SidedProxy(clientSide = "danielm59.fastfood.proxy.ClientProxy", serverSide = "danielm59.fastfood.proxy.ServerProxy")
+    @SidedProxy(clientSide = Reference.CPROXY, serverSide = Reference.SPROXY)
     public static IProxy proxy;
     
     @EventHandler
