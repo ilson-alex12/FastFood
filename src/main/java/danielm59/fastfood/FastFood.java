@@ -11,7 +11,7 @@ import danielm59.fastfood.handler.ConfigurationHandler;
 import danielm59.fastfood.proxy.IProxy;
 import danielm59.fastfood.reference.Reference;
 
-@Mod(modid = Reference.MODID, name = Reference.MODNAME, version = Reference.VERSION)
+@Mod(modid = Reference.MODID, name = Reference.MODNAME, version = Reference.VERSION, guiFactory = Reference.GUIFACTORY)
 public class FastFood
 {
     
