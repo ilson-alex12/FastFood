@@ -1,6 +1,7 @@
 package danielm59.fastfood;
 
 import net.minecraft.init.Blocks;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
@@ -26,6 +27,7 @@ public class FastFood
     public void PreInit(FMLPreInitializationEvent event) {
     	
     	ConfigurationHandler.init(event.getSuggestedConfigurationFile());
+    	FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
     	LogHelper.info("Pre Initialization Complete!");
     	
     }
