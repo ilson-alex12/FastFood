@@ -9,6 +9,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import danielm59.fastfood.handler.ConfigurationHandler;
+import danielm59.fastfood.init.ModItems;
 import danielm59.fastfood.proxy.IProxy;
 import danielm59.fastfood.reference.Reference;
 import danielm59.fastfood.utility.LogHelper;
@@ -28,6 +29,7 @@ public class FastFood
     	
     	ConfigurationHandler.init(event.getSuggestedConfigurationFile());
     	FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
+    	ModItems.init();
     	LogHelper.info("Pre Initialization Complete!");
     	
     }
