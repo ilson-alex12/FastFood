@@ -6,6 +6,7 @@ public class ItemKnife extends ItemFF{
 		
 		super();
 		this.setUnlocalizedName("knife");
+		this.maxStackSize = 1;
 		
 	}
 
