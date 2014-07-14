@@ -2,6 +2,7 @@ package danielm59.fastfood.item;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import danielm59.fastfood.creativetab.CreativeTabFF;
 import danielm59.fastfood.reference.Reference;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
@@ -12,6 +13,7 @@ public class ItemFF extends Item{
 	public ItemFF(){
 		
 		super();
+		this.setCreativeTab(CreativeTabFF.FF_TAB);
 		
 	}
 	

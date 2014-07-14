@@ -2,6 +2,7 @@ package danielm59.fastfood.block;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import danielm59.fastfood.creativetab.CreativeTabFF;
 import danielm59.fastfood.reference.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -12,6 +13,7 @@ public class BlockFF extends Block{
 	public BlockFF(Material material){
 		
 		super(material);
+		this.setCreativeTab(CreativeTabFF.FF_TAB);
 		
 	}
 	

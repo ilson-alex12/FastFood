@@ -1,5 +1,7 @@
 package danielm59.fastfood.item;
 
+import danielm59.fastfood.creativetab.CreativeTabFF;
+import scala.reflect.internal.Trees.This;
 import net.minecraft.item.ItemStack;
 
 public class ItemKnife extends ItemFF{

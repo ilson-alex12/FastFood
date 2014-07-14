@@ -35,8 +35,7 @@ public class FastFood
     }
     
     @EventHandler
-    public void init(FMLInitializationEvent event)
-    {
+    public void init(FMLInitializationEvent event) {
 		
     	LogHelper.info("Initialization Complete!");
     	
