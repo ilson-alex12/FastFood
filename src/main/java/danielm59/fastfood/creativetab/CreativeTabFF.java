@@ -7,19 +7,12 @@ import net.minecraft.item.Item;
 
 public class CreativeTabFF {
 
-    public static final CreativeTabs FF_TAB = new CreativeTabs(Reference.MODID) {
+    public static final CreativeTabs FF_TAB = new CreativeTabs(Reference.MODID.toLowerCase()) {
 	
 		@Override
 		public Item getTabIconItem() {
 			
 			return ModItems.knife;
-			
-		}
-	
-		@Override
-		public String getTranslatedTabLabel() {
-			
-			return "Fast Food";
 			
 		}
 		
