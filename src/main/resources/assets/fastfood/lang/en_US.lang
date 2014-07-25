@@ -1,5 +1,7 @@
 item.fastfood:knife.name=Knife
 
+item.fastfood:rawbacon.name=Raw Bacon
+
 tile.fastfood:counter.name=Counter
 
 itemGroup.fastfood=Fast Food

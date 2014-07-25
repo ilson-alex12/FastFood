@@ -29,6 +29,7 @@ public class FastFood
     	ConfigurationHandler.init(event.getSuggestedConfigurationFile());
     	FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
     	ModItems.init();
+    	ModFood.init();
     	ModBlocks.init();
     	LogHelper.info("Pre Initialization Complete!");
     	
