@@ -1,4 +1,4 @@
-package danielm59.fastfood.food;
+package danielm59.fastfood.item;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -8,7 +8,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 
-public abstract class FoodFF extends ItemFood {
+public class FoodFF extends ItemFood{
 
 	public FoodFF(int hunger, float saturation, boolean wolf) {
 		
