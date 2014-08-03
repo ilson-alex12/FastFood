@@ -10,6 +10,7 @@ public class ItemKnife extends ItemFF{
 		this.setUnlocalizedName("knife");
 		this.setMaxStackSize(1);
 		this.setMaxDamage(128);
+		this.setNoRepair();
 		
 	}
 	
@@ -18,6 +19,17 @@ public class ItemKnife extends ItemFF{
     	
         return false;
         
+    }
+    
+    @Override
+    public boolean getShareTag(){
+        return true;
+        
+    }
+    
+    public boolean hasContainerItem(ItemStack itemStack)
+    {
+       return true;
     }
     
     @Override
