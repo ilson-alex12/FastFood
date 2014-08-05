@@ -8,6 +8,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class BlockCounter extends BlockFF{
 
 	protected IIcon blockIconTop;
+	protected IIcon blockIconBot;
 	
 	public BlockCounter(){
 		
@@ -23,15 +24,21 @@ public class BlockCounter extends BlockFF{
     	
     	blockIcon = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName()) + "_side"));
     	blockIconTop = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName()) + "_top"));
+    	blockIconBot = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName()) + "_bottom"));
+    	
     }
 	
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int side, int metadata) {
 	
-		if (side == 1 || side == 0 ) {
+		if (side == 1 ) {
 	
 			return blockIconTop;
+			
+		} else if (side == 0) {
+			
+			return blockIconBot;
 	
 		} else {
 			return blockIcon;
