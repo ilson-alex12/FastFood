@@ -5,6 +5,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Recipes {
@@ -14,6 +15,9 @@ public class Recipes {
 		GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.knife, "i ", " s", 'i', "ingotIron", 's', "stickWood"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.counter, "sss", "pcp", "ppp", 'p', "plankWood", 's', Blocks.stone_slab, 'c', Blocks.chest));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModFood.rawbacon, 3), "k", "p", 'k', new ItemStack(ModItems.knife, 1, OreDictionary.WILDCARD_VALUE), 'p', Items.porkchop));
+		GameRegistry.addRecipe(new ShapedOreRecipe(ModFood.roll, "ww", 'w', Items.wheat));
+		
+		GameRegistry.addRecipe(new ShapelessOreRecipe(ModFood.baconroll, ModFood.bacon, ModFood.roll));
 		
 		GameRegistry.addSmelting(ModFood.rawbacon, new ItemStack(ModFood.bacon), 0.1F);
 		
