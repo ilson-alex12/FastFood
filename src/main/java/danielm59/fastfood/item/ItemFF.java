@@ -8,7 +8,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class ItemFF extends Item{
+public abstract class ItemFF extends Item{
 
 	public ItemFF(){
 		
