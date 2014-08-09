@@ -7,7 +7,9 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import danielm59.fastfood.handler.ConfigurationHandler;
+import danielm59.fastfood.handler.GuiHandler;
 import danielm59.fastfood.init.*;
 import danielm59.fastfood.proxy.IProxy;
 import danielm59.fastfood.reference.Reference;
@@ -39,6 +41,8 @@ public class FastFood
     public void init(FMLInitializationEvent event) {
 		
     	Recipes.init();
+    	NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
+    	proxy.registerTileEntities();
     	LogHelper.info("Initialization Complete!");
     	
     }
