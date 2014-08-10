@@ -8,10 +8,12 @@ import danielm59.fastfood.reference.Reference;
 public class ModBlocks {
 
 	public static final BlockFF counter = new BlockCounter();
+	public static final BlockFF grinder = new BlockGrinder();
 	
 	public static void init(){
 		
 		GameRegistry.registerBlock(counter, "counter");
+		GameRegistry.registerBlock(grinder, "grinder");
 		
 	}
 	

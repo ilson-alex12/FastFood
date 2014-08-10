@@ -7,5 +7,6 @@ item.fastfood:baconroll.name=Bacon Roll
 item.fastfood:rawmince.name=Raw Mince
 
 tile.fastfood:counter.name=Counter
+tile.fastfood:grinder.name=Meat Grinder
 
 itemGroup.fastfood=Fast Food

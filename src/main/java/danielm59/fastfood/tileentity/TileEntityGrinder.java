@@ -1,20 +1,19 @@
 package danielm59.fastfood.tileentity;
 
-import danielm59.fastfood.init.ModBlocks;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 
-public class TileEntityCounter extends TileEntityFF implements IInventory {
-
+public class TileEntityGrinder extends TileEntityFF implements IInventory {
+	
 	private ItemStack[] inventory;
 	
-	public TileEntityCounter() {
+	public TileEntityGrinder() {
 		
 		super();
-		inventory = new ItemStack[9];
+		inventory = new ItemStack[2];
 		
 	}
 
