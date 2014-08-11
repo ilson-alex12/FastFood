@@ -29,7 +29,7 @@ public class ContainerGrinder extends ContainerFF{
      // Add the Output slots to the container
         for (int OutputIndex = 0; OutputIndex < GRINDER_INPUTS; ++OutputIndex) {
         		
-        		this.addSlotToContainer(new Slot(tileEntityGrinder, GRINDER_INPUTS + OutputIndex, 116, 35 + OutputIndex * 18));
+        		this.addSlotToContainer(new SlotOutput(tileEntityGrinder, GRINDER_INPUTS + OutputIndex, 116, 35 + OutputIndex * 18));
         	
         }
         
