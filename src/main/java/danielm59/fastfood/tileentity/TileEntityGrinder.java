@@ -1,5 +1,7 @@
 package danielm59.fastfood.tileentity;
 
+import danielm59.fastfood.recipe.GrinderRecipe;
+import danielm59.fastfood.recipe.GrinderRegistry;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -9,6 +11,7 @@ import net.minecraft.nbt.NBTTagList;
 public class TileEntityGrinder extends TileEntityFF implements IInventory {
 	
 	private ItemStack[] inventory;
+	public int currentProcessTime;
 	
 	public TileEntityGrinder() {
 		
@@ -89,7 +92,7 @@ public class TileEntityGrinder extends TileEntityFF implements IInventory {
 	@Override
 	public String getInventoryName() {
 
-		return "Counter";
+		return "Grinder";
 		
 	}
 
@@ -166,5 +169,28 @@ public class TileEntityGrinder extends TileEntityFF implements IInventory {
         }
         nbtTagCompound.setTag("Items", tagList);
     }
-	
+    
+    @Override
+    public void updateEntity() {
+    
+        super.updateEntity();
+        if (!worldObj.isRemote) {
+
+        	GrinderRecipe recipe = GrinderRegistry.getInstance().getMatchingRecipe(inventory[0], inventory[1]);
+			if (recipe != null) {   		 
+        		 if (++currentProcessTime >= 100) {
+                     currentProcessTime = 0;
+                     if (inventory[1] != null) {
+                    	 inventory[1].stackSize += recipe.getOutput().stackSize;
+                     } else {
+                    	 inventory[1] = recipe.getOutput().copy();
+                     }
+                     inventory[0].stackSize -= recipe.getInput().stackSize;
+                 }
+             } else {
+                 currentProcessTime = 0;
+             }
+         }  
+    }
+    
 }

@@ -9,7 +9,6 @@ import org.lwjgl.opengl.GL11;
 
 import danielm59.fastfood.inventory.ContainerGrinder;
 import danielm59.fastfood.reference.Reference;
-import danielm59.fastfood.tileentity.TileEntityCounter;
 import danielm59.fastfood.tileentity.TileEntityGrinder;
 
 public class GuiGrinder extends GuiContainer {
