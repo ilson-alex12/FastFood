@@ -1,7 +1,10 @@
 package danielm59.fastfood.inventory;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import danielm59.fastfood.tileentity.TileEntityGrinder;
@@ -10,6 +13,8 @@ public class ContainerGrinder extends ContainerFF{
 
     public static final int GRINDER_INPUTS = 1;
     public static final int GRINDER_OUTPUTS = 1;
+    
+    private int lastProcessTime; 
 	
     private TileEntityGrinder tileEntityGrinder;
 
@@ -94,6 +99,44 @@ public class ContainerGrinder extends ContainerFF{
         }
 
         return newItemStack;
+    }
+    
+    @Override
+    public void addCraftingToCrafters(ICrafting iCrafting) {
+    	
+        super.addCraftingToCrafters(iCrafting);
+        iCrafting.sendProgressBarUpdate(this, 0, this.tileEntityGrinder.currentProcessTime);
+        
+    }
+    
+    @Override
+    public void detectAndSendChanges()
+    {
+        super.detectAndSendChanges();
+
+        for (Object crafter : this.crafters)
+        {
+            ICrafting icrafting = (ICrafting) crafter;
+
+            if (this.lastProcessTime != this.tileEntityGrinder.currentProcessTime)
+            {
+                icrafting.sendProgressBarUpdate(this, 0, this.tileEntityGrinder.currentProcessTime);
+            }
+            
+        }
+        
+        this.lastProcessTime = this.tileEntityGrinder.currentProcessTime;
+        
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public void updateProgressBar(int valueType, int updatedValue)
+    {
+        if (valueType == 0)
+        {
+        	this.tileEntityGrinder.currentProcessTime = updatedValue;
+        }
+        
     }
     
 }

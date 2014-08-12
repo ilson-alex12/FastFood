@@ -15,9 +15,9 @@ public class GuiGrinder extends GuiContainer {
 
 	private TileEntityGrinder tileEntityGrinder;
 	
-    public GuiGrinder(InventoryPlayer inventoryPlayer, TileEntityGrinder grinder)
-    {
-        super(new ContainerGrinder(inventoryPlayer, grinder));
+    public GuiGrinder(InventoryPlayer inventoryPlayer, TileEntityGrinder grinder) {
+        
+    	super(new ContainerGrinder(inventoryPlayer, grinder));
         tileEntityGrinder = grinder;
         xSize = 175;
         ySize = 165;
@@ -25,23 +25,26 @@ public class GuiGrinder extends GuiContainer {
 	}
 
     @Override
-    protected void drawGuiContainerForegroundLayer(int x, int y)
-    {
+    protected void drawGuiContainerForegroundLayer(int x, int y) {
             
     	fontRendererObj.drawString(StatCollector.translateToLocal(tileEntityGrinder.getInventoryName()), 8, 6, 4210752); 
         
     }
 
     @Override
-    protected void drawGuiContainerBackgroundLayer(float opacity, int x, int y)
-    {
-        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+    protected void drawGuiContainerBackgroundLayer(float opacity, int x, int y) {
+        
+    	GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 
         this.mc.getTextureManager().bindTexture(new ResourceLocation(Reference.MODID.toLowerCase(),"textures/gui/grinder.png"));
         
         int xStart = (width - xSize) / 2;
         int yStart = (height - ySize) / 2;
         this.drawTexturedModalRect(xStart, yStart, 0, 0, xSize, ySize);
+        
+        int processPogress = (int) (tileEntityGrinder.getProgress() * 22);
+        drawTexturedModalRect(xStart + 80, yStart + 35, 176, 0, processPogress, 15);
+        
     }
 
 }

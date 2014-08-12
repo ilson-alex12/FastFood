@@ -177,9 +177,10 @@ public class TileEntityGrinder extends TileEntityFF implements IInventory {
         if (!worldObj.isRemote) {
 
         	GrinderRecipe recipe = GrinderRegistry.getInstance().getMatchingRecipe(inventory[0], inventory[1]);
-			if (recipe != null) {   		 
+			if (recipe != null) {   
         		 if (++currentProcessTime >= 100) {
-                     currentProcessTime = 0;
+        			 this.markDirty();
+        			 currentProcessTime = 0;
                      if (inventory[1] != null) {
                     	 inventory[1].stackSize += recipe.getOutput().stackSize;
                      } else {
@@ -193,4 +194,9 @@ public class TileEntityGrinder extends TileEntityFF implements IInventory {
          }  
     }
     
+    public float getProgress() {
+    	
+    	return (float) currentProcessTime/100;
+    	
+    }
 }
