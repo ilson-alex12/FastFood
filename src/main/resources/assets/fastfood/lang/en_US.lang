@@ -5,6 +5,9 @@ item.fastfood:rawbacon.name=Raw Bacon
 item.fastfood:bacon.name=Bacon
 item.fastfood:baconroll.name=Bacon Roll
 item.fastfood:rawmince.name=Raw Mince
+item.fastfood:rawbeefpatty.name=Raw Beef Patty
+item.fastfood:beefpatty.name=Beef Patty
+item.fastfood:beefburger.name=Beef Burger
 
 tile.fastfood:counter.name=Counter
 tile.fastfood:grinder.name=Meat Grinder
