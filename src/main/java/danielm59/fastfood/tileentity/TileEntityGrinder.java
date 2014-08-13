@@ -186,7 +186,7 @@ public class TileEntityGrinder extends TileEntityFF implements IInventory {
                      } else {
                     	 inventory[1] = recipe.getOutput().copy();
                      }
-                     inventory[0].stackSize -= recipe.getInput().stackSize;
+                     decrStackSize(0, 1);
                  }
              } else {
                  currentProcessTime = 0;
