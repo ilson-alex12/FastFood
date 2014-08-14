@@ -2,6 +2,7 @@ package danielm59.fastfood.block;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import danielm59.fastfood.reference.Reference;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
@@ -28,9 +29,9 @@ public abstract class BlockCounterBase extends BlockFF implements ITileEntityPro
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
     	
-    	blockIcon = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName()) + "_side"));
-    	blockIconTop = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName()) + "_top"));
-    	blockIconBot = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName()) + "_bottom"));
+    	blockIcon = iconRegister.registerIcon(Reference.MODID + ":counter_side");
+    	blockIconTop = iconRegister.registerIcon(Reference.MODID + ":counter_top");
+    	blockIconBot = iconRegister.registerIcon(Reference.MODID + ":counter_bottom");
     	blockIconFront = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName()) + "_front"));
     	
     }
