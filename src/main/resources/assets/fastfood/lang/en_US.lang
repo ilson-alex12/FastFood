@@ -1,4 +1,8 @@
+# Items
+
 item.fastfood:knife.name=Knife
+
+# Food
 
 item.fastfood:roll.name=Roll
 item.fastfood:rawbacon.name=Raw Bacon
@@ -9,7 +13,11 @@ item.fastfood:rawbeefpatty.name=Raw Beef Patty
 item.fastfood:beefpatty.name=Beef Patty
 item.fastfood:beefburger.name=Beef Burger
 
+# Blocks
+
 tile.fastfood:counter.name=Counter
 tile.fastfood:grinder.name=Meat Grinder
+
+# Creative Tabs
 
 itemGroup.fastfood=Fast Food
