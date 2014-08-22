@@ -15,6 +15,7 @@ public class ModFood {
 	public static final FoodFF rawbeefpatty = (FoodFF) new FoodFF(3, 0.3F, false).setUnlocalizedName("rawbeefpatty");
 	public static final FoodFF beefpatty = (FoodFF) new FoodFF(8, 0.8F, false).setUnlocalizedName("beefpatty");
 	public static final FoodFF beefburger = (FoodFF) new FoodFF(9, 0.9F, false).setUnlocalizedName("beefburger");
+	public static final FoodFF tomato = (FoodFF) new FoodFF(1, 0.1F, false).setUnlocalizedName("tomato");
 	
 	public static void init(){
 		
@@ -26,6 +27,7 @@ public class ModFood {
 		GameRegistry.registerItem(rawbeefpatty, "rawbeefpatty");
 		GameRegistry.registerItem(beefpatty, "beefpatty");
 		GameRegistry.registerItem(beefburger, "beefburger");
+		GameRegistry.registerItem(tomato, "tomato");
 		
 	}
 	
