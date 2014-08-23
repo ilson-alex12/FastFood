@@ -74,83 +74,6 @@ public class BlockCropsFF extends BlockCrops implements IGrowable {
     }
 
     @Override
-    public void onBlockHarvested(World world, int x, int y, int z, int meta, EntityPlayer player) {
-
-        if (world.getBlock(x, y, z) instanceof BlockCropsFF) {
-            if (world.getBlockMetadata(x, y, z) == 8) {
-                world.setBlockMetadataWithNotify(x, y - 1, z, 5, 2);
-            }
-        }
-    }
-
-    public void fertilize(World world, int x, int y, int z) {
-
-        int meta = world.getBlockMetadata(x, y, z);
-        if (meta < 7) {
-            meta = meta + MathHelper.getRandomIntegerInRange(world.rand, 2, 5);
-            if (meta > 6) {
-                world.setBlockMetadataWithNotify(x, y, z, 7, 2);
-            } else {
-                world.setBlockMetadataWithNotify(x, y, z, meta, 2);
-            }
-        }
-    }
-
-    /**
-     * is the block grass, dirt or farmland
-     */
-    @Override
-    protected boolean canPlaceBlockOn(Block block) {
-
-        return block == Blocks.farmland;
-    }
-
-    /**
-     * Ticks the block if it's been scheduled
-     */
-    @Override
-    public void updateTick(World world, int x, int y, int z, Random random) {
-
-        super.updateTick(world, x, y, z, random);
-
-        if (world.getBlockLightValue(x, y + 1, z) >= 9) {
-            int meta = world.getBlockMetadata(x, y, z);
-            if ((meta == 4) || (meta == 5)) {
-                return;
-            }
-            if (random.nextInt(45) == 0) {
-                world.setBlockMetadataWithNotify(x, y, z, meta + 1, 2);
-            }
-            if ((meta > 6) && (world.getBlock(x, y - 1, z) instanceof BlockFarmland)) {
-                world.setBlockMetadataWithNotify(x, y, z, 7, 2);
-            }
-        }
-    }
-
-    /**
-     * Gets the block's texture. Args: side, meta
-     */
-    @SideOnly(Side.CLIENT)
-    @Override
-    public IIcon getIcon(int side, int meta) {
-
-        if (meta < 0 || meta > 7) {
-            meta = 7;
-        }
-
-        return this.iconArray[meta];
-    }
-
-    /**
-     * The type of render function that is called for this block
-     */
-    @Override
-    public int getRenderType() {
-
-        return 6;
-    }
-
-    @Override
     protected Item func_149866_i() {
 
         return seed;
@@ -163,49 +86,12 @@ public class BlockCropsFF extends BlockCrops implements IGrowable {
     }
 
     /**
-     * Drops the block items with a specified chance of dropping the specified items
-     */
-    @Override
-    public void dropBlockAsItemWithChance(World world, int x, int y, int z, int p_149690_5_, float p_149690_6_, int p_149690_7_) {
-
-        super.dropBlockAsItemWithChance(world, x, y, z, p_149690_5_, p_149690_6_, 0);
-    }
-
-    @Override
-    public Item getItemDropped(int meta, Random random, int p_149650_3_) {
-
-        return meta == 7 ? this.func_149865_P() : this.func_149866_i();
-    }
-
-    /**
      * Returns the quantity of items to drop on block destruction.
      */
     @Override
     public int quantityDropped(Random random) {
 
-        return random.nextInt(3) + 1;
-    }
-
-    @Override
-    public boolean func_149851_a(World world, int x, int y, int z, boolean p_149851_5_) {
-
-        return world.getBlockMetadata(x, y, z) != 7;
-    }
-
-    @Override
-    public boolean func_149852_a(World world, Random random, int x, int y, int z) {
-
-        return true;
-    }
-
-    /**
-     * Gets an item for the block being called on. Args: world, x, y, z
-     */
-    @SideOnly(Side.CLIENT)
-    @Override
-    public Item getItem(World world, int x, int y, int z) {
-
-        return this.func_149866_i();
+        return random.nextInt(3) + 2;
     }
 
     @SideOnly(Side.CLIENT)
@@ -232,20 +118,20 @@ public class BlockCropsFF extends BlockCrops implements IGrowable {
         }
     }
 
+    /**
+     * Gets the block's texture. Args: side, meta
+     */
+    @SideOnly(Side.CLIENT)
     @Override
-    public void func_149853_b(World world, Random random, int x, int y, int z) {
+    public IIcon getIcon(int side, int meta) {
 
-        this.fertilize(world, x, y, z);
+        if (meta < 0 || meta > 7) {
+            meta = 7;
+        }
+
+        return this.iconArray[meta];
     }
-
-    @Override
-    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
-
-        ArrayList<ItemStack> ret = super.getDrops(world, x, y, z, metadata, fortune);
-
-        return ret;
-    }
-
+    
     /**
      * Checks to see if its valid to put this block at the specified coordinates. Args: world, x, y, z
      */
@@ -268,16 +154,6 @@ public class BlockCropsFF extends BlockCrops implements IGrowable {
         }
     }
 
-    /**
-     * Can this block stay at this position. Similar to canPlaceBlockAt except gets checked often with plants.
-     */
-    @Override
-    public boolean canBlockStay(World world, int x, int y, int z) {
-
-        if (world.getBlock(x, y, z) != this) return super.canBlockStay(world, x, y, z);
-        return (world.getBlock(x, y - 1, z) instanceof BlockFarmland) || (world.getBlock(x, y - 1, z) instanceof BlockCropsFF);
-    }
-
     @Override
     public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z)
     {
@@ -294,6 +170,16 @@ public class BlockCropsFF extends BlockCrops implements IGrowable {
     	
     	this.drop = drop;
     	
+    }
+    
+    @Override
+    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune)
+    {
+        ArrayList<ItemStack> ret = super.getDrops(world, x, y, z, metadata, fortune);
+
+        ret.add(new ItemStack(this.func_149866_i(), (int) 1 + world.rand.nextInt(1), 0));
+
+        return ret;
     }
     
 }
