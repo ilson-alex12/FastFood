@@ -172,14 +172,4 @@ public class BlockCropsFF extends BlockCrops implements IGrowable {
     	
     }
     
-    @Override
-    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune)
-    {
-        ArrayList<ItemStack> ret = super.getDrops(world, x, y, z, metadata, fortune);
-
-        ret.add(new ItemStack(this.func_149866_i(), (int) 1 + world.rand.nextInt(1), 0));
-
-        return ret;
-    }
-    
 }
