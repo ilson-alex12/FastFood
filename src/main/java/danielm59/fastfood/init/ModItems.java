@@ -10,13 +10,13 @@ public class ModItems {
 
 	public static final ItemFF knife = new ItemKnife();
 	
-	public static final ItemSeedFF tomatoseed = new ItemSeedTomato();
+	public static final ItemSeedFF tomatoseeds = new ItemSeedTomato();
 	
 	public static void init(){
 		
 		GameRegistry.registerItem(knife, "knife");
 		
-		GameRegistry.registerItem(tomatoseed, "tomatoseed");
+		GameRegistry.registerItem(tomatoseeds, "tomatoseeds");
 		
 	}
 	

@@ -39,7 +39,7 @@ public class BlockCropsFF extends BlockCrops implements IGrowable {
         this.setHardness(0.0F);
         this.setStepSound(soundTypeGrass);
         this.disableStats();
-        this.setBlockTextureName(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
+
     }
 
     public static boolean func_149887_c(int meta) {
@@ -114,7 +114,7 @@ public class BlockCropsFF extends BlockCrops implements IGrowable {
                 tex = 4;
             }
 
-            this.iconArray[i] = iconRegister.registerIcon(this.getTextureName() + "_stage_" + tex);
+            this.iconArray[i] = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1) + "_stage_" + tex);
         }
     }
 

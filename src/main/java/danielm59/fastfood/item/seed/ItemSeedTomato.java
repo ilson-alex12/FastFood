@@ -9,7 +9,7 @@ public class ItemSeedTomato extends ItemSeedFF {
 	public ItemSeedTomato() {
 		
 		super(ModBlocks.tomatocrop, Blocks.farmland);
-		this.setUnlocalizedName("tomatoseed");
+		this.setUnlocalizedName("tomatoseeds");
 		
 	}
 
