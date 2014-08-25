@@ -33,6 +33,7 @@ public class FastFood
     	ModBlocks.init();
     	ModItems.init();
     	ModFood.init();
+    	ModCrops.init();
     	LogHelper.info("Pre Initialization Complete!");
     	
     }

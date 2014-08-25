@@ -25,25 +25,6 @@ public class ItemSeedFF extends ItemSeeds implements IPlantable {
         this.setCreativeTab(CreativeTabFF.FF_TAB);
 		
 	}
-
-    @Override
-    public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
-
-        if (side != 1) {
-            return false;
-        } else if (player.canPlayerEdit(x, y, z, side, itemStack) && player.canPlayerEdit(x, y + 1, z, side, itemStack)) {
-            if (world.getBlock(x, y, z).canSustainPlant(world, x, y, z, ForgeDirection.UP, this) && world.isAirBlock(x, y + 1, z)
-                    && (world.getBlock(x, y, z).isFertile(world, x, y, z))) {
-                world.setBlock(x, y + 1, z, crop, 0, 2);
-                --itemStack.stackSize;
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
     
     @Override
     public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z) {

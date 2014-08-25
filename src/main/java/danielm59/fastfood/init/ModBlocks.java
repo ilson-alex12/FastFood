@@ -11,14 +11,10 @@ public class ModBlocks {
 	public static final BlockFF counter = new BlockCounter();
 	public static final BlockFF grinder = new BlockGrinder();
 	
-	public static final BlockCropsFF tomatocrop = new BlockCropTomato();
-	
 	public static void init(){
 		
 		GameRegistry.registerBlock(counter, "counter");
 		GameRegistry.registerBlock(grinder, "grinder");
-		
-		GameRegistry.registerBlock(tomatocrop, "tomatocrop");
 		
 	}
 	
