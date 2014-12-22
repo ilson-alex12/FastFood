@@ -4,8 +4,8 @@ package danielm59.fastfood.block.crops;
 import java.util.ArrayList;
 import java.util.Random;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import danielm59.fastfood.init.ModBlocks;
 import danielm59.fastfood.reference.Reference;
 import net.minecraft.block.Block;
@@ -13,13 +13,13 @@ import net.minecraft.block.BlockAir;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.BlockFarmland;
 import net.minecraft.block.IGrowable;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -28,7 +28,6 @@ import net.minecraftforge.common.EnumPlantType;
 public class BlockCropsFF extends BlockCrops implements IGrowable {
 	
     @SideOnly(Side.CLIENT)
-    private IIcon[] iconArray;
     private Item seed;
     private Item drop;
 
@@ -59,9 +58,10 @@ public class BlockCropsFF extends BlockCrops implements IGrowable {
     }
 
     @Override
-    public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
+    public void setBlockBoundsBasedOnState(IBlockAccess world, BlockPos p) {
 
-        int l = world.getBlockMetadata(x, y, z);
+        IBlockState state = world.getBlockState(p);
+    	Integer l = (Integer)state.getValue(AGE);
         if (l <= 2) {
             this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.25F, 1.0F);
         } else if (l <= 4) {
@@ -74,13 +74,13 @@ public class BlockCropsFF extends BlockCrops implements IGrowable {
     }
 
     @Override
-    protected Item func_149866_i() {
+    protected Item getSeed() {
 
         return seed;
     }
 
     @Override
-    protected Item func_149865_P() {
+    protected Item getCrop() {
 
         return drop;
     }
@@ -94,68 +94,19 @@ public class BlockCropsFF extends BlockCrops implements IGrowable {
         return random.nextInt(3) + 2;
     }
 
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void registerBlockIcons(IIconRegister iconRegister) {
-
-        this.iconArray = new IIcon[8];
-
-        for (int i = 0; i < this.iconArray.length; ++i) {
-            int tex = 0;
-            if (i == 0 || i == 1) {
-                tex = 0;
-            } else if (i == 2) {
-                tex = 1;
-            } else if (i == 3 || i == 4) {
-                tex = 2;
-            } else if ((i == 5) || (i == 6)) {
-                tex = 3;
-            } else if (i == 7) {
-                tex = 4;
-            }
-
-            this.iconArray[i] = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1) + "_stage_" + tex);
-        }
-    }
-
-    /**
-     * Gets the block's texture. Args: side, meta
-     */
-    @SideOnly(Side.CLIENT)
-    @Override
-    public IIcon getIcon(int side, int meta) {
-
-        if (meta < 0 || meta > 7) {
-            meta = 7;
-        }
-
-        return this.iconArray[meta];
-    }
     
     /**
-     * Checks to see if its valid to put this block at the specified coordinates. Args: world, x, y, z
+     * Checks to see if its valid to put this block at the specified coordinates. Args: world, p
      */
     @Override
-    public boolean canPlaceBlockAt(World world, int x, int y, int z) {
+    public boolean canPlaceBlockAt(World world, BlockPos p) {
 
-        return super.canPlaceBlockAt(world, x, y, z) && world.isAirBlock(x, y + 1, z);
+        return super.canPlaceBlockAt(world, p) && world.isAirBlock(p.add(0,1,0));
     }
 
-    /**
-     * checks if the block can stay, if not drop as item
-     */
-    @Override
-    protected void checkAndDropBlock(World world, int x, int y, int z) {
-
-        if (!this.canBlockStay(world, x, y, z)) {
-            int l = world.getBlockMetadata(x, y, z);
-            this.dropBlockAsItem(world, x, y, z, l, 0);
-            world.setBlock(x, y, z, Blocks.air, 0, 2);
-        }
-    }
 
     @Override
-    public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z)
+    public EnumPlantType getPlantType(IBlockAccess world, BlockPos p)
     {
     	return EnumPlantType.Crop;
     }

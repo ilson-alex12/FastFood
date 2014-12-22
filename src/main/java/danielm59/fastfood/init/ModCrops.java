@@ -1,8 +1,10 @@
 package danielm59.fastfood.init;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import danielm59.fastfood.block.crops.*;
 import danielm59.fastfood.item.seed.*;
 import danielm59.fastfood.reference.Reference;
@@ -18,6 +20,13 @@ public class ModCrops {
 		GameRegistry.registerBlock(tomatocrop, "tomatocrop");
 		GameRegistry.registerItem(tomatoseeds, "tomatoseeds");
 		MinecraftForge.addGrassSeed(new ItemStack(tomatoseeds), 10);
+		
+	}
+	
+	public static void textures(){
+		
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(tomatoseeds, 0, new ModelResourceLocation("fastfood:tomatoseeds", "inventory"));
+
 		
 	}
 	

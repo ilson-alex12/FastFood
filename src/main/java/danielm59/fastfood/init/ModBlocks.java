@@ -1,6 +1,11 @@
 package danielm59.fastfood.init;
 
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import danielm59.fastfood.block.*;
 import danielm59.fastfood.block.crops.*;
 import danielm59.fastfood.reference.Reference;
@@ -15,6 +20,13 @@ public class ModBlocks {
 		
 		GameRegistry.registerBlock(counter, "counter");
 		GameRegistry.registerBlock(grinder, "grinder");
+	
+	}
+	
+	public static void textures(){
+		
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(counter), 0, new ModelResourceLocation("fastfood:counter", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(grinder), 0, new ModelResourceLocation("fastfood:grinder", "inventory"));
 		
 	}
 	

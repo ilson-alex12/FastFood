@@ -2,8 +2,8 @@ package danielm59.fastfood.handler;
 
 import java.io.File;
 
-import cpw.mods.fml.client.event.ConfigChangedEvent;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.client.event.ConfigChangedEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import danielm59.fastfood.reference.Reference;
 import net.minecraftforge.common.config.Configuration;
 

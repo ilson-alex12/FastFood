@@ -6,6 +6,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.util.IChatComponent;
 
 public class TileEntityCounter extends TileEntityFF implements IInventory {
 
@@ -88,14 +89,14 @@ public class TileEntityCounter extends TileEntityFF implements IInventory {
 	}
 
 	@Override
-	public String getInventoryName() {
+	public String getName() {
 
 		return "Counter";
 		
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean hasCustomName() {
 		
 		return false;
 	}
@@ -111,16 +112,6 @@ public class TileEntityCounter extends TileEntityFF implements IInventory {
 	public boolean isUseableByPlayer(EntityPlayer entityPlayer) {
 		
 		return true;
-	}
-
-	@Override
-	public void openInventory() {
-		
-	}
-
-	@Override
-	public void closeInventory() {
-		
 	}
 
 	@Override
@@ -167,5 +158,48 @@ public class TileEntityCounter extends TileEntityFF implements IInventory {
         }
         nbtTagCompound.setTag("Items", tagList);
     }
+
+
+	@Override
+	public IChatComponent getDisplayName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void openInventory(EntityPlayer playerIn) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void closeInventory(EntityPlayer playerIn) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getField(int id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void setField(int id, int value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getFieldCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

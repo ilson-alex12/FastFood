@@ -8,7 +8,6 @@ public class BlockCropTomato extends BlockCropsFF {
 	public BlockCropTomato() {
 		
 		super();
-		this.setBlockName("tomatocrop");
 		this.setSeed(ModCrops.tomatoseeds);
 		this.setDrop(ModFood.tomato);
 		

@@ -1,6 +1,8 @@
 package danielm59.fastfood.init;
 
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import danielm59.fastfood.item.FoodFF;
 import danielm59.fastfood.reference.Reference;
 
@@ -29,6 +31,20 @@ public class ModFood {
 		GameRegistry.registerItem(beefburger, "beefburger");
 		GameRegistry.registerItem(tomato, "tomato");
 		
+	}
+	
+	public static void textures(){
+		
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(roll, 0, new ModelResourceLocation("fastfood:roll", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(rawbacon, 0, new ModelResourceLocation("fastfood:rawbacon", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(bacon, 0, new ModelResourceLocation("fastfood:bacon", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(baconroll, 0, new ModelResourceLocation("fastfood:baconroll", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(rawmince, 0, new ModelResourceLocation("fastfood:rawmince", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(rawbeefpatty, 0, new ModelResourceLocation("fastfood:rawbeefpatty", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(beefpatty, 0, new ModelResourceLocation("fastfood:beefpatty", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(beefburger, 0, new ModelResourceLocation("fastfood:beefburger", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(tomato, 0, new ModelResourceLocation("fastfood:tomato", "inventory"));
+	
 	}
 	
 }
