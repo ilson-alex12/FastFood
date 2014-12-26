@@ -47,6 +47,7 @@ public class FastFood
     	ModBlocks.textures();
     	ModItems.textures();
     	ModFood.textures();
+    	ModCrops.textures();
     	LogHelper.info("Initialization Complete!");
     	
     }

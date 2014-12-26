@@ -1,12 +1,12 @@
 {
     "variants": {
-        "age=0": { "model": "tomatocrop_stage0" },
-        "age=1": { "model": "tomatocrop_stage1" },
-        "age=2": { "model": "tomatocrop_stage2" },
-        "age=3": { "model": "tomatocrop_stage3" },
-        "age=4": { "model": "tomatocrop_stage4" },
-        "age=5": { "model": "tomatocrop_stage5" },
-        "age=6": { "model": "tomatocrop_stage6" },
-        "age=7": { "model": "tomatocrop_stage7" }
+        "age=0": { "model": "fastfood:tomatocrop_stage0" },
+        "age=1": { "model": "fastfood:tomatocrop_stage1" },
+        "age=2": { "model": "fastfood:tomatocrop_stage2" },
+        "age=3": { "model": "fastfood:tomatocrop_stage3" },
+        "age=4": { "model": "fastfood:tomatocrop_stage4" },
+        "age=5": { "model": "fastfood:tomatocrop_stage5" },
+        "age=6": { "model": "fastfood:tomatocrop_stage6" },
+        "age=7": { "model": "fastfood:tomatocrop_stage7" }
     }
 }
