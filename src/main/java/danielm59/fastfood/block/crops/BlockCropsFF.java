@@ -28,8 +28,6 @@ import net.minecraftforge.common.EnumPlantType;
 public class BlockCropsFF extends BlockCrops implements IGrowable {
 	
     @SideOnly(Side.CLIENT)
-    private Item seed;
-    private Item drop;
 
     public BlockCropsFF() {
 
@@ -62,27 +60,15 @@ public class BlockCropsFF extends BlockCrops implements IGrowable {
 
         IBlockState state = world.getBlockState(p);
     	Integer l = (Integer)state.getValue(AGE);
-        if (l <= 2) {
+        if (l <= 1) {
             this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.25F, 1.0F);
-        } else if (l <= 4) {
+        } else if (l <= 2) {
             this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
-        } else if (l <= 6) {
+        } else if (l <= 3) {
             this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.75F, 1.0F);
         } else {
             this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
         }
-    }
-
-    @Override
-    protected Item getSeed() {
-
-        return seed;
-    }
-
-    @Override
-    protected Item getCrop() {
-
-        return drop;
     }
 
     /**
@@ -91,7 +77,7 @@ public class BlockCropsFF extends BlockCrops implements IGrowable {
     @Override
     public int quantityDropped(Random random) {
 
-        return random.nextInt(3) + 2;
+        return random.nextInt(3) + 1;
     }
 
     
@@ -111,16 +97,5 @@ public class BlockCropsFF extends BlockCrops implements IGrowable {
     	return EnumPlantType.Crop;
     }
     
-    public void setSeed(Item seed) {
-    	
-    	this.seed = seed;
-    	
-    }
-    
-    public void setDrop(Item drop) {
-    	
-    	this.drop = drop;
-    	
-    }
     
 }

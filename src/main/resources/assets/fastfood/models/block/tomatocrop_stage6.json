@@ -1,6 +1,6 @@
 {
-    "parent": "block/crop",
+    "parent": "block/cross",
     "textures": {
-        "crop": "fastfood:blocks/tomatocrop_stage_6"
+        "cross": "fastfood:crops/tomato/stage_6"
     }
 }
