@@ -1,10 +1,11 @@
 package danielm59.fastfood.inventory;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import danielm59.fastfood.tileentity.TileEntityGrinder;
@@ -19,10 +20,10 @@ public class ContainerGrinder extends ContainerFF{
     private TileEntityGrinder tileEntityGrinder;
 
     
-    public ContainerGrinder(InventoryPlayer inventoryPlayer, TileEntityGrinder tileEntityGrinder) {
+    public ContainerGrinder(InventoryPlayer inventory, TileEntityGrinder tileEntityGrinder, EntityPlayer player) {
     	
     	this.tileEntityGrinder = tileEntityGrinder;
-        tileEntityGrinder.openInventory();
+        tileEntityGrinder.openInventory(player);
         
      // Add the Input slots to the container
         for (int InputIndex = 0; InputIndex < GRINDER_INPUTS; ++InputIndex) {
@@ -43,7 +44,7 @@ public class ContainerGrinder extends ContainerFF{
         	
             for (int inventoryColumnIndex = 0; inventoryColumnIndex < PLAYER_INVENTORY_COLUMNS; ++inventoryColumnIndex) {
 
-            	this.addSlotToContainer(new Slot(inventoryPlayer, inventoryColumnIndex + inventoryRowIndex * 9 + 9, 8 + inventoryColumnIndex * 18, 84 + inventoryRowIndex * 18));
+            	this.addSlotToContainer(new Slot((IInventory) inventory, inventoryColumnIndex + inventoryRowIndex * 9 + 9, 8 + inventoryColumnIndex * 18, 84 + inventoryRowIndex * 18));
     	
             }
             
@@ -52,7 +53,7 @@ public class ContainerGrinder extends ContainerFF{
      // Add the player's hot bar slots to the container
         for (int actionBarSlotIndex = 0; actionBarSlotIndex < PLAYER_INVENTORY_COLUMNS; ++actionBarSlotIndex) {
 
-                this.addSlotToContainer(new Slot(inventoryPlayer, actionBarSlotIndex, 8 + actionBarSlotIndex * 18, 142));
+                this.addSlotToContainer(new Slot((IInventory) inventory, actionBarSlotIndex, 8 + actionBarSlotIndex * 18, 142));
                 
         }
             	
@@ -62,7 +63,7 @@ public class ContainerGrinder extends ContainerFF{
     public void onContainerClosed(EntityPlayer entityPlayer)
     {
         super.onContainerClosed(entityPlayer);
-        tileEntityGrinder.closeInventory();
+        tileEntityGrinder.closeInventory(entityPlayer);
     }
     
     @Override

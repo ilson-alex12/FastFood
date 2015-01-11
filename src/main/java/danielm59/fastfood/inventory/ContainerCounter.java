@@ -16,10 +16,10 @@ public class ContainerCounter extends ContainerFF {
     private int chestInventoryRows;
     private int chestInventoryColumns;
     
-    public ContainerCounter(InventoryPlayer inventoryPlayer, TileEntityCounter tileEntityCounter) {
+    public ContainerCounter(InventoryPlayer inventoryPlayer, TileEntityCounter tileEntityCounter, EntityPlayer player) {
     	
     	this.tileEntityCounter = tileEntityCounter;
-        tileEntityCounter.openInventory();
+        tileEntityCounter.openInventory(player);
         
         chestInventoryRows = COUNTER_INVENTORY_ROWS;
         chestInventoryColumns = COUNTER_INVENTORY_COLUMNS;
@@ -59,7 +59,7 @@ public class ContainerCounter extends ContainerFF {
     public void onContainerClosed(EntityPlayer entityPlayer)
     {
         super.onContainerClosed(entityPlayer);
-        tileEntityCounter.closeInventory();
+        tileEntityCounter.closeInventory(entityPlayer);
     }
     
     @Override

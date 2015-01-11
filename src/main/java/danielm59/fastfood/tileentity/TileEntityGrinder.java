@@ -3,12 +3,15 @@ package danielm59.fastfood.tileentity;
 import danielm59.fastfood.recipe.GrinderRecipe;
 import danielm59.fastfood.recipe.GrinderRegistry;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.server.gui.IUpdatePlayerListBox;
+import net.minecraft.util.IChatComponent;
 
-public class TileEntityGrinder extends TileEntityFF implements IInventory {
+public class TileEntityGrinder extends TileEntityFF implements IInventory, IUpdatePlayerListBox {
 	
 	private ItemStack[] inventory;
 	public int currentProcessTime;
@@ -90,14 +93,14 @@ public class TileEntityGrinder extends TileEntityFF implements IInventory {
 	}
 
 	@Override
-	public String getInventoryName() {
+	public String getName() {
 
 		return "Grinder";
 		
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean hasCustomName() {
 		
 		return false;
 	}
@@ -113,16 +116,6 @@ public class TileEntityGrinder extends TileEntityFF implements IInventory {
 	public boolean isUseableByPlayer(EntityPlayer entityPlayer) {
 		
 		return true;
-	}
-
-	@Override
-	public void openInventory() {
-		
-	}
-
-	@Override
-	public void closeInventory() {
-		
 	}
 
 	@Override
@@ -171,9 +164,8 @@ public class TileEntityGrinder extends TileEntityFF implements IInventory {
     }
     
     @Override
-    public void updateEntity() {
+    public void update() {
     
-        super.updateEntity();
         if (!worldObj.isRemote) {
 
         	GrinderRecipe recipe = GrinderRegistry.getInstance().getMatchingRecipe(inventory[0], inventory[1]);
@@ -199,4 +191,46 @@ public class TileEntityGrinder extends TileEntityFF implements IInventory {
     	return (float) currentProcessTime/100;
     	
     }
+
+	@Override
+	public IChatComponent getDisplayName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void closeInventory(EntityPlayer playerIn) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getField(int id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void setField(int id, int value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getFieldCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void openInventory(EntityPlayer playerIn) {
+		// TODO Auto-generated method stub
+		
+	}
 }

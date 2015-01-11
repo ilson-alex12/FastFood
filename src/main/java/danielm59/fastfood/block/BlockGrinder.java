@@ -3,17 +3,19 @@ package danielm59.fastfood.block;
 import danielm59.fastfood.FastFood;
 import danielm59.fastfood.reference.GuiId;
 import danielm59.fastfood.tileentity.TileEntityGrinder;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockGrinder extends BlockCounterBase{
 
 public BlockGrinder(){
 		
 		super();
-		this.setBlockName("grinder");
+		this.setUnlocalizedName("grinder");
 		
 	}
 	
@@ -23,29 +25,21 @@ public BlockGrinder(){
 	}
 
     @Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
+    public boolean onBlockActivated(World world, BlockPos p, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ)
     {
-        if (player.isSneaking() || world.isSideSolid(x, y + 1, z, ForgeDirection.DOWN))
+        if (player.isSneaking() || world.isSideSolid(p.add(0, 1, 0), EnumFacing.DOWN))
         {
             return true;
         }
         else
         {
-            if (!world.isRemote && world.getTileEntity(x, y, z) instanceof TileEntityGrinder)
+            if (!world.isRemote && world.getTileEntity(p) instanceof TileEntityGrinder)
             {
-                player.openGui(FastFood.instance, GuiId.GRINDER.ordinal(), world, x, y, z);
+                player.openGui(FastFood.instance, GuiId.GRINDER.ordinal(), world, p.getX(), p.getY(), p.getZ());
             }
 
             return true;
         }
     } 
     
-    @Override
-    public boolean onBlockEventReceived(World world, int x, int y, int z, int eventId, int eventData)
-    {
-        super.onBlockEventReceived(world, x, y, z, eventId, eventData);
-        TileEntity tileentity = world.getTileEntity(x, y, z);
-        return tileentity != null && tileentity.receiveClientEvent(eventId, eventData);
-    }
-	
 }

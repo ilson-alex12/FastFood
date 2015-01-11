@@ -2,7 +2,7 @@ package danielm59.fastfood.client.gui;
 
 import danielm59.fastfood.handler.ConfigurationHandler;
 import danielm59.fastfood.reference.Reference;
-import cpw.mods.fml.client.config.GuiConfig;
+import net.minecraftforge.fml.client.config.GuiConfig;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;

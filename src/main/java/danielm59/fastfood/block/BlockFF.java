@@ -2,18 +2,19 @@ package danielm59.fastfood.block;
 
 import java.util.Random;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import danielm59.fastfood.creativetab.CreativeTabFF;
 import danielm59.fastfood.reference.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 public abstract class BlockFF extends Block{
@@ -33,33 +34,26 @@ public abstract class BlockFF extends Block{
 	}
 	
     @Override
-    public String getUnlocalizedName()
-    {
-        return String.format("tile.%s%s", Reference.MODID.toLowerCase() + ":", getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+    public String getUnlocalizedName() {
+
+        return String.format("tile.%s:%s", Reference.MODID, getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister)
-    {
-        blockIcon = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
-    }
+    protected String getUnwrappedUnlocalizedName(String name) {
 
-    protected String getUnwrappedUnlocalizedName(String unlocalizedName)
-    {
-        return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
+        return name.substring(name.indexOf(".") + 1);
     }
 	
     @Override
-    public void breakBlock(World world, int x, int y, int z, Block block, int meta)
+    public void breakBlock(World world, BlockPos p, IBlockState state)
     {
-        dropInventory(world, x, y, z);
-        super.breakBlock(world, x, y, z, block, meta);
+        dropInventory(world, p);
+        super.breakBlock(world, p, state);
     }
     
-    protected void dropInventory(World world, int x, int y, int z)
+    protected void dropInventory(World world, BlockPos p)
     {
-        TileEntity tileEntity = world.getTileEntity(x, y, z);
+        TileEntity tileEntity = world.getTileEntity(p);
 
         if (!(tileEntity instanceof IInventory))
         {
@@ -76,6 +70,11 @@ public abstract class BlockFF extends Block{
             {
                 Random rand = new Random();
 
+                float x = p.getX();
+                float y = p.getY();
+                float z = p.getZ();
+                
+                
                 float dX = rand.nextFloat() * 0.8F + 0.1F;
                 float dY = rand.nextFloat() * 0.8F + 0.1F;
                 float dZ = rand.nextFloat() * 0.8F + 0.1F;

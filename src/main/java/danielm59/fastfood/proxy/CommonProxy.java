@@ -1,6 +1,6 @@
 package danielm59.fastfood.proxy;
 
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import danielm59.fastfood.tileentity.TileEntityCounter;
 import danielm59.fastfood.tileentity.TileEntityGrinder;
 

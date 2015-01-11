@@ -19,10 +19,10 @@ apply plugin: 'forge'
 
 version = "0.0.2"
 group= "danielm59.fastfood" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "[1.7.10]Fast Food"
+archivesBaseName = "[1.8]Fast Food"
 
 minecraft {
-    version = "1.7.10-10.13.2.1264"
+    version = "1.8-11.14.0.1281-1.8"
 }
 
 dependencies {

@@ -1,100 +1,115 @@
 package danielm59.fastfood.block;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import danielm59.fastfood.reference.Reference;
+import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityFurnace;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public abstract class BlockCounterBase extends BlockFF implements ITileEntityProvider {
-
-	protected IIcon blockIconTop;
-	protected IIcon blockIconBot;
-	protected IIcon blockIconFront;
+	
+	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 	
    public BlockCounterBase() {
 	   
 	   super();
-	   this.setBlockTextureName((String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName()) + "_front")));
+	   this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
 	   
    }
 	
-	@Override
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
-    	
-    	blockIcon = iconRegister.registerIcon(Reference.MODID + ":counter_side");
-    	blockIconTop = iconRegister.registerIcon(Reference.MODID + ":counter_top");
-    	blockIconBot = iconRegister.registerIcon(Reference.MODID + ":counter_bottom");
-    	blockIconFront = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName()) + "_front"));
-    	
-    }
-	
-    @Override
-    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack iStack) {
-    	
-    	int front = MathHelper.floor_double(player.rotationYaw / 90F + 0.5D) & 3;
-    	
-    	int meta = 2;
-        switch (front) {
-            case 0:
-                meta = 2;
-                break;
-            case 1:
-                meta = 5;
-                break;
-            case 2:
-                meta = 3;
-                break;
-            case 3:
-                meta = 4;
-                break;
-        }
-        
-        world.setBlockMetadataWithNotify(x, y, z, meta, 2);
-        
-    }
+   public void onBlockAdded(World worldIn, BlockPos p, IBlockState state)
+   {
+       if (!worldIn.isRemote)
+       {
+           Block block = worldIn.getBlockState(p.offsetNorth()).getBlock();
+           Block block1 = worldIn.getBlockState(p.offsetSouth()).getBlock();
+           Block block2 = worldIn.getBlockState(p.offsetWest()).getBlock();
+           Block block3 = worldIn.getBlockState(p.offsetEast()).getBlock();
+           EnumFacing enumfacing = (EnumFacing)state.getValue(FACING);
 
-    
-    @Override
-    @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int meta) {
-    
-        ForgeDirection s = ForgeDirection.getOrientation(side);
-        
-        if (meta == side) {
-        	
-        	return blockIconFront;
-        	
-        }
-        
-        switch (s) {
-        
-            case UP:
-                return blockIconTop;
-                
-            case DOWN:
-                return blockIconBot;
-                
-            case EAST:
-            case NORTH:
-            case SOUTH:
-            case WEST:
-            case UNKNOWN:
-                return blockIcon;
-                
-            default:
-                break;
-        
-        }
-        
-        return null;
-    }
-	
+           if (enumfacing == EnumFacing.NORTH && block.isFullBlock() && !block1.isFullBlock())
+           {
+               enumfacing = EnumFacing.SOUTH;
+           }
+           else if (enumfacing == EnumFacing.SOUTH && block1.isFullBlock() && !block.isFullBlock())
+           {
+               enumfacing = EnumFacing.NORTH;
+           }
+           else if (enumfacing == EnumFacing.WEST && block2.isFullBlock() && !block3.isFullBlock())
+           {
+               enumfacing = EnumFacing.EAST;
+           }
+           else if (enumfacing == EnumFacing.EAST && block3.isFullBlock() && !block2.isFullBlock())
+           {
+               enumfacing = EnumFacing.WEST;
+           }
+
+           worldIn.setBlockState(p, state.withProperty(FACING, enumfacing), 2);
+       }
+   }
+   
+   @SideOnly(Side.CLIENT)
+   public IBlockState getStateForEntityRender(IBlockState state)
+   {
+       return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH);
+   }
+   
+
+   public IBlockState getStateFromMeta(int meta)
+   {
+       EnumFacing enumfacing = EnumFacing.getFront(meta);
+
+       if (enumfacing.getAxis() == EnumFacing.Axis.Y)
+       {
+           enumfacing = EnumFacing.NORTH;
+       }
+
+       return this.getDefaultState().withProperty(FACING, enumfacing);
+   }
+
+
+   public int getMetaFromState(IBlockState state)
+   {
+       return ((EnumFacing)state.getValue(FACING)).getIndex();
+   }
+
+   protected BlockState createBlockState()
+   {
+       return new BlockState(this, new IProperty[] {FACING});
+   }
+   
+   public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
+   {
+       return this.getDefaultState().withProperty(FACING, placer.func_174811_aO().getOpposite());
+   }
+
+   public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack)
+   {
+       worldIn.setBlockState(pos, state.withProperty(FACING, placer.func_174811_aO().getOpposite()), 2);
+
+       if (stack.hasDisplayName())
+       {
+           TileEntity tileentity = worldIn.getTileEntity(pos);
+
+           if (tileentity instanceof TileEntityFurnace)
+           {
+               ((TileEntityFurnace)tileentity).setCustomInventoryName(stack.getDisplayName());
+           }
+       }
+   }
+   
 }
+
+  

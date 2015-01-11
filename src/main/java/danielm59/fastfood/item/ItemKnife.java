@@ -13,13 +13,6 @@ public class ItemKnife extends ItemFF{
 		this.setNoRepair();
 		
 	}
-	
-    @Override
-    public boolean doesContainerItemLeaveCraftingGrid(ItemStack itemStack){
-    	
-        return false;
-        
-    }
     
     @Override
     public boolean getShareTag(){
