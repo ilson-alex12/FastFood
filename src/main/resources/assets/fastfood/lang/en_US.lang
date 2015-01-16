@@ -14,11 +14,17 @@ item.fastfood:beefpatty.name=Beef Patty
 item.fastfood:beefburger.name=Beef Burger
 item.fastfood:tomato.name=Tomato
 item.fastfood:tomatoseeds.name=Tomato Seeds
+item.fastfood:butter.name=Butter
+item.fastfood:cheese.name=Cheese
 
 # Blocks
 
 tile.fastfood:counter.name=Counter
 tile.fastfood:grinder.name=Meat Grinder
+tile.fastfood:churn.name=Churn
+
+#Crops
+
 tile.fastfood:tomatocrop.name=Tomato Plant
 
 # Creative Tabs

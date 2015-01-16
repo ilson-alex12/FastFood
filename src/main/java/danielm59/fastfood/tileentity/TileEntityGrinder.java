@@ -43,7 +43,12 @@ public class TileEntityGrinder extends TileEntityFF implements IInventory, IUpda
 		ItemStack itemStack = getStackInSlot(slotIndex);
         if (itemStack != null)
         {
-            if (itemStack.stackSize <= decrementAmount)
+            
+        	if (itemStack.getItem().hasContainerItem())
+            {
+            	setInventorySlotContents(slotIndex, new ItemStack (itemStack.getItem().getContainerItem(), 1));    	
+            }
+            else if (itemStack.stackSize <= decrementAmount)
             {
                 setInventorySlotContents(slotIndex, null);
             }

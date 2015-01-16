@@ -4,13 +4,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
-import danielm59.fastfood.client.gui.inventory.GuiCounter;
-import danielm59.fastfood.client.gui.inventory.GuiGrinder;
-import danielm59.fastfood.inventory.ContainerCounter;
-import danielm59.fastfood.inventory.ContainerGrinder;
+import danielm59.fastfood.client.gui.inventory.*;
+import danielm59.fastfood.inventory.*;
 import danielm59.fastfood.reference.GuiId;
-import danielm59.fastfood.tileentity.TileEntityCounter;
-import danielm59.fastfood.tileentity.TileEntityGrinder;
+import danielm59.fastfood.tileentity.*;
 
 public class GuiHandler implements IGuiHandler {
 
@@ -26,9 +23,16 @@ public class GuiHandler implements IGuiHandler {
 		
         if (id == GuiId.GRINDER.ordinal()) {
 		
-        TileEntityGrinder tileEntityGrinder = (TileEntityGrinder) world.getTileEntity(new BlockPos(x, y, z));
-        return new ContainerGrinder(entityPlayer.inventory, tileEntityGrinder, entityPlayer);
+        	TileEntityGrinder tileEntityGrinder = (TileEntityGrinder) world.getTileEntity(new BlockPos(x, y, z));
+        	return new ContainerGrinder(entityPlayer.inventory, tileEntityGrinder, entityPlayer);
         
+        }
+        
+        if (id == GuiId.CHURN.ordinal()) {
+    		
+        	TileEntityChurn tileEntityChurn = (TileEntityChurn) world.getTileEntity(new BlockPos(x, y, z));
+        	return new ContainerChurn(entityPlayer.inventory, tileEntityChurn, entityPlayer);
+            
         }
 		
 		return null;
@@ -48,6 +52,13 @@ public class GuiHandler implements IGuiHandler {
 			
             TileEntityGrinder tileEntityGrinder = (TileEntityGrinder) world.getTileEntity(new BlockPos(x, y, z));
             return new GuiGrinder(entityPlayer.inventory, tileEntityGrinder, entityPlayer);
+              
+        }
+
+		if (id == GuiId.CHURN.ordinal()) {
+			
+            TileEntityChurn tileEntityChurn = (TileEntityChurn) world.getTileEntity(new BlockPos(x, y, z));
+            return new GuiChurn(entityPlayer.inventory, tileEntityChurn, entityPlayer);
               
         }
 		

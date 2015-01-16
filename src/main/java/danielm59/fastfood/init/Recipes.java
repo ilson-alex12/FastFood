@@ -7,6 +7,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import danielm59.fastfood.recipe.ChurnRegistry;
 import danielm59.fastfood.recipe.GrinderRegistry;
 
 public class Recipes {
@@ -15,6 +16,7 @@ public class Recipes {
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.counter, "sss", "pcp", "ppp", 'p', "plankWood", 's', Blocks.stone_slab, 'c', Blocks.chest));
 		GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.grinder, "sss", "pip", "ppp", 'p', "plankWood", 's', Blocks.stone_slab, 'i', Blocks.iron_block));
+		GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.churn, "sss", "pbp", "ppp", 'p', "plankWood", 's', Blocks.stone_slab, 'b', Items.bucket));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.knife, "i ", " s", 'i', "ingotIron", 's', "stickWood"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModFood.rawbacon, 3), "k", "p", 'k', new ItemStack(ModItems.knife, 1, OreDictionary.WILDCARD_VALUE), 'p', Items.porkchop));
@@ -28,6 +30,9 @@ public class Recipes {
 		GameRegistry.addSmelting(ModFood.rawbeefpatty, new ItemStack(ModFood.beefpatty), 0.1F);
 		
 		GrinderRegistry.addRecipe(new ItemStack(Items.beef, 1), new ItemStack(ModFood.rawmince, 1));
+		
+		ChurnRegistry.addRecipe(new ItemStack(Items.milk_bucket, 1), new ItemStack(ModFood.butter,1));
+		ChurnRegistry.addRecipe(new ItemStack(ModFood.butter, 1), new ItemStack(ModFood.cheese,1));
 		
 	}
 	
