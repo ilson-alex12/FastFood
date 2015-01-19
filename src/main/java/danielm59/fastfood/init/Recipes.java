@@ -19,6 +19,7 @@ public class Recipes {
 		GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.churn, "sss", "pbp", "ppp", 'p', "plankWood", 's', Blocks.stone_slab, 'b', Items.bucket));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.knife, "i ", " s", 'i', "ingotIron", 's', "stickWood"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.grater, "i", "i", 'i', "ingotIron"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModFood.rawbacon, 3), "k", "p", 'k', new ItemStack(ModItems.knife, 1, OreDictionary.WILDCARD_VALUE), 'p', Items.porkchop));
 		GameRegistry.addRecipe(new ShapedOreRecipe(ModFood.roll, "ww", 'w', Items.wheat));
 		

@@ -14,16 +14,19 @@ import danielm59.fastfood.reference.Reference;
 public class ModItems {
 
 	public static final ItemFF knife = new ItemKnife();
+	public static final ItemFF grater = new ItemGrater();
 	
 	public static void init(){
 		
 		GameRegistry.registerItem(knife, "knife");
+		GameRegistry.registerItem(grater, "grater");
 		
 	}
 	
 	public static void textures(){
 		
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(knife, 0, new ModelResourceLocation("fastfood:knife", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(grater, 0, new ModelResourceLocation("fastfood:grater", "inventory"));
 		
 	}
 	
