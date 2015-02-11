@@ -22,7 +22,7 @@ group= "danielm59.fastfood" // http://maven.apache.org/guides/mini/guide-naming-
 archivesBaseName = "[1.8]Fast Food"
 
 minecraft {
-    version = "1.8-11.14.0.1285-1.8"
+    version = "1.8-11.14.0.1299"
 }
 
 dependencies {
