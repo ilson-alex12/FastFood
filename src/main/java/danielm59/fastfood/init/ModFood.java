@@ -20,7 +20,7 @@ public class ModFood {
 	public static final FoodFF tomato = (FoodFF) new FoodFF(1, 0.1F, false).setUnlocalizedName("tomato");
 	public static final FoodFF butter = (FoodFF) new FoodFF(1, 0.1F, false).setUnlocalizedName("butter");
 	public static final FoodFF cheese = (FoodFF) new FoodFF(2, 0.2F, false).setUnlocalizedName("cheese");
-
+	public static final FoodFF gratedcheese = (FoodFF) new FoodFF(2, 0.2F, false).setUnlocalizedName("gratedcheese");
 	
 	public static void init(){
 		
@@ -35,6 +35,7 @@ public class ModFood {
 		GameRegistry.registerItem(tomato, "tomato");
 		GameRegistry.registerItem(butter, "butter");
 		GameRegistry.registerItem(cheese, "cheese");
+		GameRegistry.registerItem(gratedcheese, "gratedcheese");
 		
 	}
 	
@@ -51,6 +52,7 @@ public class ModFood {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(tomato, 0, new ModelResourceLocation("fastfood:tomato", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(butter, 0, new ModelResourceLocation("fastfood:butter", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(cheese, 0, new ModelResourceLocation("fastfood:cheese", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(gratedcheese, 0, new ModelResourceLocation("fastfood:gratedcheese", "inventory"));
 	
 	}
 	
