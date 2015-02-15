@@ -24,9 +24,9 @@ public class ChurnRegistry {
         ChurnRecipes.add(recipe);
     }
     
-    public static void addRecipe(ItemStack output, ItemStack input) {
+    public static void addRecipe(ItemStack input, ItemStack output) {
     	
-    	addRecipe(new ChurnRecipe(output, input));
+    	addRecipe(new ChurnRecipe(input, output));
     	
     }
     

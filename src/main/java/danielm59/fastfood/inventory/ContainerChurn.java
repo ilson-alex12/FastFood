@@ -33,7 +33,7 @@ public class ContainerChurn extends ContainerFF {
         }
         
      // Add the Output slots to the container
-        for (int OutputIndex = 0; OutputIndex < CHURN_INPUTS; ++OutputIndex) {
+        for (int OutputIndex = 0; OutputIndex < CHURN_OUTPUTS; ++OutputIndex) {
         		
         		this.addSlotToContainer(new SlotOutput(tileEntityChurn, CHURN_INPUTS + OutputIndex, 116, 35 + OutputIndex * 18));
         	

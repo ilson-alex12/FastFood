@@ -34,6 +34,13 @@ public class GuiHandler implements IGuiHandler {
         	return new ContainerChurn(entityPlayer.inventory, tileEntityChurn, entityPlayer);
             
         }
+        
+        if (id == GuiId.PRESS.ordinal()) {
+    		
+        	TileEntityPress tileEntityChurn = (TileEntityPress) world.getTileEntity(new BlockPos(x, y, z));
+        	return new ContainerPress(entityPlayer.inventory, tileEntityChurn, entityPlayer);
+            
+        }
 		
 		return null;
 	}
@@ -59,6 +66,13 @@ public class GuiHandler implements IGuiHandler {
 			
             TileEntityChurn tileEntityChurn = (TileEntityChurn) world.getTileEntity(new BlockPos(x, y, z));
             return new GuiChurn(entityPlayer.inventory, tileEntityChurn, entityPlayer);
+              
+        }
+		
+		if (id == GuiId.PRESS.ordinal()) {
+			
+            TileEntityPress tileEntityChurn = (TileEntityPress) world.getTileEntity(new BlockPos(x, y, z));
+            return new GuiPress(entityPlayer.inventory, tileEntityChurn, entityPlayer);
               
         }
 		

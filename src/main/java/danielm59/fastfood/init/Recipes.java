@@ -9,6 +9,7 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import danielm59.fastfood.recipe.ChurnRegistry;
 import danielm59.fastfood.recipe.GrinderRegistry;
+import danielm59.fastfood.recipe.PressRegistry;
 
 public class Recipes {
 
@@ -17,6 +18,7 @@ public class Recipes {
 		GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.counter, "sss", "pcp", "ppp", 'p', "plankWood", 's', Blocks.stone_slab, 'c', Blocks.chest));
 		GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.grinder, "sss", "pip", "ppp", 'p', "plankWood", 's', Blocks.stone_slab, 'i', Blocks.iron_block));
 		GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.churn, "sss", "pbp", "ppp", 'p', "plankWood", 's', Blocks.stone_slab, 'b', Items.bucket));
+		GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.press, "sss", "pPp", "ppp", 'p', "plankWood", 's', Blocks.stone_slab, 'P', Blocks.piston));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.knife, "i ", " s", 'i', "ingotIron", 's', "stickWood"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.grater, "i", "i", 'i', "ingotIron"));
@@ -34,6 +36,8 @@ public class Recipes {
 		
 		ChurnRegistry.addRecipe(new ItemStack(Items.milk_bucket, 1), new ItemStack(ModFood.butter,1));
 		ChurnRegistry.addRecipe(new ItemStack(ModFood.butter, 1), new ItemStack(ModFood.cheese,1));
+		
+		PressRegistry.addRecipe(new ItemStack(ModFood.tomato,1), new ItemStack(Items.glass_bottle,1), new ItemStack(ModFood.tomatosauce,1));
 		
 	}
 	

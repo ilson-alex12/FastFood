@@ -1,41 +1,42 @@
 package danielm59.fastfood.inventory;
 
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import danielm59.fastfood.tileentity.TileEntityPress;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import danielm59.fastfood.tileentity.TileEntityGrinder;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ContainerGrinder extends ContainerFF{
 
-    public static final int GRINDER_INPUTS = 1;
-    public static final int GRINDER_OUTPUTS = 1;
+public class ContainerPress extends ContainerFF {
+
+    public static final int PRESS_INPUTS = 2;
+    public static final int PRESS_OUTPUTS = 1;
     
     private int lastProcessTime; 
 	
-    private TileEntityGrinder tileEntityGrinder;
+    private TileEntityPress tileEntityPress;
 
     
-    public ContainerGrinder(InventoryPlayer inventory, TileEntityGrinder tileEntityGrinder, EntityPlayer player) {
+    public ContainerPress(InventoryPlayer inventory, TileEntityPress tileEntityPress, EntityPlayer player) {
     	
-    	this.tileEntityGrinder = tileEntityGrinder;
-        tileEntityGrinder.openInventory(player);
+    	this.tileEntityPress = tileEntityPress;
+        tileEntityPress.openInventory(player);
         
      // Add the Input slots to the container
-        for (int InputIndex = 0; InputIndex < GRINDER_INPUTS; ++InputIndex) {
+        for (int InputIndex = 0; InputIndex < PRESS_INPUTS; ++InputIndex) {
         		
-        		this.addSlotToContainer(new Slot(tileEntityGrinder, InputIndex, 56, 35 + InputIndex * 18));
+        		this.addSlotToContainer(new Slot(tileEntityPress, InputIndex, 56, 26 + InputIndex * 18));
         	
         }
         
      // Add the Output slots to the container
-        for (int OutputIndex = 0; OutputIndex < GRINDER_OUTPUTS; ++OutputIndex) {
+        for (int OutputIndex = 0; OutputIndex < PRESS_OUTPUTS; ++OutputIndex) {
         		
-        		this.addSlotToContainer(new SlotOutput(tileEntityGrinder, GRINDER_INPUTS + OutputIndex, 116, 35 + OutputIndex * 18));
+        		this.addSlotToContainer(new SlotOutput(tileEntityPress, PRESS_INPUTS + OutputIndex, 116, 35 + OutputIndex * 18));
         	
         }
         
@@ -63,7 +64,7 @@ public class ContainerGrinder extends ContainerFF{
     public void onContainerClosed(EntityPlayer entityPlayer)
     {
         super.onContainerClosed(entityPlayer);
-        tileEntityGrinder.closeInventory(entityPlayer);
+        tileEntityPress.closeInventory(entityPlayer);
     }
     
     @Override
@@ -77,14 +78,14 @@ public class ContainerGrinder extends ContainerFF{
             ItemStack itemStack = slot.getStack();
             newItemStack = itemStack.copy();
 
-            if (slotIndex < GRINDER_INPUTS + GRINDER_OUTPUTS)
+            if (slotIndex < PRESS_INPUTS + PRESS_OUTPUTS)
             {
-                if (!this.mergeItemStack(itemStack, GRINDER_INPUTS + GRINDER_OUTPUTS, inventorySlots.size(), false))
+                if (!this.mergeItemStack(itemStack, PRESS_INPUTS + PRESS_OUTPUTS, inventorySlots.size(), false))
                 {
                     return null;
                 }
             }
-            else if (!this.mergeItemStack(itemStack, 0, GRINDER_INPUTS + GRINDER_OUTPUTS, false))
+            else if (!this.mergeItemStack(itemStack, 0, PRESS_INPUTS + PRESS_OUTPUTS, false))
             {
                 return null;
             }
@@ -106,7 +107,7 @@ public class ContainerGrinder extends ContainerFF{
     public void addCraftingToCrafters(ICrafting iCrafting) {
     	
         super.addCraftingToCrafters(iCrafting);
-        iCrafting.sendProgressBarUpdate(this, 0, this.tileEntityGrinder.currentProcessTime);
+        iCrafting.sendProgressBarUpdate(this, 0, this.tileEntityPress.currentProcessTime);
         
     }
     
@@ -119,14 +120,14 @@ public class ContainerGrinder extends ContainerFF{
         {
             ICrafting icrafting = (ICrafting) crafter;
 
-            if (this.lastProcessTime != this.tileEntityGrinder.currentProcessTime)
+            if (this.lastProcessTime != this.tileEntityPress.currentProcessTime)
             {
-                icrafting.sendProgressBarUpdate(this, 0, this.tileEntityGrinder.currentProcessTime);
+                icrafting.sendProgressBarUpdate(this, 0, this.tileEntityPress.currentProcessTime);
             }
             
         }
         
-        this.lastProcessTime = this.tileEntityGrinder.currentProcessTime;
+        this.lastProcessTime = this.tileEntityPress.currentProcessTime;
         
     }
     
@@ -135,9 +136,9 @@ public class ContainerGrinder extends ContainerFF{
     {
         if (valueType == 0)
         {
-        	this.tileEntityGrinder.currentProcessTime = updatedValue;
+        	this.tileEntityPress.currentProcessTime = updatedValue;
         }
         
     }
-    
+	
 }

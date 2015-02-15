@@ -1,24 +1,25 @@
 package danielm59.fastfood.client.gui.inventory;
 
-import org.lwjgl.opengl.GL11;
-
-import danielm59.fastfood.inventory.ContainerChurn;
-import danielm59.fastfood.reference.Reference;
-import danielm59.fastfood.tileentity.TileEntityChurn;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 
-public class GuiChurn extends GuiContainer {
+import org.lwjgl.opengl.GL11;
 
-	private TileEntityChurn tileEntityChurn;
+import danielm59.fastfood.inventory.ContainerPress;
+import danielm59.fastfood.reference.Reference;
+import danielm59.fastfood.tileentity.TileEntityPress;
+
+
+public class GuiPress extends GuiContainer{
+	private TileEntityPress tileEntityPress;
 	
-    public GuiChurn(InventoryPlayer inventory, TileEntityChurn Churn, EntityPlayer player) {
+    public GuiPress(InventoryPlayer inventory, TileEntityPress Press, EntityPlayer player) {
         
-    	super(new ContainerChurn(inventory, Churn, player));
-        tileEntityChurn = Churn;
+    	super(new ContainerPress(inventory, Press, player));
+        tileEntityPress = Press;
         xSize = 175;
         ySize = 165;
 		
@@ -27,7 +28,7 @@ public class GuiChurn extends GuiContainer {
     @Override
     protected void drawGuiContainerForegroundLayer(int x, int y) {
             
-    	fontRendererObj.drawString(StatCollector.translateToLocal(tileEntityChurn.getName()), 8, 6, 4210752); 
+    	fontRendererObj.drawString(StatCollector.translateToLocal(tileEntityPress.getName()), 8, 6, 4210752); 
         
     }
 
@@ -36,16 +37,14 @@ public class GuiChurn extends GuiContainer {
         
     	GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 
-        this.mc.getTextureManager().bindTexture(new ResourceLocation(Reference.MODID.toLowerCase(),"textures/gui/1to1Gui.png"));
+        this.mc.getTextureManager().bindTexture(new ResourceLocation(Reference.MODID.toLowerCase(),"textures/gui/2to1Gui.png"));
         
         int xStart = (width - xSize) / 2;
         int yStart = (height - ySize) / 2;
         this.drawTexturedModalRect(xStart, yStart, 0, 0, xSize, ySize);
         
-        int processPogress = (int) (tileEntityChurn.getProgress() * 22);
+        int processPogress = (int) (tileEntityPress.getProgress() * 22);
         drawTexturedModalRect(xStart + 80, yStart + 35, 176, 0, processPogress, 15);
         
     }
-
-	
 }

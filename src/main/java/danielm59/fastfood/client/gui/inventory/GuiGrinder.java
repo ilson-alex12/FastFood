@@ -37,7 +37,7 @@ public class GuiGrinder extends GuiContainer {
         
     	GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 
-        this.mc.getTextureManager().bindTexture(new ResourceLocation(Reference.MODID.toLowerCase(),"textures/gui/grinder.png"));
+        this.mc.getTextureManager().bindTexture(new ResourceLocation(Reference.MODID.toLowerCase(),"textures/gui/1to1Gui.png"));
         
         int xStart = (width - xSize) / 2;
         int yStart = (height - ySize) / 2;

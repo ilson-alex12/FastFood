@@ -18,12 +18,14 @@ item.fastfood:tomatoseeds.name=Tomato Seeds
 item.fastfood:butter.name=Butter
 item.fastfood:cheese.name=Cheese
 item.fastfood:gratedcheese.name=Grated Cheese
+item.fastfood:tomatosauce.name=Tomato Sauce
 
 # Blocks
 
 tile.fastfood:counter.name=Counter
 tile.fastfood:grinder.name=Meat Grinder
 tile.fastfood:churn.name=Churn
+tile.fastfood:press.name=Press
 
 #Crops
 
