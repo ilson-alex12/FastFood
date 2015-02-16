@@ -5,6 +5,8 @@ import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import danielm59.fastfood.item.FoodDrinkableFF;
 import danielm59.fastfood.item.FoodFF;
 import danielm59.fastfood.reference.Reference;
@@ -44,6 +46,7 @@ public class ModFood {
 		
 	}
 	
+	@SideOnly(Side.CLIENT)
 	public static void textures(){
 		
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(roll, 0, new ModelResourceLocation("fastfood:roll", "inventory"));

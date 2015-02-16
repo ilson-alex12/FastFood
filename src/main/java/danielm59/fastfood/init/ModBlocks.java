@@ -6,6 +6,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import danielm59.fastfood.block.*;
 import danielm59.fastfood.block.crops.*;
 import danielm59.fastfood.reference.Reference;
@@ -27,6 +29,7 @@ public class ModBlocks {
 	
 	}
 	
+	@SideOnly(Side.CLIENT)
 	public static void textures(){
 		
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(counter), 0, new ModelResourceLocation("fastfood:counter", "inventory"));
