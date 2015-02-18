@@ -44,10 +44,7 @@ public class FastFood
     	Recipes.init();
     	NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
     	proxy.registerTileEntities();
-    	ModBlocks.textures();
-    	ModItems.textures();
-    	ModFood.textures();
-    	ModCrops.textures();
+    	proxy.loadTextures();
     	LogHelper.info("Initialization Complete!");
     	
     }

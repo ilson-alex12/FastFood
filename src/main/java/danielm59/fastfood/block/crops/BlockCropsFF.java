@@ -26,8 +26,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 
 public class BlockCropsFF extends BlockCrops implements IGrowable {
-	
-    @SideOnly(Side.CLIENT)
 
     public BlockCropsFF() {
 
