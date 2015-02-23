@@ -12,8 +12,6 @@ public class ClientProxy extends CommonProxy{
     	ModFood.textures();
     	ModCrops.textures();
     	
-	}
-
-	
+	}	
 	
 }

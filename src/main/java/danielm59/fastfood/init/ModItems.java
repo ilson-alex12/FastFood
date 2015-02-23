@@ -15,21 +15,21 @@ import danielm59.fastfood.reference.Reference;
 @GameRegistry.ObjectHolder(Reference.MODID)
 public class ModItems {
 
-	public static final ItemFF knife = new ItemKnife();
+	public static final ItemFF knife = 	new ItemKnife();
 	public static final ItemFF grater = new ItemGrater();
 	
 	public static void init(){
 		
-		GameRegistry.registerItem(knife, "knife");
-		GameRegistry.registerItem(grater, "grater");
+		GameRegistry.registerItem(knife, 	"knife");
+		GameRegistry.registerItem(grater, 	"grater");
 		
 	}
 	
 	@SideOnly(Side.CLIENT)
 	public static void textures(){
 		
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(knife, 0, new ModelResourceLocation("fastfood:knife", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(grater, 0, new ModelResourceLocation("fastfood:grater", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(knife, 	0, new ModelResourceLocation("fastfood:knife", 	"inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(grater, 	0, new ModelResourceLocation("fastfood:grater", "inventory"));
 		
 	}
 	

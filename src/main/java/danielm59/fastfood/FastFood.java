@@ -39,7 +39,7 @@ public class FastFood
     }
     
     @EventHandler
-    public void init(FMLInitializationEvent event) {
+    public void Init(FMLInitializationEvent event) {
 		
     	Recipes.init();
     	NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
