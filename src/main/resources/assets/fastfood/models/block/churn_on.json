@@ -1,9 +1,0 @@
-{
-    "parent": "fastfood:block/sided",
-    "textures": {
-        "top": "fastfood:blocks/churn_top_on",
-        "bottom": "fastfood:blocks/counter_bottom",
-        "front": "fastfood:blocks/churn_front",
-        "side": "fastfood:blocks/counter_side"
-    }
-}

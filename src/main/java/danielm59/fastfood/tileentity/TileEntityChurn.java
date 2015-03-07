@@ -2,15 +2,17 @@ package danielm59.fastfood.tileentity;
 
 import danielm59.fastfood.recipe.ChurnRecipe;
 import danielm59.fastfood.recipe.ChurnRegistry;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.server.gui.IUpdatePlayerListBox;
-
-
+import net.minecraft.util.IChatComponent;
 
 public class TileEntityChurn extends TileEntityFF implements IUpdatePlayerListBox {
 
 	public int currentProcessTime;
-	public boolean activeUpdate;
 	
 	public TileEntityChurn() {
 		
@@ -27,14 +29,14 @@ public class TileEntityChurn extends TileEntityFF implements IUpdatePlayerListBo
 	}
     
     @Override
-    public void update() {    	
-    	
-    	if (!worldObj.isRemote) {
+    public void update() {
+    
+        if (!worldObj.isRemote) {
 
         	ChurnRecipe recipe = ChurnRegistry.getInstance().getMatchingRecipe(inventory[0], inventory[1]);
-			if (recipe != null) {
+			if (recipe != null) {   
         		 if (++currentProcessTime >= 100) {
-        			this.markDirty();
+        			 this.markDirty();
         			 currentProcessTime = 0;
                      if (inventory[1] != null) {
                     	 inventory[1].stackSize += recipe.getOutput().stackSize;
@@ -53,26 +55,10 @@ public class TileEntityChurn extends TileEntityFF implements IUpdatePlayerListBo
              } else {
                  currentProcessTime = 0;
              }
-         } else {
-        	 checkUpdate();
-         }
+         }  
     }
     
-	protected void checkUpdate() {
-		if (isActive() != activeUpdate) {
-			activeUpdate = isActive();
-			
-			worldObj.notifyBlockOfStateChange(pos, worldObj.getBlockState(pos).getBlock());
-			worldObj.markBlockForUpdate(pos);
-		}
-	}
-    
-    public boolean isActive() {
-		boolean active = (currentProcessTime>0);
-    	return active;	
-	}
-
-	public float getProgress() {
+    public float getProgress() {
     	
     	return (float) currentProcessTime/100;
     	

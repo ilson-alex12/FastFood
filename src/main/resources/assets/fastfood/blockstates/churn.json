@@ -1,12 +1,8 @@
 {
     "variants": {
-        "facing=north,on=false": { "model": "fastfood:churn" },
-        "facing=south,on=false": { "model": "fastfood:churn", "y": 180 },
-        "facing=west,on=false":  { "model": "fastfood:churn", "y": 270 },
-        "facing=east,on=false":  { "model": "fastfood:churn", "y": 90 },
-        "facing=north,on=true": { "model": "fastfood:churn_on" },
-        "facing=south,on=true": { "model": "fastfood:churn_on", "y": 180 },
-        "facing=west,on=true":  { "model": "fastfood:churn_on", "y": 270 },
-        "facing=east,on=true":  { "model": "fastfood:churn_on", "y": 90 }
+        "facing=north": { "model": "fastfood:churn" },
+        "facing=south": { "model": "fastfood:churn", "y": 180 },
+        "facing=west":  { "model": "fastfood:churn", "y": 270 },
+        "facing=east":  { "model": "fastfood:churn", "y": 90 }
     }
 }
