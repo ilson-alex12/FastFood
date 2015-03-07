@@ -6,5 +6,6 @@ public enum GuiId {
 	GRINDER,
 	CHURN,
 	PRESS,
+	MILL,
 	
 }

@@ -1,7 +1,7 @@
 package danielm59.fastfood.tileentity;
 
-import danielm59.fastfood.recipe.GrinderRecipe;
-import danielm59.fastfood.recipe.GrinderRegistry;
+import danielm59.fastfood.recipe.grinder.GrinderRecipe;
+import danielm59.fastfood.recipe.grinder.GrinderRegistry;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.IInventory;

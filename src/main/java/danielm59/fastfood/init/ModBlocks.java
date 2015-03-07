@@ -19,6 +19,7 @@ public class ModBlocks {
 	public static final BlockFF grinder = 	new BlockGrinder();
 	public static final BlockFF churn =		new BlockChurn();
 	public static final BlockFF press = 	new BlockPress();
+	public static final BlockFF mill =   	new BlockMill();
 	
 	public static void init(){
 		
@@ -26,6 +27,7 @@ public class ModBlocks {
 		GameRegistry.registerBlock(grinder, 	"grinder");
 		GameRegistry.registerBlock(churn, 		"churn");
 		GameRegistry.registerBlock(press, 		"press");
+		GameRegistry.registerBlock(mill, 		"mill");
 	
 	}
 	
@@ -36,6 +38,7 @@ public class ModBlocks {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(grinder), 	0, new ModelResourceLocation("fastfood:grinder",	"inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(churn),	0, new ModelResourceLocation("fastfood:churn", 		"inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(press), 	0, new ModelResourceLocation("fastfood:press", 		"inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(mill), 	0, new ModelResourceLocation("fastfood:mill", 		"inventory"));
 		
 	}
 	

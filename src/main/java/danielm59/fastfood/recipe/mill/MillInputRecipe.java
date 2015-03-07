@@ -1,13 +1,13 @@
-package danielm59.fastfood.recipe;
+package danielm59.fastfood.recipe.mill;
 
 import net.minecraft.item.ItemStack;
 
-public class GrinderRecipe {
+public class MillInputRecipe {
 
 	private ItemStack input;
-	private ItemStack output;
+	private String output;
 
-	GrinderRecipe(ItemStack input, ItemStack output) {
+	MillInputRecipe(ItemStack input, String output) {
 		
 		this.input = input;
 		this.output = output;
@@ -20,10 +20,10 @@ public class GrinderRecipe {
 		
 	}
 	
-	public ItemStack getOutput() {
+	public String getOutput() {
 		
 		return output;
 		
 	}
-
+	
 }

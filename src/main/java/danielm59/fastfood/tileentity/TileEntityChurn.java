@@ -1,7 +1,7 @@
 package danielm59.fastfood.tileentity;
 
-import danielm59.fastfood.recipe.ChurnRecipe;
-import danielm59.fastfood.recipe.ChurnRegistry;
+import danielm59.fastfood.recipe.churn.ChurnRecipe;
+import danielm59.fastfood.recipe.churn.ChurnRegistry;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;

@@ -1,13 +1,13 @@
-package danielm59.fastfood.recipe;
+package danielm59.fastfood.recipe.grinder;
 
 import net.minecraft.item.ItemStack;
 
-	public class ChurnRecipe {
+public class GrinderRecipe {
 
 	private ItemStack input;
 	private ItemStack output;
 
-	ChurnRecipe(ItemStack input, ItemStack output) {
+	GrinderRecipe(ItemStack input, ItemStack output) {
 		
 		this.input = input;
 		this.output = output;
@@ -26,5 +26,4 @@ import net.minecraft.item.ItemStack;
 		
 	}
 
-	
 }

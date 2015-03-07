@@ -1,4 +1,4 @@
-package danielm59.fastfood.recipe;
+package danielm59.fastfood.recipe.press;
 
 import java.util.ArrayList;
 import java.util.List;

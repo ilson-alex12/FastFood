@@ -26,6 +26,7 @@ tile.fastfood:counter.name=Counter
 tile.fastfood:grinder.name=Meat Grinder
 tile.fastfood:churn.name=Churn
 tile.fastfood:press.name=Press
+tile.fastfood:mill.name=Flour Mill
 
 #Crops
 

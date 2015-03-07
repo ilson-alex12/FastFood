@@ -2,10 +2,10 @@ package danielm59.fastfood.tileentity;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.gui.IUpdatePlayerListBox;
-import danielm59.fastfood.recipe.GrinderRecipe;
-import danielm59.fastfood.recipe.GrinderRegistry;
-import danielm59.fastfood.recipe.PressRecipe;
-import danielm59.fastfood.recipe.PressRegistry;
+import danielm59.fastfood.recipe.grinder.GrinderRecipe;
+import danielm59.fastfood.recipe.grinder.GrinderRegistry;
+import danielm59.fastfood.recipe.press.PressRecipe;
+import danielm59.fastfood.recipe.press.PressRegistry;
 
 public class TileEntityPress extends TileEntityFF implements IUpdatePlayerListBox {
 

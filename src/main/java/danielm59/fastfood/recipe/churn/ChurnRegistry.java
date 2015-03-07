@@ -1,43 +1,43 @@
-package danielm59.fastfood.recipe;
+package danielm59.fastfood.recipe.churn;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.item.ItemStack;
 
-public class GrinderRegistry {
+public class ChurnRegistry {
 
-    private static GrinderRegistry INSTANCE = new GrinderRegistry();
-    private final static List<GrinderRecipe> grinderRecipes = new ArrayList<GrinderRecipe>();	
+    private static ChurnRegistry INSTANCE = new ChurnRegistry();
+    private final static List<ChurnRecipe> ChurnRecipes = new ArrayList<ChurnRecipe>();	
 
-    private GrinderRegistry() {
+    private ChurnRegistry() {
         
     }
     
-    public static GrinderRegistry getInstance() {
+    public static ChurnRegistry getInstance() {
     
         return INSTANCE;
     }
     
-    public static void addRecipe(GrinderRecipe recipe) {
+    public static void addRecipe(ChurnRecipe recipe) {
     
-        grinderRecipes.add(recipe);
+        ChurnRecipes.add(recipe);
     }
     
     public static void addRecipe(ItemStack input, ItemStack output) {
     	
-    	addRecipe(new GrinderRecipe(input, output));
+    	addRecipe(new ChurnRecipe(input, output));
     	
     }
     
-    public List<GrinderRecipe> getAllRecipes() {
+    public List<ChurnRecipe> getAllRecipes() {
         
-        return grinderRecipes;
+        return ChurnRecipes;
     }
 
-	public GrinderRecipe getMatchingRecipe(ItemStack inputSlot, ItemStack outputSlot) {
+	public ChurnRecipe getMatchingRecipe(ItemStack inputSlot, ItemStack outputSlot) {
 		
-		for (GrinderRecipe recipe : grinderRecipes) {
+		for (ChurnRecipe recipe : ChurnRecipes) {
 			if (inputSlot != null) {
 				if (recipe.getInput().isItemEqual(inputSlot)) {
                     if (outputSlot != null) {
@@ -54,6 +54,6 @@ public class GrinderRegistry {
         }
         return null;
     }
-    
+   
 	
 }

@@ -7,9 +7,10 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import danielm59.fastfood.recipe.ChurnRegistry;
-import danielm59.fastfood.recipe.GrinderRegistry;
-import danielm59.fastfood.recipe.PressRegistry;
+import danielm59.fastfood.recipe.churn.ChurnRegistry;
+import danielm59.fastfood.recipe.grinder.GrinderRegistry;
+import danielm59.fastfood.recipe.mill.MillRegistry;
+import danielm59.fastfood.recipe.press.PressRegistry;
 
 public class Recipes {
 
@@ -40,6 +41,8 @@ public class Recipes {
 		ChurnRegistry.addRecipe(new ItemStack(ModFood.butter, 		1), new ItemStack(ModFood.cheese,1));
 		
 		PressRegistry.addRecipe(new ItemStack(ModFood.tomato,1), new ItemStack(Items.glass_bottle,1), new ItemStack(ModFood.tomatosauce,1));
+		
+		MillRegistry.addInputRecipe(new ItemStack(Items.wheat,1), "wheat flour");
 		
 	}
 	
