@@ -4,6 +4,7 @@ import danielm59.fastfood.recipe.mill.*;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.gui.IUpdatePlayerListBox;
 
 public class TileEntityMill extends TileEntityFF implements IUpdatePlayerListBox {
@@ -11,9 +12,9 @@ public class TileEntityMill extends TileEntityFF implements IUpdatePlayerListBox
 	public int currentInputProcessTime;
 	public int currentOutputProcessTime;
 	public String FlourType;
-	public int FlourLevel;
+	public int FlourLevel = 0;
 	
-	private int MaxFlourLevel = 2;
+	private int MaxFlourLevel = 64;
 	
 	public TileEntityMill() {
 		
@@ -119,12 +120,31 @@ public class TileEntityMill extends TileEntityFF implements IUpdatePlayerListBox
     
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		if(i == 0 && inventory[0] == null) {
+		if(i == 0 && inventory[0] == null && getFlourSpace() > 0 ) {
 			if (itemstack.getItem() == Items.wheat) {
 				return true;
 			}
 		}
 		return false;
+	}
+	
+	@Override
+    public void writeToNBT(NBTTagCompound nbtTagCompound) {
+		 super.writeToNBT(nbtTagCompound);
+		 nbtTagCompound.setInteger("flourLevel", FlourLevel);
+		 if (FlourType != null) {
+			 		System.out.println("saved");
+				 nbtTagCompound.setString("flourType", FlourType);
+		 }
+		 
+	}
+	
+	@Override
+	public void readFromNBT(NBTTagCompound nbtTagCompound) {
+		super.readFromNBT(nbtTagCompound);
+		if (nbtTagCompound.hasKey("flourLevel")) FlourLevel = nbtTagCompound.getInteger("flourLevel");
+		if (nbtTagCompound.hasKey("flourType")) FlourType = nbtTagCompound.getString("flourType");
+		System.out.println(FlourType);
 	}
 
 }

@@ -61,7 +61,7 @@ public class MillRegistry {
 				if (recipe.getInput().isItemEqual(input)) {
                     if (output != null) { 
                         String craftingResult = recipe.getOutput();
-                        if (!(output == craftingResult)) {
+                        if (!(output.equalsIgnoreCase(craftingResult))) {
                         	continue;
                         } else if ((FlourSpace - 2 < 0 )) {
                         	continue;
@@ -78,7 +78,7 @@ public class MillRegistry {
 		
 		for (MillOutputRecipe recipe : MillOutputRecipes) {
 			if (inputFlour != null && flourLevel > 0 && inputContainer != null) {
-				if (recipe.getIntputContainer().isItemEqual(inputContainer) && recipe.getInputFlour() == inputFlour) {
+				if (recipe.getIntputContainer().isItemEqual(inputContainer) && recipe.getInputFlour().equalsIgnoreCase(inputFlour)) {
                     if (output != null) {
                         ItemStack craftingResult = recipe.getOutput();
                         if (!ItemStack.areItemStackTagsEqual(output, craftingResult) || !output.isItemEqual(craftingResult)) {
