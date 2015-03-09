@@ -17,12 +17,12 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "0.0.4"
+version = "0.1.0"
 group= "danielm59.fastfood" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "[1.8]Fast Food"
 
 minecraft {
-    version = "1.8-11.14.0.1299"
+    version = "1.8-11.14.1.1334"
 }
 
 dependencies {
