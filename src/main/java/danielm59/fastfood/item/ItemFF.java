@@ -7,7 +7,7 @@ import danielm59.fastfood.reference.Reference;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public abstract class ItemFF extends Item{
+public class ItemFF extends Item{
 
 	public ItemFF(){
 		
