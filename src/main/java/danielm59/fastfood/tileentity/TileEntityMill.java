@@ -133,7 +133,6 @@ public class TileEntityMill extends TileEntityFF implements IUpdatePlayerListBox
 		 super.writeToNBT(nbtTagCompound);
 		 nbtTagCompound.setInteger("flourLevel", FlourLevel);
 		 if (FlourType != null) {
-			 		System.out.println("saved");
 				 nbtTagCompound.setString("flourType", FlourType);
 		 }
 		 
@@ -144,7 +143,6 @@ public class TileEntityMill extends TileEntityFF implements IUpdatePlayerListBox
 		super.readFromNBT(nbtTagCompound);
 		if (nbtTagCompound.hasKey("flourLevel")) FlourLevel = nbtTagCompound.getInteger("flourLevel");
 		if (nbtTagCompound.hasKey("flourType")) FlourType = nbtTagCompound.getString("flourType");
-		System.out.println(FlourType);
 	}
 
 }
