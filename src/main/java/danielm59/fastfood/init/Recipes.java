@@ -20,7 +20,7 @@ public class Recipes {
 		GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.grinder, 	"sss", "pip", "ppp", 'p', "plankWood", 's', Blocks.stone_slab, 'i', Blocks.iron_block));
 		GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.churn, 	"sss", "pbp", "ppp", 'p', "plankWood", 's', Blocks.stone_slab, 'b', Items.bucket));
 		GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.press, 	"sss", "pPp", "ppp", 'p', "plankWood", 's', Blocks.stone_slab, 'P', Blocks.piston));
-		GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.mill, 		"sss", "pmp", "ppp", 'p', "plankWood", 's', Blocks.stone_slab, 'M', ModItems.millstone));
+		GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.mill, 		"sss", "pmp", "ppp", 'p', "plankWood", 's', Blocks.stone_slab, 'm', ModItems.millstone));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.knife, 	"i ", 	" s", 	'i', "ingotIron", 's', "stickWood"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.grater, "i", 	"i", 	'i', "ingotIron"));
@@ -34,10 +34,11 @@ public class Recipes {
 		GameRegistry.addRecipe(new ShapelessOreRecipe(ModFood.rawbeefpatty, ModFood.rawmince));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(ModFood.beefburger, 	ModFood.beefpatty, 	ModFood.roll));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(ModFood.breaddough, ModItems.wheatflour, Items.water_bucket));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(ModFood.gratedcheese, ModItems.grater, ModFood.cheese));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(ModFood.pizzabase, "dd", 'd', ModFood.breaddough));
 		GameRegistry.addRecipe(new ShapedOreRecipe(ModFood.rawbread, "ddd", 'd', ModFood.breaddough));
-		GameRegistry.addRecipe(new ShapedOreRecipe(ModFood.rawpizza, "b", "t", "c", 'b', ModFood.pizzabase, 't', ModFood.tomatosauce, 'c', ModFood.gratedcheese));
+		GameRegistry.addRecipe(new ShapedOreRecipe(ModFood.rawpizza, "c", "t", "b", 'b', ModFood.pizzabase, 't', ModFood.tomatosauce, 'c', ModFood.gratedcheese));
 		
 		GameRegistry.addSmelting(ModFood.rawbacon, 		new ItemStack(ModFood.bacon), 0.1F);
 		GameRegistry.addSmelting(ModFood.rawbeefpatty, 	new ItemStack(ModFood.beefpatty), 0.1F);
