@@ -14,14 +14,15 @@ import danielm59.fastfood.reference.Reference;
 @GameRegistry.ObjectHolder(Reference.MODID)
 public class ModFood {
 
-	public static final FoodFF rawbacon =     	(FoodFF) new FoodFF			( 1, 0.1F, false).setUnlocalizedName("rawbacon");
+	
 	public static final FoodFF breaddough = 	(FoodFF) new FoodFF			( 1, 0.1F, false).setUnlocalizedName("breaddough");
 	public static final FoodFF pizzabase = 		(FoodFF) new FoodFF			( 3, 0.3F, false).setUnlocalizedName("pizzabase");
 	public static final FoodFF rawpizza = 		(FoodFF) new FoodFF			( 5, 0.6F, false).setUnlocalizedName("rawpizza");
-	public static final FoodFF bacon =        	(FoodFF) new FoodFF			( 3, 0.6F, false).setUnlocalizedName("bacon");
 	public static final FoodFF pizza = 			(FoodFF) new FoodFF			( 8, 0.8F, false).setUnlocalizedName("pizza");
 	public static final FoodFF rawbread =		(FoodFF) new FoodFF			( 2, 0.1F, false).setUnlocalizedName("rawbread");
 	public static final FoodFF roll =         	(FoodFF) new FoodFF			( 2, 0.3F, false).setUnlocalizedName("roll");
+	public static final FoodFF rawbacon =     	(FoodFF) new FoodFF			( 1, 0.1F, false).setUnlocalizedName("rawbacon");
+	public static final FoodFF bacon =        	(FoodFF) new FoodFF			( 3, 0.6F, false).setUnlocalizedName("bacon");
 	public static final FoodFF baconroll =    	(FoodFF) new FoodFF			( 5, 0.6F, false).setUnlocalizedName("baconroll");
 	public static final FoodFF rawmince =     	(FoodFF) new FoodFF			( 2, 0.3F, false).setUnlocalizedName("rawmince");
 	public static final FoodFF rawbeefpatty = 	(FoodFF) new FoodFF			( 2, 0.3F, false).setUnlocalizedName("rawbeefpatty");
