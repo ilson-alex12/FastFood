@@ -1,22 +1,22 @@
 package danielm59.fastfood.block;
 
-import danielm59.fastfood.FastFood;
-import danielm59.fastfood.reference.GuiId;
-import danielm59.fastfood.tileentity.TileEntityChurn;
-import danielm59.fastfood.tileentity.TileEntityMill;
-import net.minecraft.block.state.IBlockState;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
+import danielm59.fastfood.FastFood;
+import danielm59.fastfood.reference.GuiId;
+import danielm59.fastfood.reference.Reference;
+import danielm59.fastfood.tileentity.TileEntityMill;
 
 
 public class BlockMill extends BlockCounterBase {
 
 	public BlockMill() {
 		super();
-		this.setUnlocalizedName("mill");
+		this.setBlockName("mill");
 	}
 
 	@Override
@@ -26,7 +26,7 @@ public class BlockMill extends BlockCounterBase {
 	}
 
     @Override
-    public boolean onBlockActivated(World world, BlockPos p, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ)
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
     {
         if (player.isSneaking())
         {
@@ -34,13 +34,22 @@ public class BlockMill extends BlockCounterBase {
         }
         else
         {
-            if (!world.isRemote && world.getTileEntity(p) instanceof TileEntityMill)
+            if (!world.isRemote && world.getTileEntity(x, y, z) instanceof TileEntityMill)
             {
-                player.openGui(FastFood.instance, GuiId.MILL.ordinal(), world, p.getX(), p.getY(), p.getZ());
+                player.openGui(FastFood.instance, GuiId.MILL.ordinal(), world, x, y, z);
             }
 
             return true;
         }
     } 
+    
+	@Override
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister iconRegister) {
+    	
+		super.registerBlockIcons(iconRegister);
+    	blockIconTop = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName()) + "_top"));
+    	
+    }
 	
 }

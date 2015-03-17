@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import danielm59.fastfood.recipe.churn.ChurnRegistry;
 import danielm59.fastfood.recipe.grinder.GrinderRegistry;
 import danielm59.fastfood.recipe.mill.MillRegistry;

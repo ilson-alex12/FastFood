@@ -1,14 +1,14 @@
 package danielm59.fastfood.inventory;
 
-import danielm59.fastfood.tileentity.TileEntityPress;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import danielm59.fastfood.tileentity.TileEntityPress;
 
 
 public class ContainerPress extends ContainerFF {
@@ -24,7 +24,7 @@ public class ContainerPress extends ContainerFF {
     public ContainerPress(InventoryPlayer inventory, TileEntityPress tileEntityPress, EntityPlayer player) {
     	
     	this.tileEntityPress = tileEntityPress;
-        tileEntityPress.openInventory(player);
+        tileEntityPress.openInventory();
         
      // Add the Input slots to the container
         for (int InputIndex = 0; InputIndex < PRESS_INPUTS; ++InputIndex) {
@@ -64,7 +64,7 @@ public class ContainerPress extends ContainerFF {
     public void onContainerClosed(EntityPlayer entityPlayer)
     {
         super.onContainerClosed(entityPlayer);
-        tileEntityPress.closeInventory(entityPlayer);
+        tileEntityPress.closeInventory();
     }
     
     @Override

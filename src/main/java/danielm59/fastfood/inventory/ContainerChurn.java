@@ -6,8 +6,8 @@ import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import danielm59.fastfood.tileentity.TileEntityChurn;
 
 public class ContainerChurn extends ContainerFF {
@@ -23,7 +23,7 @@ public class ContainerChurn extends ContainerFF {
     public ContainerChurn(InventoryPlayer inventory, TileEntityChurn tileEntityChurn, EntityPlayer player) {
     	
     	this.tileEntityChurn = tileEntityChurn;
-        tileEntityChurn.openInventory(player);
+        tileEntityChurn.openInventory();
         
      // Add the Input slots to the container
         for (int InputIndex = 0; InputIndex < CHURN_INPUTS; ++InputIndex) {
@@ -63,7 +63,7 @@ public class ContainerChurn extends ContainerFF {
     public void onContainerClosed(EntityPlayer entityPlayer)
     {
         super.onContainerClosed(entityPlayer);
-        tileEntityChurn.closeInventory(entityPlayer);
+        tileEntityChurn.closeInventory();
     }
     
     @Override

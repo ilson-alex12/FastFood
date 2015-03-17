@@ -1,19 +1,11 @@
 package danielm59.fastfood.block;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly; 
 import danielm59.fastfood.FastFood;
 import danielm59.fastfood.reference.GuiId;
 import danielm59.fastfood.tileentity.TileEntityCounter;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 
 public class BlockCounter extends BlockCounterBase{
 
@@ -21,7 +13,7 @@ public class BlockCounter extends BlockCounterBase{
 	public BlockCounter(){
 		
 		super();
-		this.setUnlocalizedName("counter");
+		this.setBlockName("counter");
 		
 	}
 	
@@ -33,7 +25,7 @@ public class BlockCounter extends BlockCounterBase{
 	    }
 	 
 	    @Override
-	    public boolean onBlockActivated(World world, BlockPos p, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ)
+	    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
 	    {
 	        if (player.isSneaking())
 	        {
@@ -41,9 +33,9 @@ public class BlockCounter extends BlockCounterBase{
 	        }
 	        else
 	        {
-	            if (!world.isRemote && world.getTileEntity(p) instanceof TileEntityCounter)
+	            if (!world.isRemote && world.getTileEntity(x, y, z) instanceof TileEntityCounter)
 	            {
-	                player.openGui(FastFood.instance, GuiId.COUNTER.ordinal(), world, p.getX(), p.getY(), p.getZ());
+	                player.openGui(FastFood.instance, GuiId.COUNTER.ordinal(), world, x, y, z);
 	            }
 
 	            return true;

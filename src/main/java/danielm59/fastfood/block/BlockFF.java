@@ -2,20 +2,16 @@ package danielm59.fastfood.block;
 
 import java.util.Random;
 
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import danielm59.fastfood.creativetab.CreativeTabFF;
-import danielm59.fastfood.reference.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
+import danielm59.fastfood.creativetab.CreativeTabFF;
+import danielm59.fastfood.reference.Reference;
 
 public abstract class BlockFF extends Block{
 
@@ -45,15 +41,15 @@ public abstract class BlockFF extends Block{
     }
 	
     @Override
-    public void breakBlock(World world, BlockPos p, IBlockState state)
+    public void breakBlock(World world, int x, int y, int z, Block block, int meta)
     {
-        dropInventory(world, p);
-        super.breakBlock(world, p, state);
+        dropInventory(world, x, y, z);
+        super.breakBlock(world, x, y, z, block, meta);
     }
     
-    protected void dropInventory(World world, BlockPos p)
+    protected void dropInventory(World world, int x, int y, int z)
     {
-        TileEntity tileEntity = world.getTileEntity(p);
+        TileEntity tileEntity = world.getTileEntity(x, y, z);
 
         if (!(tileEntity instanceof IInventory))
         {
@@ -68,12 +64,7 @@ public abstract class BlockFF extends Block{
 
             if (itemStack != null && itemStack.stackSize > 0)
             {
-                Random rand = new Random();
-
-                float x = p.getX();
-                float y = p.getY();
-                float z = p.getZ();
-                
+                Random rand = new Random();                
                 
                 float dX = rand.nextFloat() * 0.8F + 0.1F;
                 float dY = rand.nextFloat() * 0.8F + 0.1F;

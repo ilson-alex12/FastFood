@@ -1,33 +1,28 @@
 package danielm59.fastfood.block.crops;
 
 
-import java.util.ArrayList;
 import java.util.Random;
 
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import danielm59.fastfood.init.ModBlocks;
-import danielm59.fastfood.reference.Reference;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockAir;
 import net.minecraft.block.BlockCrops;
-import net.minecraft.block.BlockFarmland;
 import net.minecraft.block.IGrowable;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import danielm59.fastfood.reference.Reference;
 
 public class BlockCropsFF extends BlockCrops implements IGrowable {
 
-    public BlockCropsFF() {
+	 @SideOnly(Side.CLIENT)
+	 private IIcon[] iconArray;
+	
+	public BlockCropsFF() {
 
         this.setTickRandomly(true);
         this.setCreativeTab((CreativeTabs) null);
@@ -54,10 +49,9 @@ public class BlockCropsFF extends BlockCrops implements IGrowable {
     }
 
     @Override
-    public void setBlockBoundsBasedOnState(IBlockAccess world, BlockPos p) {
+    public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
 
-        IBlockState state = world.getBlockState(p);
-    	Integer l = (Integer)state.getValue(AGE);
+    	int l = world.getBlockMetadata(x, y, z);
         if (l <= 1) {
             this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.25F, 1.0F);
         } else if (l <= 2) {
@@ -83,17 +77,38 @@ public class BlockCropsFF extends BlockCrops implements IGrowable {
      * Checks to see if its valid to put this block at the specified coordinates. Args: world, p
      */
     @Override
-    public boolean canPlaceBlockAt(World world, BlockPos p) {
+    public boolean canPlaceBlockAt(World world, int x, int y, int z) {
 
-        return super.canPlaceBlockAt(world, p) && world.isAirBlock(p.add(0,1,0));
+        return super.canPlaceBlockAt(world, x, y, z) && world.isAirBlock(x, y + 1, z);
     }
 
 
     @Override
-    public EnumPlantType getPlantType(IBlockAccess world, BlockPos p)
+    public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z)
     {
     	return EnumPlantType.Crop;
     }
     
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void registerBlockIcons(IIconRegister iconRegister) {
+
+        this.iconArray = new IIcon[8];
+
+        for (int i = 0; i < this.iconArray.length; ++i) {
+            this.iconArray[i] = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1) + "_stage_" + i);
+        }
+    }
     
+    @SideOnly(Side.CLIENT)
+    @Override
+    public IIcon getIcon(int side, int meta) {
+
+        if (meta < 0 || meta > 7) {
+            meta = 7;
+        }
+
+        return this.iconArray[meta];
+    }
 }
+    

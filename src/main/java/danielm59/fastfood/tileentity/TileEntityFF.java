@@ -12,22 +12,6 @@ public class TileEntityFF extends TileEntity implements IInventory {
 	
 	protected ItemStack[] inventory;
 
-	@Override
-	public String getName() {
-		
-		return null;
-	}
-
-	@Override
-	public boolean hasCustomName() {
-		return false;
-	}
-
-	@Override
-	public IChatComponent getDisplayName() {
-	
-		return null;
-	}
 
 	@Override
 	public int getSizeInventory() {
@@ -108,17 +92,6 @@ public class TileEntityFF extends TileEntity implements IInventory {
 		return true;
 	}
 
-	@Override
-	public void openInventory(EntityPlayer playerIn) {
-		
-		
-	}
-
-	@Override
-	public void closeInventory(EntityPlayer playerIn) {
-	
-		
-	}
 
 	@Override
 	public boolean isItemValidForSlot(int index, ItemStack stack) {
@@ -126,27 +99,6 @@ public class TileEntityFF extends TileEntity implements IInventory {
 		return true;
 	}
 
-	@Override
-	public int getField(int id) {
-	
-		return 0;
-	}
-
-	@Override
-	public void setField(int id, int value) {
-		
-	}
-
-	@Override
-	public int getFieldCount() {
-		
-		return 0;
-	}
-
-	@Override
-	public void clear() {
-		
-	}
 	
 	@Override
     public void readFromNBT(NBTTagCompound nbtTagCompound)
@@ -186,5 +138,29 @@ public class TileEntityFF extends TileEntity implements IInventory {
         }
         nbtTagCompound.setTag("Items", tagList);
     }
+
+	@Override
+	public String getInventoryName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean hasCustomInventoryName() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void openInventory() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void closeInventory() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

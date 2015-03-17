@@ -1,9 +1,9 @@
 package danielm59.fastfood.creativetab;
 
-import danielm59.fastfood.init.ModItems;
-import danielm59.fastfood.reference.Reference;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import danielm59.fastfood.init.ModItems;
+import danielm59.fastfood.reference.Reference;
 
 public class CreativeTabFF {
 

@@ -1,10 +1,10 @@
 package danielm59.fastfood.inventory;
 
-import danielm59.fastfood.tileentity.TileEntityCounter;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import danielm59.fastfood.tileentity.TileEntityCounter;
 
 public class ContainerCounter extends ContainerFF {
 
@@ -19,7 +19,7 @@ public class ContainerCounter extends ContainerFF {
     public ContainerCounter(InventoryPlayer inventoryPlayer, TileEntityCounter tileEntityCounter, EntityPlayer player) {
     	
     	this.tileEntityCounter = tileEntityCounter;
-        tileEntityCounter.openInventory(player);
+        tileEntityCounter.openInventory();
         
         chestInventoryRows = COUNTER_INVENTORY_ROWS;
         chestInventoryColumns = COUNTER_INVENTORY_COLUMNS;
@@ -59,7 +59,7 @@ public class ContainerCounter extends ContainerFF {
     public void onContainerClosed(EntityPlayer entityPlayer)
     {
         super.onContainerClosed(entityPlayer);
-        tileEntityCounter.closeInventory(entityPlayer);
+        tileEntityCounter.closeInventory();
     }
     
     @Override

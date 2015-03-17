@@ -9,19 +9,21 @@ public class BlockCropTomato extends BlockCropsFF {
 	public BlockCropTomato() {
 		
 		super();
+		this.setBlockName("tomatocrop");
 		
 	}
 	
     @Override
-    protected Item getSeed() {
+    protected Item func_149866_i() {
 
-        return ModCrops.tomatoseeds;
+    	return ModCrops.tomatoseeds;
     }
 
     @Override
-    protected Item getCrop() {
+    protected Item func_149865_P() {
 
-        return ModFood.tomato;
+    	return ModFood.tomato;
     }
+
 	
 }

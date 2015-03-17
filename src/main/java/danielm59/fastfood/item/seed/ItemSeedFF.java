@@ -1,19 +1,16 @@
 package danielm59.fastfood.item.seed;
 
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import danielm59.fastfood.creativetab.CreativeTabFF;
-import danielm59.fastfood.reference.Reference;
 import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import danielm59.fastfood.creativetab.CreativeTabFF;
+import danielm59.fastfood.reference.Reference;
 
 public class ItemSeedFF extends ItemSeeds implements IPlantable {
 
@@ -27,15 +24,15 @@ public class ItemSeedFF extends ItemSeeds implements IPlantable {
 	}
     
     @Override
-    public EnumPlantType getPlantType(IBlockAccess world, BlockPos p) {
+    public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z) {
 
         return EnumPlantType.Crop;
     }
 
     @Override
-    public IBlockState getPlant(IBlockAccess world, BlockPos p) {
+    public Block getPlant(IBlockAccess world, int x, int y, int z) {
 
-        return crop.getDefaultState();
+        return crop;
     }
 
     @Override
@@ -54,5 +51,12 @@ public class ItemSeedFF extends ItemSeeds implements IPlantable {
     protected String getUnwrappedUnlocalizedName(String unlocalizedName)
     {
         return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IIconRegister iconRegister)
+    {
+        itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
     }
 }

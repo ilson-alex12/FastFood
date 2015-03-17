@@ -1,16 +1,16 @@
 package danielm59.fastfood.client.gui.inventory;
 
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
+
 import org.lwjgl.opengl.GL11;
 
 import danielm59.fastfood.inventory.ContainerCounter;
 import danielm59.fastfood.reference.Reference;
 import danielm59.fastfood.tileentity.TileEntityCounter;
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.StatCollector;
 
 public class GuiCounter extends GuiContainer {
 

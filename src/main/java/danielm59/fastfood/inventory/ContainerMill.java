@@ -1,14 +1,14 @@
 package danielm59.fastfood.inventory;
 
-import danielm59.fastfood.tileentity.TileEntityMill;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import danielm59.fastfood.tileentity.TileEntityMill;
 
 public class ContainerMill extends ContainerFF {
 
@@ -26,7 +26,7 @@ public class ContainerMill extends ContainerFF {
 	public ContainerMill(InventoryPlayer inventory, TileEntityMill tileEntityMill, EntityPlayer player) {
 		
 		this.tileEntityMill = tileEntityMill;
-		tileEntityMill.openInventory(player);
+		tileEntityMill.openInventory();
 		
 		// Add the Input slots to the container
         for (int InputIndex = 0; InputIndex < MILL_INPUTS; ++InputIndex) {
@@ -66,7 +66,7 @@ public class ContainerMill extends ContainerFF {
     public void onContainerClosed(EntityPlayer entityPlayer)
     {
         super.onContainerClosed(entityPlayer);
-        tileEntityMill.closeInventory(entityPlayer);
+        tileEntityMill.closeInventory();
     }
     
     @Override
