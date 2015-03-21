@@ -1,4 +1,4 @@
-package danielm59.fastfood.recipe;
+package danielm59.fastfood.recipe.grinder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,9 +24,9 @@ public class GrinderRegistry {
         grinderRecipes.add(recipe);
     }
     
-    public static void addRecipe(ItemStack output, ItemStack input) {
+    public static void addRecipe(ItemStack input, ItemStack output) {
     	
-    	addRecipe(new GrinderRecipe(output, input));
+    	addRecipe(new GrinderRecipe(input, output));
     	
     }
     

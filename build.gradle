@@ -17,12 +17,12 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "0.0.2"
+version = "0.1.1"
 group= "danielm59.fastfood" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "[1.7.10]Fast Food"
 
 minecraft {
-    version = "1.7.10-10.13.2.1264"
+    version = "10.13.2.1291"
 }
 
 dependencies {
@@ -38,7 +38,6 @@ dependencies {
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
 }
 
 processResources

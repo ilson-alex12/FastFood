@@ -1,6 +1,7 @@
 package danielm59.fastfood.client.gui.inventory;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
@@ -15,9 +16,9 @@ public class GuiGrinder extends GuiContainer {
 
 	private TileEntityGrinder tileEntityGrinder;
 	
-    public GuiGrinder(InventoryPlayer inventoryPlayer, TileEntityGrinder grinder) {
+    public GuiGrinder(InventoryPlayer inventory, TileEntityGrinder grinder, EntityPlayer player) {
         
-    	super(new ContainerGrinder(inventoryPlayer, grinder));
+    	super(new ContainerGrinder(inventory, grinder, player));
         tileEntityGrinder = grinder;
         xSize = 175;
         ySize = 165;
@@ -27,7 +28,7 @@ public class GuiGrinder extends GuiContainer {
     @Override
     protected void drawGuiContainerForegroundLayer(int x, int y) {
             
-    	fontRendererObj.drawString(StatCollector.translateToLocal(tileEntityGrinder.getInventoryName()), 8, 6, 4210752); 
+    	fontRendererObj.drawString(StatCollector.translateToLocal(tileEntityGrinder.getName()), 8, 6, 4210752); 
         
     }
 
@@ -36,7 +37,7 @@ public class GuiGrinder extends GuiContainer {
         
     	GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 
-        this.mc.getTextureManager().bindTexture(new ResourceLocation(Reference.MODID.toLowerCase(),"textures/gui/grinder.png"));
+        this.mc.getTextureManager().bindTexture(new ResourceLocation(Reference.MODID.toLowerCase(),"textures/gui/1to1Gui.png"));
         
         int xStart = (width - xSize) / 2;
         int yStart = (height - ySize) / 2;

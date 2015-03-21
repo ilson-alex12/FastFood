@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "fastfood:crops/tomato/stage_6"
+    }
+}

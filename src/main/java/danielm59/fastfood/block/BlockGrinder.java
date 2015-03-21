@@ -1,16 +1,15 @@
 package danielm59.fastfood.block;
 
-import danielm59.fastfood.FastFood;
-import danielm59.fastfood.reference.GuiId;
-import danielm59.fastfood.tileentity.TileEntityGrinder;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
+import danielm59.fastfood.FastFood;
+import danielm59.fastfood.reference.GuiId;
+import danielm59.fastfood.tileentity.TileEntityGrinder;
 
 public class BlockGrinder extends BlockCounterBase{
 
-public BlockGrinder(){
+	public BlockGrinder(){
 		
 		super();
 		this.setBlockName("grinder");
@@ -25,7 +24,7 @@ public BlockGrinder(){
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
     {
-        if (player.isSneaking() || world.isSideSolid(x, y + 1, z, ForgeDirection.DOWN))
+        if (player.isSneaking())
         {
             return true;
         }
@@ -40,12 +39,4 @@ public BlockGrinder(){
         }
     } 
     
-    @Override
-    public boolean onBlockEventReceived(World world, int x, int y, int z, int eventId, int eventData)
-    {
-        super.onBlockEventReceived(world, x, y, z, eventId, eventData);
-        TileEntity tileentity = world.getTileEntity(x, y, z);
-        return tileentity != null && tileentity.receiveClientEvent(eventId, eventData);
-    }
-	
 }

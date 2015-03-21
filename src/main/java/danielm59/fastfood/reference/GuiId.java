@@ -4,5 +4,8 @@ public enum GuiId {
 	
 	COUNTER,
 	GRINDER,
+	CHURN,
+	PRESS,
+	MILL,
 	
 }

@@ -1,5 +1,6 @@
 package danielm59.fastfood.block.crops;
 
+import net.minecraft.item.Item;
 import danielm59.fastfood.init.ModCrops;
 import danielm59.fastfood.init.ModFood;
 
@@ -9,9 +10,20 @@ public class BlockCropTomato extends BlockCropsFF {
 		
 		super();
 		this.setBlockName("tomatocrop");
-		this.setSeed(ModCrops.tomatoseeds);
-		this.setDrop(ModFood.tomato);
 		
 	}
+	
+    @Override
+    protected Item func_149866_i() {
+
+    	return ModCrops.tomatoseeds;
+    }
+
+    @Override
+    protected Item func_149865_P() {
+
+    	return ModFood.tomato;
+    }
+
 	
 }
