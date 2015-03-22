@@ -1,6 +1,5 @@
 package danielm59.fastfood.block.crops;
 
-
 import java.util.Random;
 
 import net.minecraft.block.BlockCrops;
@@ -14,38 +13,38 @@ import net.minecraftforge.common.EnumPlantType;
 import danielm59.fastfood.reference.Reference;
 
 public class BlockCropsFF extends BlockCrops implements IGrowable {
-
+    
     public BlockCropsFF() {
-
+    
         this.setTickRandomly(true);
         this.setCreativeTab((CreativeTabs) null);
         this.setHardness(0.0F);
         this.setStepSound(soundTypeGrass);
         this.disableStats();
-
+        
     }
-
+    
     public static boolean func_149887_c(int meta) {
-
+    
         return (meta & 7) != 0;
     }
-
+    
     @Override
     public String getUnlocalizedName() {
-
+    
         return String.format("tile.%s:%s", Reference.MODID, getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
-
+    
     protected String getUnwrappedUnlocalizedName(String name) {
-
+    
         return name.substring(name.indexOf(".") + 1);
     }
-
+    
     @Override
     public void setBlockBoundsBasedOnState(IBlockAccess world, BlockPos p) {
-
+    
         IBlockState state = world.getBlockState(p);
-    	Integer l = (Integer)state.getValue(AGE);
+        Integer l = (Integer) state.getValue(AGE);
         if (l <= 1) {
             this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.25F, 1.0F);
         } else if (l <= 2) {
@@ -56,32 +55,29 @@ public class BlockCropsFF extends BlockCrops implements IGrowable {
             this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
         }
     }
-
+    
     /**
      * Returns the quantity of items to drop on block destruction.
      */
     @Override
     public int quantityDropped(Random random) {
-
+    
         return random.nextInt(3) + 1;
     }
-
     
     /**
      * Checks to see if its valid to put this block at the specified coordinates. Args: world, p
      */
     @Override
     public boolean canPlaceBlockAt(World world, BlockPos p) {
-
-        return super.canPlaceBlockAt(world, p) && world.isAirBlock(p.add(0,1,0));
-    }
-
-
-    @Override
-    public EnumPlantType getPlantType(IBlockAccess world, BlockPos p)
-    {
-    	return EnumPlantType.Crop;
+    
+        return super.canPlaceBlockAt(world, p) && world.isAirBlock(p.add(0, 1, 0));
     }
     
+    @Override
+    public EnumPlantType getPlantType(IBlockAccess world, BlockPos p) {
+    
+        return EnumPlantType.Crop;
+    }
     
 }

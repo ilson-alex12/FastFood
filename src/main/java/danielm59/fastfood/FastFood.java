@@ -20,43 +20,42 @@ import danielm59.fastfood.reference.Reference;
 import danielm59.fastfood.utility.LogHelper;
 
 @Mod(modid = Reference.MODID, name = Reference.MODNAME, version = Reference.VERSION, guiFactory = Reference.GUIFACTORY)
-public class FastFood
-{
+public class FastFood {
     
     @Mod.Instance(Reference.MODID)
     public static FastFood instance;
     
     @SidedProxy(clientSide = Reference.CPROXY, serverSide = Reference.SPROXY)
-    public static IProxy proxy;
+    public static IProxy   proxy;
     
     @EventHandler
     public void PreInit(FMLPreInitializationEvent event) {
-    	
-    	ConfigurationHandler.init(event.getSuggestedConfigurationFile());
-    	FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
-    	ModBlocks.init();
-    	ModItems.init();
-    	ModFood.init();
-    	ModCrops.init();
-    	LogHelper.info("Pre Initialization Complete!");
-    	
+    
+        ConfigurationHandler.init(event.getSuggestedConfigurationFile());
+        FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
+        ModBlocks.init();
+        ModItems.init();
+        ModFood.init();
+        ModCrops.init();
+        LogHelper.info("Pre Initialization Complete!");
+        
     }
     
     @EventHandler
     public void Init(FMLInitializationEvent event) {
-		
-    	Recipes.init();
-    	NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
-    	proxy.registerTileEntities();
-    	proxy.loadTextures();
-    	LogHelper.info("Initialization Complete!");
-    	
+    
+        Recipes.init();
+        NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
+        proxy.registerTileEntities();
+        proxy.loadTextures();
+        LogHelper.info("Initialization Complete!");
+        
     }
     
     @EventHandler
     public void PostInit(FMLPostInitializationEvent event) {
-    	
-    	LogHelper.info("Post Initialization Complete!");
-    	
+    
+        LogHelper.info("Post Initialization Complete!");
+        
     }
 }

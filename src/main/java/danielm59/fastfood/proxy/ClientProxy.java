@@ -6,15 +6,15 @@ import danielm59.fastfood.init.ModFood;
 import danielm59.fastfood.init.ModItems;
 
 public class ClientProxy extends CommonProxy {
-
-	@Override
-	public void loadTextures() {
-
-		ModBlocks.textures();
-		ModItems.textures();
-		ModFood.textures();
-		ModCrops.textures();
-
-	}
-
+    
+    @Override
+    public void loadTextures() {
+    
+        ModBlocks.textures();
+        ModItems.textures();
+        ModFood.textures();
+        ModCrops.textures();
+        
+    }
+    
 }

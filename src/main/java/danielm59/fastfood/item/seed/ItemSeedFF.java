@@ -12,43 +12,43 @@ import danielm59.fastfood.creativetab.CreativeTabFF;
 import danielm59.fastfood.reference.Reference;
 
 public class ItemSeedFF extends ItemSeeds implements IPlantable {
-
-	public static Block crop;
-	
-	public ItemSeedFF(Block blockCrop, Block blockSoil) {
-		super(blockCrop, blockSoil);
-		crop = blockCrop;
+    
+    public static Block crop;
+    
+    public ItemSeedFF(Block blockCrop, Block blockSoil) {
+    
+        super(blockCrop, blockSoil);
+        crop = blockCrop;
         this.setCreativeTab(CreativeTabFF.FF_TAB);
-		
-	}
+        
+    }
     
     @Override
     public EnumPlantType getPlantType(IBlockAccess world, BlockPos p) {
-
+    
         return EnumPlantType.Crop;
     }
-
+    
     @Override
     public IBlockState getPlant(IBlockAccess world, BlockPos p) {
-
+    
         return crop.getDefaultState();
     }
-
+    
     @Override
-    public String getUnlocalizedName()
-    {
+    public String getUnlocalizedName() {
+    
         return String.format("item.%s%s", Reference.MODID.toLowerCase() + ":", getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
-
+    
     @Override
-    public String getUnlocalizedName(ItemStack itemStack)
-    {
+    public String getUnlocalizedName(ItemStack itemStack) {
+    
         return String.format("item.%s%s", Reference.MODID.toLowerCase() + ":", getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
-
-
-    protected String getUnwrappedUnlocalizedName(String unlocalizedName)
-    {
+    
+    protected String getUnwrappedUnlocalizedName(String unlocalizedName) {
+    
         return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
     }
 }

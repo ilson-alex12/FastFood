@@ -12,74 +12,73 @@ import net.minecraft.world.World;
 import danielm59.fastfood.creativetab.CreativeTabFF;
 import danielm59.fastfood.reference.Reference;
 
-public class FoodFF extends ItemFood{
-
-	public FoodFF(int hunger, float saturation, boolean wolf) {
-		
-		super(hunger, saturation, wolf);
-		this.setCreativeTab(CreativeTabFF.FF_TAB);
-	}
-
-	@Override
-    public String getUnlocalizedName()
-    {
-        return String.format("item.%s:%s", Reference.MODID.toLowerCase(), getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+public class FoodFF extends ItemFood {
+    
+    public FoodFF(int hunger, float saturation, boolean wolf) {
+    
+        super(hunger, saturation, wolf);
+        this.setCreativeTab(CreativeTabFF.FF_TAB);
     }
-
+    
     @Override
-    public String getUnlocalizedName(ItemStack itemStack)
-    {
+    public String getUnlocalizedName() {
+    
         return String.format("item.%s:%s", Reference.MODID.toLowerCase(), getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
-
-    protected String getUnwrappedUnlocalizedName(String unlocalizedName)
-    {
+    
+    @Override
+    public String getUnlocalizedName(ItemStack itemStack) {
+    
+        return String.format("item.%s:%s", Reference.MODID.toLowerCase(), getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+    }
+    
+    protected String getUnwrappedUnlocalizedName(String unlocalizedName) {
+    
         return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
     }
     
     @Override
-    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityPlayer playerIn){
-    	
-    	if (stack.getItem().hasContainerItem()){
-    	
-    		if(!playerIn.inventory.addItemStackToInventory(new ItemStack(stack.getItem().getContainerItem(), 1))){
-    			
-    			if (!worldIn.isRemote){
-    			
-	    			Random rand = new Random();
-	    			BlockPos p = playerIn.getPosition();
-	
-	                float x = p.getX();
-	                float y = p.getY()+1;
-	                float z = p.getZ();
-	                
-	                
-	                float dX = rand.nextFloat() * 0.8F + 0.1F;
-	                float dY = rand.nextFloat() * 0.8F + 0.1F;
-	                float dZ = rand.nextFloat() * 0.8F + 0.1F;
-	
-	                EntityItem entityItem = new EntityItem(worldIn, x + dX, y + dY, z + dZ, new ItemStack(stack.getItem().getContainerItem(),1));
-	
-	                if (stack.hasTagCompound()) {
-	                	
-	                    entityItem.getEntityItem().setTagCompound((NBTTagCompound) stack.getTagCompound().copy());
-	                    
-	                }
-	
-	                float factor = 0.05F;
-	                entityItem.motionX = rand.nextGaussian() * factor;
-	                entityItem.motionY = rand.nextGaussian() * factor + 0.2F;
-	                entityItem.motionZ = rand.nextGaussian() * factor;
-	                
-	                worldIn.spawnEntityInWorld(entityItem);
-	                
-    			}
-    			
-    		}
-    		
-    	}
-    	
-    	return super.onItemUseFinish(stack,worldIn, playerIn);
-    	
+    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityPlayer playerIn) {
+    
+        if (stack.getItem().hasContainerItem()) {
+            
+            if (!playerIn.inventory.addItemStackToInventory(new ItemStack(stack.getItem().getContainerItem(), 1))) {
+                
+                if (!worldIn.isRemote) {
+                    
+                    Random rand = new Random();
+                    BlockPos p = playerIn.getPosition();
+                    
+                    float x = p.getX();
+                    float y = p.getY() + 1;
+                    float z = p.getZ();
+                    
+                    float dX = rand.nextFloat() * 0.8F + 0.1F;
+                    float dY = rand.nextFloat() * 0.8F + 0.1F;
+                    float dZ = rand.nextFloat() * 0.8F + 0.1F;
+                    
+                    EntityItem entityItem = new EntityItem(worldIn, x + dX, y + dY, z + dZ, new ItemStack(stack.getItem().getContainerItem(), 1));
+                    
+                    if (stack.hasTagCompound()) {
+                        
+                        entityItem.getEntityItem().setTagCompound((NBTTagCompound) stack.getTagCompound().copy());
+                        
+                    }
+                    
+                    float factor = 0.05F;
+                    entityItem.motionX = rand.nextGaussian() * factor;
+                    entityItem.motionY = rand.nextGaussian() * factor + 0.2F;
+                    entityItem.motionZ = rand.nextGaussian() * factor;
+                    
+                    worldIn.spawnEntityInWorld(entityItem);
+                    
+                }
+                
+            }
+            
+        }
+        
+        return super.onItemUseFinish(stack, worldIn, playerIn);
+        
     }
 }

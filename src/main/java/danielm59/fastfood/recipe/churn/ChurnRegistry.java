@@ -6,12 +6,12 @@ import java.util.List;
 import net.minecraft.item.ItemStack;
 
 public class ChurnRegistry {
-
-    private static ChurnRegistry INSTANCE = new ChurnRegistry();
-    private final static List<ChurnRecipe> ChurnRecipes = new ArrayList<ChurnRecipe>();	
-
+    
+    private static ChurnRegistry           INSTANCE     = new ChurnRegistry();
+    private final static List<ChurnRecipe> ChurnRecipes = new ArrayList<ChurnRecipe>();
+    
     private ChurnRegistry() {
-        
+    
     }
     
     public static ChurnRegistry getInstance() {
@@ -25,21 +25,21 @@ public class ChurnRegistry {
     }
     
     public static void addRecipe(ItemStack input, ItemStack output) {
-    	
-    	addRecipe(new ChurnRecipe(input, output));
-    	
+    
+        addRecipe(new ChurnRecipe(input, output));
+        
     }
     
     public List<ChurnRecipe> getAllRecipes() {
-        
+    
         return ChurnRecipes;
     }
-
-	public ChurnRecipe getMatchingRecipe(ItemStack inputSlot, ItemStack outputSlot) {
-		
-		for (ChurnRecipe recipe : ChurnRecipes) {
-			if (inputSlot != null) {
-				if (recipe.getInput().isItemEqual(inputSlot)) {
+    
+    public ChurnRecipe getMatchingRecipe(ItemStack inputSlot, ItemStack outputSlot) {
+    
+        for (ChurnRecipe recipe : ChurnRecipes) {
+            if (inputSlot != null) {
+                if (recipe.getInput().isItemEqual(inputSlot)) {
                     if (outputSlot != null) {
                         ItemStack craftingResult = recipe.getOutput();
                         if (!ItemStack.areItemStackTagsEqual(outputSlot, craftingResult) || !outputSlot.isItemEqual(craftingResult)) {
@@ -48,12 +48,11 @@ public class ChurnRegistry {
                             continue;
                         }
                     }
-	                return recipe;
-	            }
-			}
+                    return recipe;
+                }
+            }
         }
         return null;
     }
-   
-	
+    
 }

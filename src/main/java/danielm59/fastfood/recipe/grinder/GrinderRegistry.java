@@ -6,12 +6,12 @@ import java.util.List;
 import net.minecraft.item.ItemStack;
 
 public class GrinderRegistry {
-
-    private static GrinderRegistry INSTANCE = new GrinderRegistry();
-    private final static List<GrinderRecipe> grinderRecipes = new ArrayList<GrinderRecipe>();	
-
+    
+    private static GrinderRegistry           INSTANCE       = new GrinderRegistry();
+    private final static List<GrinderRecipe> grinderRecipes = new ArrayList<GrinderRecipe>();
+    
     private GrinderRegistry() {
-        
+    
     }
     
     public static GrinderRegistry getInstance() {
@@ -25,21 +25,21 @@ public class GrinderRegistry {
     }
     
     public static void addRecipe(ItemStack input, ItemStack output) {
-    	
-    	addRecipe(new GrinderRecipe(input, output));
-    	
+    
+        addRecipe(new GrinderRecipe(input, output));
+        
     }
     
     public List<GrinderRecipe> getAllRecipes() {
-        
+    
         return grinderRecipes;
     }
-
-	public GrinderRecipe getMatchingRecipe(ItemStack inputSlot, ItemStack outputSlot) {
-		
-		for (GrinderRecipe recipe : grinderRecipes) {
-			if (inputSlot != null) {
-				if (recipe.getInput().isItemEqual(inputSlot)) {
+    
+    public GrinderRecipe getMatchingRecipe(ItemStack inputSlot, ItemStack outputSlot) {
+    
+        for (GrinderRecipe recipe : grinderRecipes) {
+            if (inputSlot != null) {
+                if (recipe.getInput().isItemEqual(inputSlot)) {
                     if (outputSlot != null) {
                         ItemStack craftingResult = recipe.getOutput();
                         if (!ItemStack.areItemStackTagsEqual(outputSlot, craftingResult) || !outputSlot.isItemEqual(craftingResult)) {
@@ -48,12 +48,11 @@ public class GrinderRegistry {
                             continue;
                         }
                     }
-	                return recipe;
-	            }
-			}
+                    return recipe;
+                }
+            }
         }
         return null;
     }
     
-	
 }

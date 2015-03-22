@@ -12,32 +12,32 @@ import danielm59.fastfood.inventory.ContainerPress;
 import danielm59.fastfood.reference.Reference;
 import danielm59.fastfood.tileentity.TileEntityPress;
 
-
-public class GuiPress extends GuiContainer{
-	private TileEntityPress tileEntityPress;
-	
+public class GuiPress extends GuiContainer {
+    
+    private TileEntityPress tileEntityPress;
+    
     public GuiPress(InventoryPlayer inventory, TileEntityPress Press, EntityPlayer player) {
-        
-    	super(new ContainerPress(inventory, Press, player));
+    
+        super(new ContainerPress(inventory, Press, player));
         tileEntityPress = Press;
         xSize = 175;
         ySize = 165;
-		
-	}
-
-    @Override
-    protected void drawGuiContainerForegroundLayer(int x, int y) {
-            
-    	fontRendererObj.drawString(StatCollector.translateToLocal(tileEntityPress.getName()), 8, 6, 4210752); 
         
     }
-
+    
+    @Override
+    protected void drawGuiContainerForegroundLayer(int x, int y) {
+    
+        fontRendererObj.drawString(StatCollector.translateToLocal(tileEntityPress.getName()), 8, 6, 4210752);
+        
+    }
+    
     @Override
     protected void drawGuiContainerBackgroundLayer(float opacity, int x, int y) {
+    
+        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         
-    	GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-
-        this.mc.getTextureManager().bindTexture(new ResourceLocation(Reference.MODID.toLowerCase(),"textures/gui/2to1Gui.png"));
+        this.mc.getTextureManager().bindTexture(new ResourceLocation(Reference.MODID.toLowerCase(), "textures/gui/2to1Gui.png"));
         
         int xStart = (width - xSize) / 2;
         int yStart = (height - ySize) / 2;

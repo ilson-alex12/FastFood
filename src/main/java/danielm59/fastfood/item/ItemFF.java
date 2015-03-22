@@ -5,31 +5,30 @@ import net.minecraft.item.ItemStack;
 import danielm59.fastfood.creativetab.CreativeTabFF;
 import danielm59.fastfood.reference.Reference;
 
-public class ItemFF extends Item{
-
-	public ItemFF(){
-		
-		super();
-		this.setCreativeTab(CreativeTabFF.FF_TAB);
-		
-	}
-	
+public class ItemFF extends Item {
+    
+    public ItemFF() {
+    
+        super();
+        this.setCreativeTab(CreativeTabFF.FF_TAB);
+        
+    }
+    
     @Override
-    public String getUnlocalizedName()
-    {
+    public String getUnlocalizedName() {
+    
         return String.format("item.%s%s", Reference.MODID.toLowerCase() + ":", getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
-
+    
     @Override
-    public String getUnlocalizedName(ItemStack itemStack)
-    {
+    public String getUnlocalizedName(ItemStack itemStack) {
+    
         return String.format("item.%s%s", Reference.MODID.toLowerCase() + ":", getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
-
-
-    protected String getUnwrappedUnlocalizedName(String unlocalizedName)
-    {
+    
+    protected String getUnwrappedUnlocalizedName(String unlocalizedName) {
+    
         return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
     }
-	
+    
 }
