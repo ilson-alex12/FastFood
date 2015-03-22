@@ -1,11 +1,11 @@
 package danielm59.fastfood.tileentity;
 
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.gui.IUpdatePlayerListBox;
 import danielm59.fastfood.recipe.churn.ChurnRecipe;
 import danielm59.fastfood.recipe.churn.ChurnRegistry;
 
-public class TileEntityChurn extends TileEntityFF implements IUpdatePlayerListBox {
+public class TileEntityChurn extends TileEntityFF {
 
 	public int currentProcessTime;
 	
@@ -23,7 +23,7 @@ public class TileEntityChurn extends TileEntityFF implements IUpdatePlayerListBo
 	}
     
     @Override
-    public void update() {
+    public void updateEntity(){
     
         if (!worldObj.isRemote) {
 

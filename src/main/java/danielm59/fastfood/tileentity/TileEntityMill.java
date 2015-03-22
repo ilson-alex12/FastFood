@@ -8,7 +8,7 @@ import danielm59.fastfood.recipe.mill.MillInputRecipe;
 import danielm59.fastfood.recipe.mill.MillOutputRecipe;
 import danielm59.fastfood.recipe.mill.MillRegistry;
 
-public class TileEntityMill extends TileEntityFF implements IUpdatePlayerListBox {
+public class TileEntityMill extends TileEntityFF{
 
 	public int currentInputProcessTime;
 	public int currentOutputProcessTime;
@@ -31,7 +31,7 @@ public class TileEntityMill extends TileEntityFF implements IUpdatePlayerListBox
 	}
 	
 	@Override
-	public void update() {
+	public void updateEntity() {
 		
 		InputUpdate();
 		OutputUpdate();

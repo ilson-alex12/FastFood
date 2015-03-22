@@ -1,11 +1,12 @@
 package danielm59.fastfood.tileentity;
 
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.gui.IUpdatePlayerListBox;
 import danielm59.fastfood.recipe.grinder.GrinderRecipe;
 import danielm59.fastfood.recipe.grinder.GrinderRegistry;
 
-public class TileEntityGrinder extends TileEntityFF implements IUpdatePlayerListBox {
+public class TileEntityGrinder extends TileEntityFF {
 	
 	public int currentProcessTime;
 	
@@ -23,7 +24,7 @@ public class TileEntityGrinder extends TileEntityFF implements IUpdatePlayerList
 	}
     
     @Override
-    public void update() {
+    public void updateEntity() {
     
         if (!worldObj.isRemote) {
 

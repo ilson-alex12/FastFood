@@ -5,7 +5,7 @@ import net.minecraft.server.gui.IUpdatePlayerListBox;
 import danielm59.fastfood.recipe.press.PressRecipe;
 import danielm59.fastfood.recipe.press.PressRegistry;
 
-public class TileEntityPress extends TileEntityFF implements IUpdatePlayerListBox {
+public class TileEntityPress extends TileEntityFF {
 
 	public int currentProcessTime;
 	
@@ -23,7 +23,7 @@ public class TileEntityPress extends TileEntityFF implements IUpdatePlayerListBo
 	}
     
     @Override
-    public void update() {
+    public void updateEntity() {
     
         if (!worldObj.isRemote) {
 
