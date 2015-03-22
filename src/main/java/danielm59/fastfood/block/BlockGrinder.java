@@ -1,14 +1,14 @@
 package danielm59.fastfood.block;
 
-import danielm59.fastfood.FastFood;
-import danielm59.fastfood.reference.GuiId;
-import danielm59.fastfood.tileentity.TileEntityGrinder;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
+import danielm59.fastfood.FastFood;
+import danielm59.fastfood.reference.GuiId;
+import danielm59.fastfood.tileentity.TileEntityGrinder;
 
 public class BlockGrinder extends BlockCounterBase{
 

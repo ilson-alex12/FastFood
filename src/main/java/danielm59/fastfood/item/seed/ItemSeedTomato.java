@@ -1,8 +1,7 @@
 package danielm59.fastfood.item.seed;
 
-import danielm59.fastfood.init.ModCrops;
-import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import danielm59.fastfood.init.ModCrops;
 
 public class ItemSeedTomato extends ItemSeedFF {
 

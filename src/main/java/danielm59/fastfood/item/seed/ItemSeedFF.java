@@ -1,19 +1,15 @@
 package danielm59.fastfood.item.seed;
 
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import danielm59.fastfood.creativetab.CreativeTabFF;
-import danielm59.fastfood.reference.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
+import danielm59.fastfood.creativetab.CreativeTabFF;
+import danielm59.fastfood.reference.Reference;
 
 public class ItemSeedFF extends ItemSeeds implements IPlantable {
 

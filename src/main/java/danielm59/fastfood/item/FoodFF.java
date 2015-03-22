@@ -2,18 +2,15 @@ package danielm59.fastfood.item;
 
 import java.util.Random;
 
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import danielm59.fastfood.creativetab.CreativeTabFF;
-import danielm59.fastfood.reference.Reference;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
+import danielm59.fastfood.creativetab.CreativeTabFF;
+import danielm59.fastfood.reference.Reference;
 
 public class FoodFF extends ItemFood{
 

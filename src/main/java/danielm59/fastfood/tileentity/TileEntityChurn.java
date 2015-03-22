@@ -1,14 +1,9 @@
 package danielm59.fastfood.tileentity;
 
+import net.minecraft.item.ItemStack;
+import net.minecraft.server.gui.IUpdatePlayerListBox;
 import danielm59.fastfood.recipe.churn.ChurnRecipe;
 import danielm59.fastfood.recipe.churn.ChurnRegistry;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.server.gui.IUpdatePlayerListBox;
-import net.minecraft.util.IChatComponent;
 
 public class TileEntityChurn extends TileEntityFF implements IUpdatePlayerListBox {
 

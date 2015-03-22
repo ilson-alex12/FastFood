@@ -1,11 +1,12 @@
 package danielm59.fastfood.tileentity;
 
-import danielm59.fastfood.recipe.mill.*;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.gui.IUpdatePlayerListBox;
+import danielm59.fastfood.recipe.mill.MillInputRecipe;
+import danielm59.fastfood.recipe.mill.MillOutputRecipe;
+import danielm59.fastfood.recipe.mill.MillRegistry;
 
 public class TileEntityMill extends TileEntityFF implements IUpdatePlayerListBox {
 

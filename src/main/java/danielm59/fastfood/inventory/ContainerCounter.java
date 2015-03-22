@@ -1,10 +1,10 @@
 package danielm59.fastfood.inventory;
 
-import danielm59.fastfood.tileentity.TileEntityCounter;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import danielm59.fastfood.tileentity.TileEntityCounter;
 
 public class ContainerCounter extends ContainerFF {
 

@@ -1,10 +1,7 @@
 package danielm59.fastfood.item;
 
-import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import danielm59.fastfood.creativetab.CreativeTabFF;
 
 public class FoodDrinkableFF extends FoodFF {
 

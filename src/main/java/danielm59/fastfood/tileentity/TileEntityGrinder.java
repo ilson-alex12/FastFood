@@ -1,15 +1,9 @@
 package danielm59.fastfood.tileentity;
 
+import net.minecraft.item.ItemStack;
+import net.minecraft.server.gui.IUpdatePlayerListBox;
 import danielm59.fastfood.recipe.grinder.GrinderRecipe;
 import danielm59.fastfood.recipe.grinder.GrinderRegistry;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.server.gui.IUpdatePlayerListBox;
-import net.minecraft.util.IChatComponent;
 
 public class TileEntityGrinder extends TileEntityFF implements IUpdatePlayerListBox {
 	

@@ -1,6 +1,5 @@
 package danielm59.fastfood.inventory;
 
-import danielm59.fastfood.tileentity.TileEntityPress;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;
@@ -9,6 +8,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import danielm59.fastfood.tileentity.TileEntityPress;
 
 
 public class ContainerPress extends ContainerFF {

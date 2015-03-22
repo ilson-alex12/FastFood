@@ -7,8 +7,10 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import danielm59.fastfood.block.crops.*;
-import danielm59.fastfood.item.seed.*;
+import danielm59.fastfood.block.crops.BlockCropTomato;
+import danielm59.fastfood.block.crops.BlockCropsFF;
+import danielm59.fastfood.item.seed.ItemSeedFF;
+import danielm59.fastfood.item.seed.ItemSeedTomato;
 import danielm59.fastfood.reference.Reference;
 
 @GameRegistry.ObjectHolder(Reference.MODID)

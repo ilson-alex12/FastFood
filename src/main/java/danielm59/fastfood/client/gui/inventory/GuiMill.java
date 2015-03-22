@@ -1,17 +1,16 @@
 package danielm59.fastfood.client.gui.inventory;
 
-import org.lwjgl.opengl.GL11;
-
-import danielm59.fastfood.inventory.ContainerChurn;
-import danielm59.fastfood.inventory.ContainerMill;
-import danielm59.fastfood.reference.Reference;
-import danielm59.fastfood.tileentity.TileEntityMill;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
+
+import org.lwjgl.opengl.GL11;
+
+import danielm59.fastfood.inventory.ContainerMill;
+import danielm59.fastfood.reference.Reference;
+import danielm59.fastfood.tileentity.TileEntityMill;
 
 public class GuiMill extends GuiContainer{
 
