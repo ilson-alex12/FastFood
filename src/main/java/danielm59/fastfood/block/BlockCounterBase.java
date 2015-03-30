@@ -87,13 +87,6 @@ public abstract class BlockCounterBase extends BlockFF implements ITileEntityPro
     
         worldIn.setBlockState(pos, state.withProperty(FACING, placer.func_174811_aO().getOpposite()), 2);
         
-        if (stack.hasDisplayName()) {
-            TileEntity tileentity = worldIn.getTileEntity(pos);
-            
-            if (tileentity instanceof TileEntityFurnace) {
-                ((TileEntityFurnace) tileentity).setCustomInventoryName(stack.getDisplayName());
-            }
-        }
     }
     
 }

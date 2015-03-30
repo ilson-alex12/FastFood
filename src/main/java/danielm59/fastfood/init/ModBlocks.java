@@ -9,6 +9,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import danielm59.fastfood.block.BlockChurn;
 import danielm59.fastfood.block.BlockCounter;
 import danielm59.fastfood.block.BlockFF;
+import danielm59.fastfood.block.BlockFryer;
 import danielm59.fastfood.block.BlockGrinder;
 import danielm59.fastfood.block.BlockMill;
 import danielm59.fastfood.block.BlockPress;
@@ -22,6 +23,7 @@ public class ModBlocks {
     public static final BlockFF churn   = new BlockChurn();
     public static final BlockFF press   = new BlockPress();
     public static final BlockFF mill    = new BlockMill();
+    public static final BlockFF fryer   = new BlockFryer();
     
     public static void init() {
     
@@ -30,23 +32,19 @@ public class ModBlocks {
         GameRegistry.registerBlock(churn, "churn");
         GameRegistry.registerBlock(press, "press");
         GameRegistry.registerBlock(mill, "mill");
+        GameRegistry.registerBlock(fryer, "fryer");
         
     }
     
     @SideOnly(Side.CLIENT)
     public static void textures() {
     
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-                .register(Item.getItemFromBlock(counter), 0, new ModelResourceLocation("fastfood:counter", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-                .register(Item.getItemFromBlock(grinder), 0, new ModelResourceLocation("fastfood:grinder", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-                .register(Item.getItemFromBlock(churn), 0, new ModelResourceLocation("fastfood:churn", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-                .register(Item.getItemFromBlock(press), 0, new ModelResourceLocation("fastfood:press", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-                .register(Item.getItemFromBlock(mill), 0, new ModelResourceLocation("fastfood:mill", "inventory"));
-        
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(counter), 0, new ModelResourceLocation("fastfood:counter", "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(grinder), 0, new ModelResourceLocation("fastfood:grinder", "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(churn), 0, new ModelResourceLocation("fastfood:churn", "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(press), 0, new ModelResourceLocation("fastfood:press", "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(mill), 0, new ModelResourceLocation("fastfood:mill", "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(fryer), 0, new ModelResourceLocation("fastfood:press", "inventroy"));
     }
     
 }
