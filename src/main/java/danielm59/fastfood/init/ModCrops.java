@@ -31,8 +31,7 @@ public class ModCrops {
     @SideOnly(Side.CLIENT)
     public static void textures() {
     
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-                .register(tomatoseeds, 0, new ModelResourceLocation("fastfood:tomatoseeds", "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(tomatoseeds, 0, new ModelResourceLocation("fastfood:tomatoseeds", "inventory"));
         
     }
     

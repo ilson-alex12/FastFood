@@ -29,8 +29,7 @@ public class ContainerCounter extends ContainerFF {
             
             for (int chestColumnIndex = 0; chestColumnIndex < chestInventoryColumns; ++chestColumnIndex) {
                 
-                this.addSlotToContainer(new Slot(tileEntityCounter, chestColumnIndex + chestRowIndex * chestInventoryColumns,
-                        62 + chestColumnIndex * 18, 17 + chestRowIndex * 18));
+                this.addSlotToContainer(new Slot(tileEntityCounter, chestColumnIndex + chestRowIndex * chestInventoryColumns, 62 + chestColumnIndex * 18, 17 + chestRowIndex * 18));
                 
             }
             
@@ -41,8 +40,7 @@ public class ContainerCounter extends ContainerFF {
             
             for (int inventoryColumnIndex = 0; inventoryColumnIndex < PLAYER_INVENTORY_COLUMNS; ++inventoryColumnIndex) {
                 
-                this.addSlotToContainer(new Slot(inventoryPlayer, inventoryColumnIndex + inventoryRowIndex * 9 + 9, 8 + inventoryColumnIndex * 18,
-                        84 + inventoryRowIndex * 18));
+                this.addSlotToContainer(new Slot(inventoryPlayer, inventoryColumnIndex + inventoryRowIndex * 9 + 9, 8 + inventoryColumnIndex * 18, 84 + inventoryRowIndex * 18));
                 
             }
             

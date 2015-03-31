@@ -34,12 +34,9 @@ public class ModItems {
     
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(knife, 0, new ModelResourceLocation("fastfood:knife", "inventory"));
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(grater, 0, new ModelResourceLocation("fastfood:grater", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-                .register(flourbag, 0, new ModelResourceLocation("fastfood:flourbag", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-                .register(wheatflour, 0, new ModelResourceLocation("fastfood:wheatflour", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-                .register(millstone, 0, new ModelResourceLocation("fastfood:millstone", "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(flourbag, 0, new ModelResourceLocation("fastfood:flourbag", "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(wheatflour, 0, new ModelResourceLocation("fastfood:wheatflour", "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(millstone, 0, new ModelResourceLocation("fastfood:millstone", "inventory"));
         
     }
     

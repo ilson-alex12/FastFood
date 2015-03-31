@@ -30,8 +30,7 @@ public class ModFood {
     public static final FoodFF butter       = (FoodFF) new FoodFF(1, 0.1F, false).setUnlocalizedName("butter");
     public static final FoodFF cheese       = (FoodFF) new FoodFF(2, 0.1F, false).setUnlocalizedName("cheese");
     public static final FoodFF gratedcheese = (FoodFF) new FoodFF(2, 0.1F, false).setUnlocalizedName("gratedcheese");
-    public static final FoodFF tomatosauce  = (FoodFF) new FoodDrinkableFF(2, 0.3F, false).setUnlocalizedName("tomatosauce").setContainerItem(
-                                                    Items.glass_bottle);
+    public static final FoodFF tomatosauce  = (FoodFF) new FoodDrinkableFF(2, 0.3F, false).setUnlocalizedName("tomatosauce").setContainerItem(Items.glass_bottle);
     
     public static void init() {
     
@@ -59,36 +58,24 @@ public class ModFood {
     @SideOnly(Side.CLIENT)
     public static void textures() {
     
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-                .register(breaddough, 0, new ModelResourceLocation("fastfood:breaddough", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-                .register(pizzabase, 0, new ModelResourceLocation("fastfood:pizzabase", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-                .register(rawpizza, 0, new ModelResourceLocation("fastfood:rawpizza", "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(breaddough, 0, new ModelResourceLocation("fastfood:breaddough", "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(pizzabase, 0, new ModelResourceLocation("fastfood:pizzabase", "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(rawpizza, 0, new ModelResourceLocation("fastfood:rawpizza", "inventory"));
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(pizza, 0, new ModelResourceLocation("fastfood:pizza", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-                .register(rawbread, 0, new ModelResourceLocation("fastfood:rawbread", "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(rawbread, 0, new ModelResourceLocation("fastfood:rawbread", "inventory"));
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(roll, 0, new ModelResourceLocation("fastfood:roll", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-                .register(rawbacon, 0, new ModelResourceLocation("fastfood:rawbacon", "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(rawbacon, 0, new ModelResourceLocation("fastfood:rawbacon", "inventory"));
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(bacon, 0, new ModelResourceLocation("fastfood:bacon", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-                .register(baconroll, 0, new ModelResourceLocation("fastfood:baconroll", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-                .register(rawmince, 0, new ModelResourceLocation("fastfood:rawmince", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-                .register(rawbeefpatty, 0, new ModelResourceLocation("fastfood:rawbeefpatty", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-                .register(beefpatty, 0, new ModelResourceLocation("fastfood:beefpatty", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-                .register(beefburger, 0, new ModelResourceLocation("fastfood:beefburger", "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(baconroll, 0, new ModelResourceLocation("fastfood:baconroll", "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(rawmince, 0, new ModelResourceLocation("fastfood:rawmince", "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(rawbeefpatty, 0, new ModelResourceLocation("fastfood:rawbeefpatty", "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(beefpatty, 0, new ModelResourceLocation("fastfood:beefpatty", "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(beefburger, 0, new ModelResourceLocation("fastfood:beefburger", "inventory"));
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(tomato, 0, new ModelResourceLocation("fastfood:tomato", "inventory"));
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(butter, 0, new ModelResourceLocation("fastfood:butter", "inventory"));
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(cheese, 0, new ModelResourceLocation("fastfood:cheese", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-                .register(gratedcheese, 0, new ModelResourceLocation("fastfood:gratedcheese", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-                .register(tomatosauce, 0, new ModelResourceLocation("fastfood:tomatosauce", "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(gratedcheese, 0, new ModelResourceLocation("fastfood:gratedcheese", "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(tomatosauce, 0, new ModelResourceLocation("fastfood:tomatosauce", "inventory"));
         
     }
     

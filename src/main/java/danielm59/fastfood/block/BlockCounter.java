@@ -26,8 +26,7 @@ public class BlockCounter extends BlockCounterBase {
     }
     
     @Override
-    public boolean onBlockActivated(World world, BlockPos p, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY,
-            float hitZ) {
+    public boolean onBlockActivated(World world, BlockPos p, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
     
         if (player.isSneaking()) {
             return true;
