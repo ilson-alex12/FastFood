@@ -5,6 +5,8 @@ import net.minecraft.server.gui.IUpdatePlayerListBox;
 
 public class TileEntityFryer extends TileEntityFF implements IUpdatePlayerListBox {
     
+    public int currentProcessTime;
+
     public TileEntityFryer() {
     
         super();
@@ -13,9 +15,24 @@ public class TileEntityFryer extends TileEntityFF implements IUpdatePlayerListBo
     }
     
     @Override
+    public String getName() {
+    
+        return "Fryer";
+        
+    }
+    
+    @Override
     public void update() {
     
-        // TODO Auto-generated method stub
+        currentProcessTime = 0;
+
+        // TODO Added tick process to Fryer
+        
+    }
+    
+    public float getProgress() {
+        
+        return (float) currentProcessTime / 100;
         
     }
     
