@@ -8,6 +8,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import danielm59.fastfood.inventory.slots.SlotOutput;
 import danielm59.fastfood.tileentity.TileEntityGrinder;
 
 public class ContainerGrinder extends ContainerFF {

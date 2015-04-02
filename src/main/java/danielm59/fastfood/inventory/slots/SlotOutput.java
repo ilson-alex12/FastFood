@@ -1,4 +1,4 @@
-package danielm59.fastfood.inventory;
+package danielm59.fastfood.inventory.slots;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;

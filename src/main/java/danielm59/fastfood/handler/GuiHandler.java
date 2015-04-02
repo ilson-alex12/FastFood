@@ -6,17 +6,20 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 import danielm59.fastfood.client.gui.inventory.GuiChurn;
 import danielm59.fastfood.client.gui.inventory.GuiCounter;
+import danielm59.fastfood.client.gui.inventory.GuiFryer;
 import danielm59.fastfood.client.gui.inventory.GuiGrinder;
 import danielm59.fastfood.client.gui.inventory.GuiMill;
 import danielm59.fastfood.client.gui.inventory.GuiPress;
 import danielm59.fastfood.inventory.ContainerChurn;
 import danielm59.fastfood.inventory.ContainerCounter;
+import danielm59.fastfood.inventory.ContainerFryer;
 import danielm59.fastfood.inventory.ContainerGrinder;
 import danielm59.fastfood.inventory.ContainerMill;
 import danielm59.fastfood.inventory.ContainerPress;
 import danielm59.fastfood.reference.GuiId;
 import danielm59.fastfood.tileentity.TileEntityChurn;
 import danielm59.fastfood.tileentity.TileEntityCounter;
+import danielm59.fastfood.tileentity.TileEntityFryer;
 import danielm59.fastfood.tileentity.TileEntityGrinder;
 import danielm59.fastfood.tileentity.TileEntityMill;
 import danielm59.fastfood.tileentity.TileEntityPress;
@@ -61,6 +64,13 @@ public class GuiHandler implements IGuiHandler {
             
         }
         
+        if (id == GuiId.FRYER.ordinal()) {
+            
+            TileEntityFryer tileEntityFryer = (TileEntityFryer) world.getTileEntity(new BlockPos(x, y, z));
+            return new ContainerFryer(entityPlayer.inventory, tileEntityFryer, entityPlayer);
+            
+        }
+        
         return null;
     }
     
@@ -99,6 +109,13 @@ public class GuiHandler implements IGuiHandler {
             
             TileEntityMill tileEntityMill = (TileEntityMill) world.getTileEntity(new BlockPos(x, y, z));
             return new GuiMill(entityPlayer.inventory, tileEntityMill, entityPlayer);
+            
+        }
+        
+        if (id == GuiId.FRYER.ordinal()) {
+            
+            TileEntityFryer tileEntityFryer = (TileEntityFryer) world.getTileEntity(new BlockPos(x, y, z));
+            return new GuiFryer(entityPlayer.inventory, tileEntityFryer, entityPlayer);
             
         }
         
