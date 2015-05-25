@@ -44,7 +44,7 @@ public class ModBlocks {
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(churn), 0, new ModelResourceLocation("fastfood:churn", "inventory"));
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(press), 0, new ModelResourceLocation("fastfood:press", "inventory"));
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(mill), 0, new ModelResourceLocation("fastfood:mill", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(fryer), 0, new ModelResourceLocation("fastfood:press", "inventroy"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(fryer), 0, new ModelResourceLocation("fastfood:fryer", "inventroy"));
     }
     
 }
