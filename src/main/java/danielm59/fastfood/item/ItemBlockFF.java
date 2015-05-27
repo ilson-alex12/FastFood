@@ -61,4 +61,9 @@ public class ItemBlockFF extends ItemFF {
         }
     }
     
+    public Block getBlock() {
+    
+        return this.block;
+    }
+    
 }

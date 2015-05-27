@@ -32,7 +32,7 @@ public class ModBlocks {
         GameRegistry.registerBlock(churn, "churn");
         GameRegistry.registerBlock(press, "press");
         GameRegistry.registerBlock(mill, "mill");
-        GameRegistry.registerBlock(fryer, "fryer");
+        GameRegistry.registerBlock(fryer, null, "fryer");
         
     }
     
