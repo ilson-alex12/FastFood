@@ -20,8 +20,8 @@ public class GuiPress extends GuiContainer {
     
         super(new ContainerPress(inventory, Press, player));
         tileEntityPress = Press;
-        xSize = 175;
-        ySize = 165;
+        xSize = 176;
+        ySize = 166;
         
     }
     

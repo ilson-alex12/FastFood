@@ -20,8 +20,8 @@ public class GuiCounter extends GuiContainer {
     
         super(new ContainerCounter(inventoryPlayer, counter, player));
         tileEntityCounter = counter;
-        xSize = 175;
-        ySize = 165;
+        xSize = 176;
+        ySize = 166;
         
     }
     

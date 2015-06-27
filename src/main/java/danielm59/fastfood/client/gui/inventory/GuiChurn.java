@@ -20,8 +20,8 @@ public class GuiChurn extends GuiContainer {
     
         super(new ContainerChurn(inventory, Churn, player));
         tileEntityChurn = Churn;
-        xSize = 175;
-        ySize = 165;
+        xSize = 176;
+        ySize = 166;
         
     }
     

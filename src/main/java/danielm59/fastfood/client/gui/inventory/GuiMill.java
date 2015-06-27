@@ -20,8 +20,8 @@ public class GuiMill extends GuiContainer {
     
         super(new ContainerMill(inventory, Mill, player));
         tileEntityMill = Mill;
-        xSize = 175;
-        ySize = 165;
+        xSize = 176;
+        ySize = 166;
     }
     
     @Override

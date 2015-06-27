@@ -20,8 +20,8 @@ public class GuiGrinder extends GuiContainer {
     
         super(new ContainerGrinder(inventory, grinder, player));
         tileEntityGrinder = grinder;
-        xSize = 175;
-        ySize = 165;
+        xSize = 176;
+        ySize = 166;
         
     }
     
