@@ -5,6 +5,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
+import net.minecraft.inventory.SlotFurnaceFuel;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -24,11 +25,11 @@ public class ContainerFryer extends ContainerFF {
         this.tileEntityFryer = tileEntityFryer;
         tileEntityFryer.openInventory(player);
         
-        //Oil in
-        //Oil out
+        this.addSlotToContainer(new Slot(tileEntityFryer, 3, 26, 17));
+        this.addSlotToContainer(new SlotOutput(tileEntityFryer, 2, 26, 53));
         this.addSlotToContainer(new Slot(tileEntityFryer, 0, 62, 17));
-        //Fuel
-        this.addSlotToContainer(new SlotOutput(tileEntityFryer, 1, 122, 35));
+        this.addSlotToContainer(new SlotFurnaceFuel(tileEntityFryer, 1, 62, 53));
+        this.addSlotToContainer(new SlotOutput(tileEntityFryer, 2, 122, 35));
         
         // Add the player's inventory slots to the container
         for (int inventoryRowIndex = 0; inventoryRowIndex < PLAYER_INVENTORY_ROWS; ++inventoryRowIndex) {
