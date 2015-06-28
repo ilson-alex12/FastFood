@@ -80,9 +80,9 @@ public class ContainerMill extends ContainerFF {
             ItemStack itemStack = slot.getStack();
             newItemStack = itemStack.copy();
             
-            if (slotIndex < MILL_HIDDEN_INPUTS + MILL_INPUTS + MILL_OUTPUTS) {
+            if (slotIndex < MILL_INPUTS + MILL_OUTPUTS) {
                 if (!this.mergeItemStack(itemStack, MILL_INPUTS + MILL_OUTPUTS, inventorySlots.size(), false)) { return null; }
-            } else if (!this.mergeItemStack(itemStack, 0, MILL_INPUTS + MILL_OUTPUTS, false)) { return null; }
+            } else if (!this.mergeItemStack(itemStack, 0,MILL_INPUTS + MILL_OUTPUTS, false)) { return null; }
             
             if (itemStack.stackSize == 0) {
                 slot.putStack(null);
