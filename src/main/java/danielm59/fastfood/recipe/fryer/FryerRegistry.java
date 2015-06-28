@@ -56,20 +56,20 @@ public class FryerRegistry {
         return null;
     }
     
-    public static void addOilRecipe(FryerRecipe recipe) {
+    public static void addOilRecipe(OilRecipe oilRecipe) {
     
-        FryerRecipes.add(recipe);
+        OilRecipes.add(oilRecipe);
     }
     
     public static void addOilRecipe(ItemStack input, ItemStack output) {
     
-        addOilRecipe(new FryerRecipe(input, output));
+        addOilRecipe(new OilRecipe(input, output));
         
     }
     
-    public List<FryerRecipe> getAllOilRecipes() {
+    public List<OilRecipe> getAllOilRecipes() {
     
-        return FryerRecipes;
+        return OilRecipes;
     }
     
     public OilRecipe getMatchingOilRecipe(ItemStack inputSlot, ItemStack outputSlot) {
