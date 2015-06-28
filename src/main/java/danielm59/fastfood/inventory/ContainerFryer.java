@@ -13,8 +13,7 @@ import danielm59.fastfood.tileentity.TileEntityFryer;
 
 public class ContainerFryer extends ContainerFF {
     
-    public static final int FRYER_INPUTS  = 3;
-    public static final int FRYER_OUTPUTS = 1;
+    public static final int TOTAL_SLOTS = 5;
     
     private int             lastProcessTime;
     
@@ -25,19 +24,11 @@ public class ContainerFryer extends ContainerFF {
         this.tileEntityFryer = tileEntityFryer;
         tileEntityFryer.openInventory(player);
         
-        //TODO Add the Input slots to the container
-        for (int InputIndex = 0; InputIndex < FRYER_INPUTS; ++InputIndex) {
-            
-            this.addSlotToContainer(new Slot(tileEntityFryer, InputIndex, 56, 35 + InputIndex * 18));
-            
-        }
-        
-        //TODO Add the Output slots to the container
-        for (int OutputIndex = 0; OutputIndex < FRYER_OUTPUTS; ++OutputIndex) {
-            
-            this.addSlotToContainer(new SlotOutput(tileEntityFryer, FRYER_INPUTS + OutputIndex, 116, 35 + OutputIndex * 18));
-            
-        }
+        //Oil in
+        //Oil out
+        this.addSlotToContainer(new Slot(tileEntityFryer, 0, 62, 17));
+        //Fuel
+        this.addSlotToContainer(new SlotOutput(tileEntityFryer, 1, 122, 35));
         
         // Add the player's inventory slots to the container
         for (int inventoryRowIndex = 0; inventoryRowIndex < PLAYER_INVENTORY_ROWS; ++inventoryRowIndex) {
@@ -76,9 +67,9 @@ public class ContainerFryer extends ContainerFF {
             ItemStack itemStack = slot.getStack();
             newItemStack = itemStack.copy();
             
-            if (slotIndex < FRYER_INPUTS + FRYER_OUTPUTS) {
-                if (!this.mergeItemStack(itemStack, FRYER_INPUTS + FRYER_OUTPUTS, inventorySlots.size(), false)) { return null; }
-            } else if (!this.mergeItemStack(itemStack, 0, FRYER_INPUTS + FRYER_OUTPUTS, false)) { return null; }
+            if (slotIndex < TOTAL_SLOTS) {
+                if (!this.mergeItemStack(itemStack, TOTAL_SLOTS, inventorySlots.size(), false)) { return null; }
+            } else if (!this.mergeItemStack(itemStack, 0, TOTAL_SLOTS, false)) { return null; }
             
             if (itemStack.stackSize == 0) {
                 slot.putStack(null);
