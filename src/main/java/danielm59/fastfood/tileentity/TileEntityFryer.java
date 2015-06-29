@@ -5,7 +5,8 @@ import net.minecraft.server.gui.IUpdatePlayerListBox;
 
 public class TileEntityFryer extends TileEntityFF implements IUpdatePlayerListBox {
     
-    public int currentProcessTime;
+    public int currentFryerProcessTime;
+    public int currentOilProcessTime;
     
     public TileEntityFryer() {
     
@@ -24,15 +25,32 @@ public class TileEntityFryer extends TileEntityFF implements IUpdatePlayerListBo
     @Override
     public void update() {
     
-        currentProcessTime = 0;
-        
-        // TODO Added tick process to Fryer
+        updateFryer();
+        updateOil();
         
     }
     
-    public float getProgress() {
+    public void updateFryer() {
     
-        return (float) currentProcessTime / 100;
+        currentFryerProcessTime = 0;
+        // TODO add Fryer process
+    }
+    
+    public void updateOil() {
+    
+        currentOilProcessTime = 0;
+        // TODO add Oil process
+    }
+    
+    public float getFryerProgress() {
+    
+        return (float) currentFryerProcessTime / 100;
+        
+    }
+    
+    public float getOilProgress() {
+    
+        return (float) currentOilProcessTime / 100;
         
     }
     

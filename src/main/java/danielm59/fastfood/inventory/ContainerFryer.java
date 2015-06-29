@@ -16,7 +16,8 @@ public class ContainerFryer extends ContainerFF {
     
     public static final int TOTAL_SLOTS = 5;
     
-    private int             lastProcessTime;
+    private int             lastFryerProcessTime;
+    private int             lastOilProcessTime;
     
     private TileEntityFryer tileEntityFryer;
     
@@ -24,7 +25,6 @@ public class ContainerFryer extends ContainerFF {
     
         this.tileEntityFryer = tileEntityFryer;
         tileEntityFryer.openInventory(player);
-        
         
         this.addSlotToContainer(new Slot(tileEntityFryer, 0, 62, 17));
         this.addSlotToContainer(new SlotFurnaceFuel(tileEntityFryer, 1, 62, 53));
@@ -87,7 +87,8 @@ public class ContainerFryer extends ContainerFF {
     public void addCraftingToCrafters(ICrafting iCrafting) {
     
         super.addCraftingToCrafters(iCrafting);
-        iCrafting.sendProgressBarUpdate(this, 0, this.tileEntityFryer.currentProcessTime);
+        iCrafting.sendProgressBarUpdate(this, 0, this.tileEntityFryer.currentFryerProcessTime);
+        iCrafting.sendProgressBarUpdate(this, 1, this.tileEntityFryer.currentOilProcessTime);
         
     }
     
@@ -99,13 +100,17 @@ public class ContainerFryer extends ContainerFF {
         for (Object crafter : this.crafters) {
             ICrafting icrafting = (ICrafting) crafter;
             
-            if (this.lastProcessTime != this.tileEntityFryer.currentProcessTime) {
-                icrafting.sendProgressBarUpdate(this, 0, this.tileEntityFryer.currentProcessTime);
+            if (this.lastFryerProcessTime != this.tileEntityFryer.currentFryerProcessTime) {
+                icrafting.sendProgressBarUpdate(this, 0, this.tileEntityFryer.currentFryerProcessTime);
+            }
+            if (this.lastOilProcessTime != this.tileEntityFryer.currentOilProcessTime) {
+                icrafting.sendProgressBarUpdate(this, 0, this.tileEntityFryer.currentOilProcessTime);
             }
             
         }
         
-        this.lastProcessTime = this.tileEntityFryer.currentProcessTime;
+        this.lastFryerProcessTime = this.tileEntityFryer.currentFryerProcessTime;
+        this.lastOilProcessTime = this.tileEntityFryer.currentOilProcessTime;
         
     }
     
@@ -113,7 +118,10 @@ public class ContainerFryer extends ContainerFF {
     public void updateProgressBar(int valueType, int updatedValue) {
     
         if (valueType == 0) {
-            this.tileEntityFryer.currentProcessTime = updatedValue;
+            this.tileEntityFryer.currentFryerProcessTime = updatedValue;
+        }
+        if (valueType == 1) {
+            this.tileEntityFryer.currentOilProcessTime = updatedValue;
         }
         
     }
