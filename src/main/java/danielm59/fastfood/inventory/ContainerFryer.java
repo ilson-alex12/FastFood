@@ -25,11 +25,12 @@ public class ContainerFryer extends ContainerFF {
         this.tileEntityFryer = tileEntityFryer;
         tileEntityFryer.openInventory(player);
         
-        this.addSlotToContainer(new Slot(tileEntityFryer, 3, 26, 17));
-        this.addSlotToContainer(new SlotOutput(tileEntityFryer, 2, 26, 53));
+        
         this.addSlotToContainer(new Slot(tileEntityFryer, 0, 62, 17));
         this.addSlotToContainer(new SlotFurnaceFuel(tileEntityFryer, 1, 62, 53));
-        this.addSlotToContainer(new SlotOutput(tileEntityFryer, 2, 122, 35));
+        this.addSlotToContainer(new Slot(tileEntityFryer, 2, 26, 17));
+        this.addSlotToContainer(new SlotOutput(tileEntityFryer, 3, 26, 53));
+        this.addSlotToContainer(new SlotOutput(tileEntityFryer, 4, 122, 35));
         
         // Add the player's inventory slots to the container
         for (int inventoryRowIndex = 0; inventoryRowIndex < PLAYER_INVENTORY_ROWS; ++inventoryRowIndex) {

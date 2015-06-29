@@ -10,7 +10,7 @@ public class TileEntityFryer extends TileEntityFF implements IUpdatePlayerListBo
     public TileEntityFryer() {
     
         super();
-        inventory = new ItemStack[4];
+        inventory = new ItemStack[5];
         
     }
     
