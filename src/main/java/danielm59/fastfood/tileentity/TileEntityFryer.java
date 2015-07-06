@@ -11,8 +11,8 @@ public class TileEntityFryer extends TileEntityFF implements IUpdatePlayerListBo
     public int  currentOilProcessTime;
     public int  oilLevel;
     
-    private int maxOil;
-    private int addOil;
+    private int maxOil = 10000;
+    private int addOil = 1000;
     
     public TileEntityFryer() {
     
