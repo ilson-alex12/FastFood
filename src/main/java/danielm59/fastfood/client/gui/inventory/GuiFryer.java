@@ -12,11 +12,13 @@ import danielm59.fastfood.inventory.ContainerFryer;
 import danielm59.fastfood.reference.Reference;
 import danielm59.fastfood.tileentity.TileEntityFryer;
 
-public class GuiFryer extends GuiContainer {
+public class GuiFryer extends GuiContainer
+{
     
     private TileEntityFryer tileEntityFryer;
     
-    public GuiFryer(InventoryPlayer inventory, TileEntityFryer Fryer, EntityPlayer player) {
+    public GuiFryer(InventoryPlayer inventory, TileEntityFryer Fryer, EntityPlayer player)
+    {
     
         super(new ContainerFryer(inventory, Fryer, player));
         tileEntityFryer = Fryer;
@@ -25,14 +27,16 @@ public class GuiFryer extends GuiContainer {
     }
     
     @Override
-    protected void drawGuiContainerForegroundLayer(int x, int y) {
+    protected void drawGuiContainerForegroundLayer(int x, int y)
+    {
     
         fontRendererObj.drawString(StatCollector.translateToLocal(tileEntityFryer.getName()), 24, 6, 4210752);
         
     }
     
     @Override
-    protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
+    protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY)
+    {
     
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         

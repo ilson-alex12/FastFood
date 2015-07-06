@@ -11,7 +11,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import danielm59.fastfood.inventory.slots.SlotOutput;
 import danielm59.fastfood.tileentity.TileEntityMill;
 
-public class ContainerMill extends ContainerFF {
+public class ContainerMill extends ContainerFF
+{
     
     public static final int MILL_HIDDEN_INPUTS = 1;
     public static final int MILL_INPUTS        = 1;
@@ -24,29 +25,34 @@ public class ContainerMill extends ContainerFF {
     private TileEntityMill  tileEntityMill;
     private int             lastInputProcessTime;
     
-    public ContainerMill(InventoryPlayer inventory, TileEntityMill tileEntityMill, EntityPlayer player) {
+    public ContainerMill(InventoryPlayer inventory, TileEntityMill tileEntityMill, EntityPlayer player)
+    {
     
         this.tileEntityMill = tileEntityMill;
         tileEntityMill.openInventory(player);
         
         // Add the Input slots to the container
-        for (int InputIndex = 0; InputIndex < MILL_INPUTS; ++InputIndex) {
+        for (int InputIndex = 0; InputIndex < MILL_INPUTS; ++InputIndex)
+        {
             
             this.addSlotToContainer(new Slot(tileEntityMill, MILL_HIDDEN_INPUTS + InputIndex, 86, 47 + InputIndex * 18));
             
         }
         
         // Add the Output slots to the container
-        for (int OutputIndex = 0; OutputIndex < MILL_OUTPUTS; ++OutputIndex) {
+        for (int OutputIndex = 0; OutputIndex < MILL_OUTPUTS; ++OutputIndex)
+        {
             
             this.addSlotToContainer(new SlotOutput(tileEntityMill, MILL_HIDDEN_INPUTS + MILL_INPUTS + OutputIndex, 146, 47 + OutputIndex * 18));
             
         }
         
         // Add the player's inventory slots to the container
-        for (int inventoryRowIndex = 0; inventoryRowIndex < PLAYER_INVENTORY_ROWS; ++inventoryRowIndex) {
+        for (int inventoryRowIndex = 0; inventoryRowIndex < PLAYER_INVENTORY_ROWS; ++inventoryRowIndex)
+        {
             
-            for (int inventoryColumnIndex = 0; inventoryColumnIndex < PLAYER_INVENTORY_COLUMNS; ++inventoryColumnIndex) {
+            for (int inventoryColumnIndex = 0; inventoryColumnIndex < PLAYER_INVENTORY_COLUMNS; ++inventoryColumnIndex)
+            {
                 
                 this.addSlotToContainer(new Slot((IInventory) inventory, inventoryColumnIndex + inventoryRowIndex * 9 + 9, 8 + inventoryColumnIndex * 18, 84 + inventoryRowIndex * 18));
                 
@@ -55,7 +61,8 @@ public class ContainerMill extends ContainerFF {
         }
         
         // Add the player's hot bar slots to the container
-        for (int actionBarSlotIndex = 0; actionBarSlotIndex < PLAYER_INVENTORY_COLUMNS; ++actionBarSlotIndex) {
+        for (int actionBarSlotIndex = 0; actionBarSlotIndex < PLAYER_INVENTORY_COLUMNS; ++actionBarSlotIndex)
+        {
             
             this.addSlotToContainer(new Slot((IInventory) inventory, actionBarSlotIndex, 8 + actionBarSlotIndex * 18, 142));
             
@@ -64,29 +71,35 @@ public class ContainerMill extends ContainerFF {
     }
     
     @Override
-    public void onContainerClosed(EntityPlayer entityPlayer) {
+    public void onContainerClosed(EntityPlayer entityPlayer)
+    {
     
         super.onContainerClosed(entityPlayer);
         tileEntityMill.closeInventory(entityPlayer);
     }
     
     @Override
-    public ItemStack transferStackInSlot(EntityPlayer entityPlayer, int slotIndex) {
+    public ItemStack transferStackInSlot(EntityPlayer entityPlayer, int slotIndex)
+    {
     
         ItemStack newItemStack = null;
         Slot slot = (Slot) inventorySlots.get(slotIndex);
         
-        if (slot != null && slot.getHasStack()) {
+        if (slot != null && slot.getHasStack())
+        {
             ItemStack itemStack = slot.getStack();
             newItemStack = itemStack.copy();
             
-            if (slotIndex < MILL_INPUTS + MILL_OUTPUTS) {
+            if (slotIndex < MILL_INPUTS + MILL_OUTPUTS)
+            {
                 if (!this.mergeItemStack(itemStack, MILL_INPUTS + MILL_OUTPUTS, inventorySlots.size(), false)) { return null; }
             } else if (!this.mergeItemStack(itemStack, 0, MILL_INPUTS + MILL_OUTPUTS, false)) { return null; }
             
-            if (itemStack.stackSize == 0) {
+            if (itemStack.stackSize == 0)
+            {
                 slot.putStack(null);
-            } else {
+            } else
+            {
                 slot.onSlotChanged();
             }
         }
@@ -95,7 +108,8 @@ public class ContainerMill extends ContainerFF {
     }
     
     @Override
-    public void addCraftingToCrafters(ICrafting iCrafting) {
+    public void addCraftingToCrafters(ICrafting iCrafting)
+    {
     
         super.addCraftingToCrafters(iCrafting);
         iCrafting.sendProgressBarUpdate(this, 0, this.tileEntityMill.currentInputProcessTime);
@@ -105,20 +119,25 @@ public class ContainerMill extends ContainerFF {
     }
     
     @Override
-    public void detectAndSendChanges() {
+    public void detectAndSendChanges()
+    {
     
         super.detectAndSendChanges();
         
-        for (Object crafter : this.crafters) {
+        for (Object crafter : this.crafters)
+        {
             ICrafting icrafting = (ICrafting) crafter;
             
-            if (this.lastInputProcessTime != this.tileEntityMill.currentInputProcessTime) {
+            if (this.lastInputProcessTime != this.tileEntityMill.currentInputProcessTime)
+            {
                 icrafting.sendProgressBarUpdate(this, 0, this.tileEntityMill.currentInputProcessTime);
             }
-            if (this.lastOutputProcessTime != this.tileEntityMill.currentOutputProcessTime) {
+            if (this.lastOutputProcessTime != this.tileEntityMill.currentOutputProcessTime)
+            {
                 icrafting.sendProgressBarUpdate(this, 1, this.tileEntityMill.currentOutputProcessTime);
             }
-            if (this.lastFlourLevel != this.tileEntityMill.FlourLevel) {
+            if (this.lastFlourLevel != this.tileEntityMill.FlourLevel)
+            {
                 icrafting.sendProgressBarUpdate(this, 2, this.tileEntityMill.FlourLevel);
             }
             
@@ -131,15 +150,19 @@ public class ContainerMill extends ContainerFF {
     }
     
     @SideOnly(Side.CLIENT)
-    public void updateProgressBar(int valueType, int updatedValue) {
+    public void updateProgressBar(int valueType, int updatedValue)
+    {
     
-        if (valueType == 0) {
+        if (valueType == 0)
+        {
             this.tileEntityMill.currentInputProcessTime = updatedValue;
         }
-        if (valueType == 1) {
+        if (valueType == 1)
+        {
             this.tileEntityMill.currentOutputProcessTime = updatedValue;
         }
-        if (valueType == 2) {
+        if (valueType == 2)
+        {
             this.tileEntityMill.FlourLevel = updatedValue;
         }
     }

@@ -12,11 +12,13 @@ import danielm59.fastfood.inventory.ContainerChurn;
 import danielm59.fastfood.reference.Reference;
 import danielm59.fastfood.tileentity.TileEntityChurn;
 
-public class GuiChurn extends GuiContainer {
+public class GuiChurn extends GuiContainer
+{
     
     private TileEntityChurn tileEntityChurn;
     
-    public GuiChurn(InventoryPlayer inventory, TileEntityChurn Churn, EntityPlayer player) {
+    public GuiChurn(InventoryPlayer inventory, TileEntityChurn Churn, EntityPlayer player)
+    {
     
         super(new ContainerChurn(inventory, Churn, player));
         tileEntityChurn = Churn;
@@ -26,14 +28,16 @@ public class GuiChurn extends GuiContainer {
     }
     
     @Override
-    protected void drawGuiContainerForegroundLayer(int x, int y) {
+    protected void drawGuiContainerForegroundLayer(int x, int y)
+    {
     
         fontRendererObj.drawString(StatCollector.translateToLocal(tileEntityChurn.getName()), 8, 6, 4210752);
         
     }
     
     @Override
-    protected void drawGuiContainerBackgroundLayer(float opacity, int x, int y) {
+    protected void drawGuiContainerBackgroundLayer(float opacity, int x, int y)
+    {
     
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         

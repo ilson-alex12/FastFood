@@ -5,12 +5,15 @@ import net.minecraft.item.Item;
 import danielm59.fastfood.init.ModItems;
 import danielm59.fastfood.reference.Reference;
 
-public class CreativeTabFF {
+public class CreativeTabFF
+{
     
-    public static final CreativeTabs FF_TAB = new CreativeTabs(Reference.MODID.toLowerCase()) {
+    public static final CreativeTabs FF_TAB = new CreativeTabs(Reference.MODID.toLowerCase())
+                                            {
                                                 
                                                 @Override
-                                                public Item getTabIconItem() {
+                                                public Item getTabIconItem()
+                                                {
                                                 
                                                     return ModItems.knife;
                                                     

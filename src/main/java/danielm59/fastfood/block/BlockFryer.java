@@ -19,9 +19,11 @@ import danielm59.fastfood.item.ItemBlockFF;
 import danielm59.fastfood.reference.GuiId;
 import danielm59.fastfood.tileentity.TileEntityFryer;
 
-public class BlockFryer extends BlockCounterBase {
+public class BlockFryer extends BlockCounterBase
+{
     
-    public BlockFryer() {
+    public BlockFryer()
+    {
     
         super();
         this.setUnlocalizedName("fryer");
@@ -29,18 +31,23 @@ public class BlockFryer extends BlockCounterBase {
     }
     
     @Override
-    public TileEntity createNewTileEntity(World worldIn, int meta) {
+    public TileEntity createNewTileEntity(World worldIn, int meta)
+    {
     
         return new TileEntityFryer();
     }
     
     @Override
-    public boolean onBlockActivated(World world, BlockPos p, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
+    public boolean onBlockActivated(World world, BlockPos p, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ)
+    {
     
-        if (player.isSneaking()) {
+        if (player.isSneaking())
+        {
             return true;
-        } else {
-            if (!world.isRemote && world.getTileEntity(p) instanceof TileEntityFryer) {
+        } else
+        {
+            if (!world.isRemote && world.getTileEntity(p) instanceof TileEntityFryer)
+            {
                 player.openGui(FastFood.instance, GuiId.FRYER.ordinal(), world, p.getX(), p.getY(), p.getZ());
             }
             
@@ -48,22 +55,26 @@ public class BlockFryer extends BlockCounterBase {
         }
     }
     
-    public void setBlockBoundsForItemRender() {
+    public void setBlockBoundsForItemRender()
+    {
     
         this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
     }
     
-    public boolean isOpaqueCube() {
+    public boolean isOpaqueCube()
+    {
     
         return false;
     }
     
-    public boolean isFullCube() {
+    public boolean isFullCube()
+    {
     
         return false;
     }
     
-    public void addCollisionBoxesToList(World worldIn, BlockPos pos, IBlockState state, AxisAlignedBB mask, List list, Entity collidingEntity) {
+    public void addCollisionBoxesToList(World worldIn, BlockPos pos, IBlockState state, AxisAlignedBB mask, List list, Entity collidingEntity)
+    {
     
         this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
         super.addCollisionBoxesToList(worldIn, pos, state, mask, list, collidingEntity);
@@ -80,12 +91,14 @@ public class BlockFryer extends BlockCounterBase {
     }
     
     @Override
-    public Item getItemDropped(IBlockState state, Random random, int fortune) {
+    public Item getItemDropped(IBlockState state, Random random, int fortune)
+    {
     
         return ModItems.fryer;
     }
     
-    public static Block getBlockFromItem(Item itemIn) {
+    public static Block getBlockFromItem(Item itemIn)
+    {
     
         return (Block) (itemIn instanceof ItemBlockFF ? ((ItemBlockFF) itemIn).getBlock() : null);
     }

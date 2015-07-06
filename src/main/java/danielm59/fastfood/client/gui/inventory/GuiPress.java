@@ -12,11 +12,13 @@ import danielm59.fastfood.inventory.ContainerPress;
 import danielm59.fastfood.reference.Reference;
 import danielm59.fastfood.tileentity.TileEntityPress;
 
-public class GuiPress extends GuiContainer {
+public class GuiPress extends GuiContainer
+{
     
     private TileEntityPress tileEntityPress;
     
-    public GuiPress(InventoryPlayer inventory, TileEntityPress Press, EntityPlayer player) {
+    public GuiPress(InventoryPlayer inventory, TileEntityPress Press, EntityPlayer player)
+    {
     
         super(new ContainerPress(inventory, Press, player));
         tileEntityPress = Press;
@@ -26,14 +28,16 @@ public class GuiPress extends GuiContainer {
     }
     
     @Override
-    protected void drawGuiContainerForegroundLayer(int x, int y) {
+    protected void drawGuiContainerForegroundLayer(int x, int y)
+    {
     
         fontRendererObj.drawString(StatCollector.translateToLocal(tileEntityPress.getName()), 8, 6, 4210752);
         
     }
     
     @Override
-    protected void drawGuiContainerBackgroundLayer(float opacity, int x, int y) {
+    protected void drawGuiContainerBackgroundLayer(float opacity, int x, int y)
+    {
     
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         

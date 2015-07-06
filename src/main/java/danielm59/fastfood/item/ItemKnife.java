@@ -2,9 +2,11 @@ package danielm59.fastfood.item;
 
 import net.minecraft.item.ItemStack;
 
-public class ItemKnife extends ItemFF {
+public class ItemKnife extends ItemFF
+{
     
-    public ItemKnife() {
+    public ItemKnife()
+    {
     
         super();
         this.setUnlocalizedName("knife");
@@ -15,19 +17,22 @@ public class ItemKnife extends ItemFF {
     }
     
     @Override
-    public boolean getShareTag() {
+    public boolean getShareTag()
+    {
     
         return true;
         
     }
     
-    public boolean hasContainerItem(ItemStack itemStack) {
+    public boolean hasContainerItem(ItemStack itemStack)
+    {
     
         return true;
     }
     
     @Override
-    public ItemStack getContainerItem(ItemStack itemStack) {
+    public ItemStack getContainerItem(ItemStack itemStack)
+    {
     
         ItemStack copiedStack = itemStack.copy();
         

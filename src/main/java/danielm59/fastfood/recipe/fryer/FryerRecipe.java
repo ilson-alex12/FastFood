@@ -2,25 +2,29 @@ package danielm59.fastfood.recipe.fryer;
 
 import net.minecraft.item.ItemStack;
 
-public class FryerRecipe {
+public class FryerRecipe
+{
     
     private ItemStack input;
     private ItemStack output;
     
-    FryerRecipe(ItemStack input, ItemStack output) {
+    FryerRecipe(ItemStack input, ItemStack output)
+    {
     
         this.input = input;
         this.output = output;
         
     }
     
-    public ItemStack getInput() {
+    public ItemStack getInput()
+    {
     
         return input;
         
     }
     
-    public ItemStack getOutput() {
+    public ItemStack getOutput()
+    {
     
         return output;
         

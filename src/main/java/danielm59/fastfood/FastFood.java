@@ -20,7 +20,8 @@ import danielm59.fastfood.reference.Reference;
 import danielm59.fastfood.utility.LogHelper;
 
 @Mod(modid = Reference.MODID, name = Reference.MODNAME, version = Reference.VERSION, guiFactory = Reference.GUIFACTORY)
-public class FastFood {
+public class FastFood
+{
     
     @Mod.Instance(Reference.MODID)
     public static FastFood instance;
@@ -29,7 +30,8 @@ public class FastFood {
     public static IProxy   proxy;
     
     @EventHandler
-    public void PreInit(FMLPreInitializationEvent event) {
+    public void PreInit(FMLPreInitializationEvent event)
+    {
     
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
@@ -42,7 +44,8 @@ public class FastFood {
     }
     
     @EventHandler
-    public void Init(FMLInitializationEvent event) {
+    public void Init(FMLInitializationEvent event)
+    {
     
         Recipes.init();
         NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
@@ -53,7 +56,8 @@ public class FastFood {
     }
     
     @EventHandler
-    public void PostInit(FMLPostInitializationEvent event) {
+    public void PostInit(FMLPostInitializationEvent event)
+    {
     
         LogHelper.info("Post Initialization Complete!");
         

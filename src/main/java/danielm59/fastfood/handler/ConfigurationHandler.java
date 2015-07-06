@@ -7,13 +7,16 @@ import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import danielm59.fastfood.reference.Reference;
 
-public class ConfigurationHandler {
+public class ConfigurationHandler
+{
     
     public static Configuration configuration;
     
-    public static void init(File configFile) {
+    public static void init(File configFile)
+    {
     
-        if (configuration == null) {
+        if (configuration == null)
+        {
             
             configuration = new Configuration(configFile);
             loadConfiguration();
@@ -23,9 +26,11 @@ public class ConfigurationHandler {
     }
     
     @SubscribeEvent
-    public void onConfigurationChangedEvent(ConfigChangedEvent.OnConfigChangedEvent event) {
+    public void onConfigurationChangedEvent(ConfigChangedEvent.OnConfigChangedEvent event)
+    {
     
-        if (event.modID.equalsIgnoreCase(Reference.MODID)) {
+        if (event.modID.equalsIgnoreCase(Reference.MODID))
+        {
             
             loadConfiguration();
             
@@ -33,11 +38,13 @@ public class ConfigurationHandler {
         
     }
     
-    private static void loadConfiguration() {
+    private static void loadConfiguration()
+    {
     
         // load config values
         
-        if (configuration.hasChanged()) {
+        if (configuration.hasChanged())
+        {
             
             configuration.save();
             

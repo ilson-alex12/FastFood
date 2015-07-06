@@ -8,13 +8,16 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import danielm59.fastfood.recipe.churn.ChurnRegistry;
+import danielm59.fastfood.recipe.fryer.FryerRegistry;
 import danielm59.fastfood.recipe.grinder.GrinderRegistry;
 import danielm59.fastfood.recipe.mill.MillRegistry;
 import danielm59.fastfood.recipe.press.PressRegistry;
 
-public class Recipes {
+public class Recipes
+{
     
-    public static void init() {
+    public static void init()
+    {
     
         GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.counter, "sss", "pcp", "ppp", 'p', "plankWood", 's', Blocks.stone_slab, 'c', Blocks.chest));
         GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.grinder, "sss", "pip", "ppp", 'p', "plankWood", 's', Blocks.stone_slab, 'i', Blocks.iron_block));
@@ -57,6 +60,7 @@ public class Recipes {
         
         MillRegistry.addOutputRecipe("wheat flour", new ItemStack(ModItems.flourbag, 1), new ItemStack(ModItems.wheatflour, 1));
         
+        FryerRegistry.addOilRecipe(new ItemStack(Items.apple, 1), new ItemStack(Items.apple, 1));
     }
     
 }

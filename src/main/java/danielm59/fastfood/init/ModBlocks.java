@@ -16,7 +16,8 @@ import danielm59.fastfood.block.BlockPress;
 import danielm59.fastfood.reference.Reference;
 
 @GameRegistry.ObjectHolder(Reference.MODID)
-public class ModBlocks {
+public class ModBlocks
+{
     
     public static final BlockFF counter = new BlockCounter();
     public static final BlockFF grinder = new BlockGrinder();
@@ -25,7 +26,8 @@ public class ModBlocks {
     public static final BlockFF mill    = new BlockMill();
     public static final BlockFF fryer   = new BlockFryer();
     
-    public static void init() {
+    public static void init()
+    {
     
         GameRegistry.registerBlock(counter, "counter");
         GameRegistry.registerBlock(grinder, "grinder");
@@ -37,7 +39,8 @@ public class ModBlocks {
     }
     
     @SideOnly(Side.CLIENT)
-    public static void textures() {
+    public static void textures()
+    {
     
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(counter), 0, new ModelResourceLocation("fastfood:counter", "inventory"));
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(grinder), 0, new ModelResourceLocation("fastfood:grinder", "inventory"));

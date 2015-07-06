@@ -10,27 +10,34 @@ import danielm59.fastfood.FastFood;
 import danielm59.fastfood.reference.GuiId;
 import danielm59.fastfood.tileentity.TileEntityMill;
 
-public class BlockMill extends BlockCounterBase {
+public class BlockMill extends BlockCounterBase
+{
     
-    public BlockMill() {
+    public BlockMill()
+    {
     
         super();
         this.setUnlocalizedName("mill");
     }
     
     @Override
-    public TileEntity createNewTileEntity(World worldIn, int meta) {
+    public TileEntity createNewTileEntity(World worldIn, int meta)
+    {
     
         return new TileEntityMill();
     }
     
     @Override
-    public boolean onBlockActivated(World world, BlockPos p, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
+    public boolean onBlockActivated(World world, BlockPos p, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ)
+    {
     
-        if (player.isSneaking()) {
+        if (player.isSneaking())
+        {
             return true;
-        } else {
-            if (!world.isRemote && world.getTileEntity(p) instanceof TileEntityMill) {
+        } else
+        {
+            if (!world.isRemote && world.getTileEntity(p) instanceof TileEntityMill)
+            {
                 player.openGui(FastFood.instance, GuiId.MILL.ordinal(), world, p.getX(), p.getY(), p.getZ());
             }
             

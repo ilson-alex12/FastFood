@@ -24,47 +24,55 @@ import danielm59.fastfood.tileentity.TileEntityGrinder;
 import danielm59.fastfood.tileentity.TileEntityMill;
 import danielm59.fastfood.tileentity.TileEntityPress;
 
-public class GuiHandler implements IGuiHandler {
+public class GuiHandler implements IGuiHandler
+{
     
     @Override
-    public Object getServerGuiElement(int id, EntityPlayer entityPlayer, World world, int x, int y, int z) {
+    public Object getServerGuiElement(int id, EntityPlayer entityPlayer, World world, int x, int y, int z)
+    {
     
-        if (id == GuiId.COUNTER.ordinal()) {
+        if (id == GuiId.COUNTER.ordinal())
+        {
             
             TileEntityCounter tileEntityCounter = (TileEntityCounter) world.getTileEntity(new BlockPos(x, y, z));
             return new ContainerCounter(entityPlayer.inventory, tileEntityCounter, entityPlayer);
             
         }
         
-        if (id == GuiId.GRINDER.ordinal()) {
+        if (id == GuiId.GRINDER.ordinal())
+        {
             
             TileEntityGrinder tileEntityGrinder = (TileEntityGrinder) world.getTileEntity(new BlockPos(x, y, z));
             return new ContainerGrinder(entityPlayer.inventory, tileEntityGrinder, entityPlayer);
             
         }
         
-        if (id == GuiId.CHURN.ordinal()) {
+        if (id == GuiId.CHURN.ordinal())
+        {
             
             TileEntityChurn tileEntityChurn = (TileEntityChurn) world.getTileEntity(new BlockPos(x, y, z));
             return new ContainerChurn(entityPlayer.inventory, tileEntityChurn, entityPlayer);
             
         }
         
-        if (id == GuiId.PRESS.ordinal()) {
+        if (id == GuiId.PRESS.ordinal())
+        {
             
             TileEntityPress tileEntityPress = (TileEntityPress) world.getTileEntity(new BlockPos(x, y, z));
             return new ContainerPress(entityPlayer.inventory, tileEntityPress, entityPlayer);
             
         }
         
-        if (id == GuiId.MILL.ordinal()) {
+        if (id == GuiId.MILL.ordinal())
+        {
             
             TileEntityMill tileEntityMill = (TileEntityMill) world.getTileEntity(new BlockPos(x, y, z));
             return new ContainerMill(entityPlayer.inventory, tileEntityMill, entityPlayer);
             
         }
         
-        if (id == GuiId.FRYER.ordinal()) {
+        if (id == GuiId.FRYER.ordinal())
+        {
             
             TileEntityFryer tileEntityFryer = (TileEntityFryer) world.getTileEntity(new BlockPos(x, y, z));
             return new ContainerFryer(entityPlayer.inventory, tileEntityFryer, entityPlayer);
@@ -75,44 +83,51 @@ public class GuiHandler implements IGuiHandler {
     }
     
     @Override
-    public Object getClientGuiElement(int id, EntityPlayer entityPlayer, World world, int x, int y, int z) {
+    public Object getClientGuiElement(int id, EntityPlayer entityPlayer, World world, int x, int y, int z)
+    {
     
-        if (id == GuiId.COUNTER.ordinal()) {
+        if (id == GuiId.COUNTER.ordinal())
+        {
             
             TileEntityCounter tileEntityCounter = (TileEntityCounter) world.getTileEntity(new BlockPos(x, y, z));
             return new GuiCounter(entityPlayer.inventory, tileEntityCounter, entityPlayer);
             
         }
         
-        if (id == GuiId.GRINDER.ordinal()) {
+        if (id == GuiId.GRINDER.ordinal())
+        {
             
             TileEntityGrinder tileEntityGrinder = (TileEntityGrinder) world.getTileEntity(new BlockPos(x, y, z));
             return new GuiGrinder(entityPlayer.inventory, tileEntityGrinder, entityPlayer);
             
         }
         
-        if (id == GuiId.CHURN.ordinal()) {
+        if (id == GuiId.CHURN.ordinal())
+        {
             
             TileEntityChurn tileEntityChurn = (TileEntityChurn) world.getTileEntity(new BlockPos(x, y, z));
             return new GuiChurn(entityPlayer.inventory, tileEntityChurn, entityPlayer);
             
         }
         
-        if (id == GuiId.PRESS.ordinal()) {
+        if (id == GuiId.PRESS.ordinal())
+        {
             
             TileEntityPress tileEntityPress = (TileEntityPress) world.getTileEntity(new BlockPos(x, y, z));
             return new GuiPress(entityPlayer.inventory, tileEntityPress, entityPlayer);
             
         }
         
-        if (id == GuiId.MILL.ordinal()) {
+        if (id == GuiId.MILL.ordinal())
+        {
             
             TileEntityMill tileEntityMill = (TileEntityMill) world.getTileEntity(new BlockPos(x, y, z));
             return new GuiMill(entityPlayer.inventory, tileEntityMill, entityPlayer);
             
         }
         
-        if (id == GuiId.FRYER.ordinal()) {
+        if (id == GuiId.FRYER.ordinal())
+        {
             
             TileEntityFryer tileEntityFryer = (TileEntityFryer) world.getTileEntity(new BlockPos(x, y, z));
             return new GuiFryer(entityPlayer.inventory, tileEntityFryer, entityPlayer);

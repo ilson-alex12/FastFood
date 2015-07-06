@@ -12,11 +12,13 @@ import danielm59.fastfood.inventory.ContainerCounter;
 import danielm59.fastfood.reference.Reference;
 import danielm59.fastfood.tileentity.TileEntityCounter;
 
-public class GuiCounter extends GuiContainer {
+public class GuiCounter extends GuiContainer
+{
     
     private TileEntityCounter tileEntityCounter;
     
-    public GuiCounter(InventoryPlayer inventoryPlayer, TileEntityCounter counter, EntityPlayer player) {
+    public GuiCounter(InventoryPlayer inventoryPlayer, TileEntityCounter counter, EntityPlayer player)
+    {
     
         super(new ContainerCounter(inventoryPlayer, counter, player));
         tileEntityCounter = counter;
@@ -26,14 +28,16 @@ public class GuiCounter extends GuiContainer {
     }
     
     @Override
-    protected void drawGuiContainerForegroundLayer(int x, int y) {
+    protected void drawGuiContainerForegroundLayer(int x, int y)
+    {
     
         fontRendererObj.drawString(StatCollector.translateToLocal(tileEntityCounter.getName()), 8, 6, 4210752);
         
     }
     
     @Override
-    protected void drawGuiContainerBackgroundLayer(float opacity, int x, int y) {
+    protected void drawGuiContainerBackgroundLayer(float opacity, int x, int y)
+    {
     
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         

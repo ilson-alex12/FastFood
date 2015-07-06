@@ -5,11 +5,13 @@ import net.minecraft.server.gui.IUpdatePlayerListBox;
 import danielm59.fastfood.recipe.grinder.GrinderRecipe;
 import danielm59.fastfood.recipe.grinder.GrinderRegistry;
 
-public class TileEntityGrinder extends TileEntityFF implements IUpdatePlayerListBox {
+public class TileEntityGrinder extends TileEntityFF implements IUpdatePlayerListBox
+{
     
     public int currentProcessTime;
     
-    public TileEntityGrinder() {
+    public TileEntityGrinder()
+    {
     
         super();
         inventory = new ItemStack[2];
@@ -17,40 +19,51 @@ public class TileEntityGrinder extends TileEntityFF implements IUpdatePlayerList
     }
     
     @Override
-    public String getName() {
+    public String getName()
+    {
     
         return "Grinder";
         
     }
     
     @Override
-    public void update() {
+    public void update()
+    {
     
-        if (!worldObj.isRemote) {
+        if (!worldObj.isRemote)
+        {
             
             GrinderRecipe recipe = GrinderRegistry.getInstance().getMatchingRecipe(inventory[0], inventory[1]);
-            if (recipe != null) {
-                if (++currentProcessTime >= 100) {
+            if (recipe != null)
+            {
+                if (++currentProcessTime >= 100)
+                {
                     this.markDirty();
                     currentProcessTime = 0;
-                    if (inventory[1] != null) {
+                    if (inventory[1] != null)
+                    {
                         inventory[1].stackSize += recipe.getOutput().stackSize;
-                    } else {
+                    } else
+                    {
                         inventory[1] = recipe.getOutput().copy();
                     }
-                    if (inventory[0].getItem().hasContainerItem()) {
+                    if (inventory[0].getItem().hasContainerItem())
+                    {
                         setInventorySlotContents(0, new ItemStack(inventory[0].getItem().getContainerItem()));
-                    } else {
+                    } else
+                    {
                         decrStackSize(0, 1);
                     }
                 }
-            } else {
+            } else
+            {
                 currentProcessTime = 0;
             }
         }
     }
     
-    public float getProgress() {
+    public float getProgress()
+    {
     
         return (float) currentProcessTime / 100;
         

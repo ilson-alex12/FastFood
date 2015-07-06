@@ -14,33 +14,41 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public abstract class BlockCounterBase extends BlockFF implements ITileEntityProvider {
+public abstract class BlockCounterBase extends BlockFF implements ITileEntityProvider
+{
     
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
     
-    public BlockCounterBase() {
+    public BlockCounterBase()
+    {
     
         super();
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         
     }
     
-    public void onBlockAdded(World worldIn, BlockPos p, IBlockState state) {
+    public void onBlockAdded(World worldIn, BlockPos p, IBlockState state)
+    {
     
-        if (!worldIn.isRemote) {
+        if (!worldIn.isRemote)
+        {
             Block block = worldIn.getBlockState(p.offsetNorth()).getBlock();
             Block block1 = worldIn.getBlockState(p.offsetSouth()).getBlock();
             Block block2 = worldIn.getBlockState(p.offsetWest()).getBlock();
             Block block3 = worldIn.getBlockState(p.offsetEast()).getBlock();
             EnumFacing enumfacing = (EnumFacing) state.getValue(FACING);
             
-            if (enumfacing == EnumFacing.NORTH && block.isFullBlock() && !block1.isFullBlock()) {
+            if (enumfacing == EnumFacing.NORTH && block.isFullBlock() && !block1.isFullBlock())
+            {
                 enumfacing = EnumFacing.SOUTH;
-            } else if (enumfacing == EnumFacing.SOUTH && block1.isFullBlock() && !block.isFullBlock()) {
+            } else if (enumfacing == EnumFacing.SOUTH && block1.isFullBlock() && !block.isFullBlock())
+            {
                 enumfacing = EnumFacing.NORTH;
-            } else if (enumfacing == EnumFacing.WEST && block2.isFullBlock() && !block3.isFullBlock()) {
+            } else if (enumfacing == EnumFacing.WEST && block2.isFullBlock() && !block3.isFullBlock())
+            {
                 enumfacing = EnumFacing.EAST;
-            } else if (enumfacing == EnumFacing.EAST && block3.isFullBlock() && !block2.isFullBlock()) {
+            } else if (enumfacing == EnumFacing.EAST && block3.isFullBlock() && !block2.isFullBlock())
+            {
                 enumfacing = EnumFacing.WEST;
             }
             
@@ -49,38 +57,46 @@ public abstract class BlockCounterBase extends BlockFF implements ITileEntityPro
     }
     
     @SideOnly(Side.CLIENT)
-    public IBlockState getStateForEntityRender(IBlockState state) {
+    public IBlockState getStateForEntityRender(IBlockState state)
+    {
     
         return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH);
     }
     
-    public IBlockState getStateFromMeta(int meta) {
+    public IBlockState getStateFromMeta(int meta)
+    {
     
         EnumFacing enumfacing = EnumFacing.getFront(meta);
         
-        if (enumfacing.getAxis() == EnumFacing.Axis.Y) {
+        if (enumfacing.getAxis() == EnumFacing.Axis.Y)
+        {
             enumfacing = EnumFacing.NORTH;
         }
         
         return this.getDefaultState().withProperty(FACING, enumfacing);
     }
     
-    public int getMetaFromState(IBlockState state) {
+    public int getMetaFromState(IBlockState state)
+    {
     
         return ((EnumFacing) state.getValue(FACING)).getIndex();
     }
     
-    protected BlockState createBlockState() {
+    protected BlockState createBlockState()
+    {
     
-        return new BlockState(this, new IProperty[] { FACING });
+        return new BlockState(this, new IProperty[]
+        { FACING });
     }
     
-    public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+    public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
+    {
     
         return this.getDefaultState().withProperty(FACING, placer.func_174811_aO().getOpposite());
     }
     
-    public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
+    public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack)
+    {
     
         worldIn.setBlockState(pos, state.withProperty(FACING, placer.func_174811_aO().getOpposite()), 2);
         

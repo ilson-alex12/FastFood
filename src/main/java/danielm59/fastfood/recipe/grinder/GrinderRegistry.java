@@ -5,46 +5,59 @@ import java.util.List;
 
 import net.minecraft.item.ItemStack;
 
-public class GrinderRegistry {
+public class GrinderRegistry
+{
     
     private static GrinderRegistry           INSTANCE       = new GrinderRegistry();
     private final static List<GrinderRecipe> grinderRecipes = new ArrayList<GrinderRecipe>();
     
-    private GrinderRegistry() {
+    private GrinderRegistry()
+    {
     
     }
     
-    public static GrinderRegistry getInstance() {
+    public static GrinderRegistry getInstance()
+    {
     
         return INSTANCE;
     }
     
-    public static void addRecipe(GrinderRecipe recipe) {
+    public static void addRecipe(GrinderRecipe recipe)
+    {
     
         grinderRecipes.add(recipe);
     }
     
-    public static void addRecipe(ItemStack input, ItemStack output) {
+    public static void addRecipe(ItemStack input, ItemStack output)
+    {
     
         addRecipe(new GrinderRecipe(input, output));
         
     }
     
-    public List<GrinderRecipe> getAllRecipes() {
+    public List<GrinderRecipe> getAllRecipes()
+    {
     
         return grinderRecipes;
     }
     
-    public GrinderRecipe getMatchingRecipe(ItemStack inputSlot, ItemStack outputSlot) {
+    public GrinderRecipe getMatchingRecipe(ItemStack inputSlot, ItemStack outputSlot)
+    {
     
-        for (GrinderRecipe recipe : grinderRecipes) {
-            if (inputSlot != null) {
-                if (recipe.getInput().isItemEqual(inputSlot)) {
-                    if (outputSlot != null) {
+        for (GrinderRecipe recipe : grinderRecipes)
+        {
+            if (inputSlot != null)
+            {
+                if (recipe.getInput().isItemEqual(inputSlot))
+                {
+                    if (outputSlot != null)
+                    {
                         ItemStack craftingResult = recipe.getOutput();
-                        if (!ItemStack.areItemStackTagsEqual(outputSlot, craftingResult) || !outputSlot.isItemEqual(craftingResult)) {
+                        if (!ItemStack.areItemStackTagsEqual(outputSlot, craftingResult) || !outputSlot.isItemEqual(craftingResult))
+                        {
                             continue;
-                        } else if (craftingResult.stackSize + outputSlot.stackSize > outputSlot.getMaxStackSize()) {
+                        } else if (craftingResult.stackSize + outputSlot.stackSize > outputSlot.getMaxStackSize())
+                        {
                             continue;
                         }
                     }

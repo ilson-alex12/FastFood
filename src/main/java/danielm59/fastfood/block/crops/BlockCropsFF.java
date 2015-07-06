@@ -12,9 +12,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import danielm59.fastfood.reference.Reference;
 
-public class BlockCropsFF extends BlockCrops implements IGrowable {
+public class BlockCropsFF extends BlockCrops implements IGrowable
+{
     
-    public BlockCropsFF() {
+    public BlockCropsFF()
+    {
     
         this.setTickRandomly(true);
         this.setCreativeTab((CreativeTabs) null);
@@ -24,34 +26,42 @@ public class BlockCropsFF extends BlockCrops implements IGrowable {
         
     }
     
-    public static boolean func_149887_c(int meta) {
+    public static boolean func_149887_c(int meta)
+    {
     
         return (meta & 7) != 0;
     }
     
     @Override
-    public String getUnlocalizedName() {
+    public String getUnlocalizedName()
+    {
     
         return String.format("tile.%s:%s", Reference.MODID, getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
     
-    protected String getUnwrappedUnlocalizedName(String name) {
+    protected String getUnwrappedUnlocalizedName(String name)
+    {
     
         return name.substring(name.indexOf(".") + 1);
     }
     
     @Override
-    public void setBlockBoundsBasedOnState(IBlockAccess world, BlockPos p) {
+    public void setBlockBoundsBasedOnState(IBlockAccess world, BlockPos p)
+    {
     
         IBlockState state = world.getBlockState(p);
         Integer l = (Integer) state.getValue(AGE);
-        if (l <= 1) {
+        if (l <= 1)
+        {
             this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.25F, 1.0F);
-        } else if (l <= 2) {
+        } else if (l <= 2)
+        {
             this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
-        } else if (l <= 3) {
+        } else if (l <= 3)
+        {
             this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.75F, 1.0F);
-        } else {
+        } else
+        {
             this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
         }
     }
@@ -60,7 +70,8 @@ public class BlockCropsFF extends BlockCrops implements IGrowable {
      * Returns the quantity of items to drop on block destruction.
      */
     @Override
-    public int quantityDropped(Random random) {
+    public int quantityDropped(Random random)
+    {
     
         return random.nextInt(3) + 1;
     }
@@ -69,13 +80,15 @@ public class BlockCropsFF extends BlockCrops implements IGrowable {
      * Checks to see if its valid to put this block at the specified coordinates. Args: world, p
      */
     @Override
-    public boolean canPlaceBlockAt(World world, BlockPos p) {
+    public boolean canPlaceBlockAt(World world, BlockPos p)
+    {
     
         return super.canPlaceBlockAt(world, p) && world.isAirBlock(p.add(0, 1, 0));
     }
     
     @Override
-    public EnumPlantType getPlantType(IBlockAccess world, BlockPos p) {
+    public EnumPlantType getPlantType(IBlockAccess world, BlockPos p)
+    {
     
         return EnumPlantType.Crop;
     }

@@ -10,9 +10,11 @@ import danielm59.fastfood.FastFood;
 import danielm59.fastfood.reference.GuiId;
 import danielm59.fastfood.tileentity.TileEntityChurn;
 
-public class BlockChurn extends BlockCounterBase {
+public class BlockChurn extends BlockCounterBase
+{
     
-    public BlockChurn() {
+    public BlockChurn()
+    {
     
         super();
         this.setUnlocalizedName("churn");
@@ -20,18 +22,23 @@ public class BlockChurn extends BlockCounterBase {
     }
     
     @Override
-    public TileEntity createNewTileEntity(World world, int metaData) {
+    public TileEntity createNewTileEntity(World world, int metaData)
+    {
     
         return new TileEntityChurn();
     }
     
     @Override
-    public boolean onBlockActivated(World world, BlockPos p, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
+    public boolean onBlockActivated(World world, BlockPos p, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ)
+    {
     
-        if (player.isSneaking()) {
+        if (player.isSneaking())
+        {
             return true;
-        } else {
-            if (!world.isRemote && world.getTileEntity(p) instanceof TileEntityChurn) {
+        } else
+        {
+            if (!world.isRemote && world.getTileEntity(p) instanceof TileEntityChurn)
+            {
                 player.openGui(FastFood.instance, GuiId.CHURN.ordinal(), world, p.getX(), p.getY(), p.getZ());
             }
             

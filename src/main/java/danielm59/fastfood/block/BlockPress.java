@@ -10,9 +10,11 @@ import danielm59.fastfood.FastFood;
 import danielm59.fastfood.reference.GuiId;
 import danielm59.fastfood.tileentity.TileEntityPress;
 
-public class BlockPress extends BlockCounterBase {
+public class BlockPress extends BlockCounterBase
+{
     
-    public BlockPress() {
+    public BlockPress()
+    {
     
         super();
         this.setUnlocalizedName("press");
@@ -20,19 +22,24 @@ public class BlockPress extends BlockCounterBase {
     }
     
     @Override
-    public TileEntity createNewTileEntity(World world, int MetaData) {
+    public TileEntity createNewTileEntity(World world, int MetaData)
+    {
     
         return new TileEntityPress();
         
     }
     
     @Override
-    public boolean onBlockActivated(World world, BlockPos p, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
+    public boolean onBlockActivated(World world, BlockPos p, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ)
+    {
     
-        if (player.isSneaking()) {
+        if (player.isSneaking())
+        {
             return true;
-        } else {
-            if (!world.isRemote && world.getTileEntity(p) instanceof TileEntityPress) {
+        } else
+        {
+            if (!world.isRemote && world.getTileEntity(p) instanceof TileEntityPress)
+            {
                 player.openGui(FastFood.instance, GuiId.PRESS.ordinal(), world, p.getX(), p.getY(), p.getZ());
             }
             

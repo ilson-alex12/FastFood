@@ -12,11 +12,13 @@ import danielm59.fastfood.inventory.ContainerMill;
 import danielm59.fastfood.reference.Reference;
 import danielm59.fastfood.tileentity.TileEntityMill;
 
-public class GuiMill extends GuiContainer {
+public class GuiMill extends GuiContainer
+{
     
     private TileEntityMill tileEntityMill;
     
-    public GuiMill(InventoryPlayer inventory, TileEntityMill Mill, EntityPlayer player) {
+    public GuiMill(InventoryPlayer inventory, TileEntityMill Mill, EntityPlayer player)
+    {
     
         super(new ContainerMill(inventory, Mill, player));
         tileEntityMill = Mill;
@@ -25,14 +27,16 @@ public class GuiMill extends GuiContainer {
     }
     
     @Override
-    protected void drawGuiContainerForegroundLayer(int x, int y) {
+    protected void drawGuiContainerForegroundLayer(int x, int y)
+    {
     
         fontRendererObj.drawString(StatCollector.translateToLocal(tileEntityMill.getName()), 8, 6, 4210752);
         
     }
     
     @Override
-    protected void drawGuiContainerBackgroundLayer(float opacity, int x, int y) {
+    protected void drawGuiContainerBackgroundLayer(float opacity, int x, int y)
+    {
     
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         

@@ -12,7 +12,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import danielm59.fastfood.inventory.slots.SlotOutput;
 import danielm59.fastfood.tileentity.TileEntityFryer;
 
-public class ContainerFryer extends ContainerFF {
+public class ContainerFryer extends ContainerFF
+{
     
     public static final int TOTAL_SLOTS = 5;
     
@@ -21,7 +22,8 @@ public class ContainerFryer extends ContainerFF {
     
     private TileEntityFryer tileEntityFryer;
     
-    public ContainerFryer(InventoryPlayer inventory, TileEntityFryer tileEntityFryer, EntityPlayer player) {
+    public ContainerFryer(InventoryPlayer inventory, TileEntityFryer tileEntityFryer, EntityPlayer player)
+    {
     
         this.tileEntityFryer = tileEntityFryer;
         tileEntityFryer.openInventory(player);
@@ -33,9 +35,11 @@ public class ContainerFryer extends ContainerFF {
         this.addSlotToContainer(new SlotOutput(tileEntityFryer, 4, 122, 35));
         
         // Add the player's inventory slots to the container
-        for (int inventoryRowIndex = 0; inventoryRowIndex < PLAYER_INVENTORY_ROWS; ++inventoryRowIndex) {
+        for (int inventoryRowIndex = 0; inventoryRowIndex < PLAYER_INVENTORY_ROWS; ++inventoryRowIndex)
+        {
             
-            for (int inventoryColumnIndex = 0; inventoryColumnIndex < PLAYER_INVENTORY_COLUMNS; ++inventoryColumnIndex) {
+            for (int inventoryColumnIndex = 0; inventoryColumnIndex < PLAYER_INVENTORY_COLUMNS; ++inventoryColumnIndex)
+            {
                 
                 this.addSlotToContainer(new Slot((IInventory) inventory, inventoryColumnIndex + inventoryRowIndex * 9 + 9, 8 + inventoryColumnIndex * 18, 84 + inventoryRowIndex * 18));
                 
@@ -44,7 +48,8 @@ public class ContainerFryer extends ContainerFF {
         }
         
         // Add the player's hot bar slots to the container
-        for (int actionBarSlotIndex = 0; actionBarSlotIndex < PLAYER_INVENTORY_COLUMNS; ++actionBarSlotIndex) {
+        for (int actionBarSlotIndex = 0; actionBarSlotIndex < PLAYER_INVENTORY_COLUMNS; ++actionBarSlotIndex)
+        {
             
             this.addSlotToContainer(new Slot((IInventory) inventory, actionBarSlotIndex, 8 + actionBarSlotIndex * 18, 142));
             
@@ -52,7 +57,8 @@ public class ContainerFryer extends ContainerFF {
     }
     
     @Override
-    public void onContainerClosed(EntityPlayer entityPlayer) {
+    public void onContainerClosed(EntityPlayer entityPlayer)
+    {
     
         super.onContainerClosed(entityPlayer);
         
@@ -60,22 +66,27 @@ public class ContainerFryer extends ContainerFF {
     }
     
     @Override
-    public ItemStack transferStackInSlot(EntityPlayer entityPlayer, int slotIndex) {
+    public ItemStack transferStackInSlot(EntityPlayer entityPlayer, int slotIndex)
+    {
     
         ItemStack newItemStack = null;
         Slot slot = (Slot) inventorySlots.get(slotIndex);
         
-        if (slot != null && slot.getHasStack()) {
+        if (slot != null && slot.getHasStack())
+        {
             ItemStack itemStack = slot.getStack();
             newItemStack = itemStack.copy();
             
-            if (slotIndex < TOTAL_SLOTS) {
+            if (slotIndex < TOTAL_SLOTS)
+            {
                 if (!this.mergeItemStack(itemStack, TOTAL_SLOTS, inventorySlots.size(), false)) { return null; }
             } else if (!this.mergeItemStack(itemStack, 0, TOTAL_SLOTS, false)) { return null; }
             
-            if (itemStack.stackSize == 0) {
+            if (itemStack.stackSize == 0)
+            {
                 slot.putStack(null);
-            } else {
+            } else
+            {
                 slot.onSlotChanged();
             }
         }
@@ -84,7 +95,8 @@ public class ContainerFryer extends ContainerFF {
     }
     
     @Override
-    public void addCraftingToCrafters(ICrafting iCrafting) {
+    public void addCraftingToCrafters(ICrafting iCrafting)
+    {
     
         super.addCraftingToCrafters(iCrafting);
         iCrafting.sendProgressBarUpdate(this, 0, this.tileEntityFryer.currentFryerProcessTime);
@@ -93,17 +105,21 @@ public class ContainerFryer extends ContainerFF {
     }
     
     @Override
-    public void detectAndSendChanges() {
+    public void detectAndSendChanges()
+    {
     
         super.detectAndSendChanges();
         
-        for (Object crafter : this.crafters) {
+        for (Object crafter : this.crafters)
+        {
             ICrafting icrafting = (ICrafting) crafter;
             
-            if (this.lastFryerProcessTime != this.tileEntityFryer.currentFryerProcessTime) {
+            if (this.lastFryerProcessTime != this.tileEntityFryer.currentFryerProcessTime)
+            {
                 icrafting.sendProgressBarUpdate(this, 0, this.tileEntityFryer.currentFryerProcessTime);
             }
-            if (this.lastOilProcessTime != this.tileEntityFryer.currentOilProcessTime) {
+            if (this.lastOilProcessTime != this.tileEntityFryer.currentOilProcessTime)
+            {
                 icrafting.sendProgressBarUpdate(this, 0, this.tileEntityFryer.currentOilProcessTime);
             }
             
@@ -115,12 +131,15 @@ public class ContainerFryer extends ContainerFF {
     }
     
     @SideOnly(Side.CLIENT)
-    public void updateProgressBar(int valueType, int updatedValue) {
+    public void updateProgressBar(int valueType, int updatedValue)
+    {
     
-        if (valueType == 0) {
+        if (valueType == 0)
+        {
             this.tileEntityFryer.currentFryerProcessTime = updatedValue;
         }
-        if (valueType == 1) {
+        if (valueType == 1)
+        {
             this.tileEntityFryer.currentOilProcessTime = updatedValue;
         }
         

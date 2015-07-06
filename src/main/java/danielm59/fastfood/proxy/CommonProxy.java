@@ -8,9 +8,11 @@ import danielm59.fastfood.tileentity.TileEntityGrinder;
 import danielm59.fastfood.tileentity.TileEntityMill;
 import danielm59.fastfood.tileentity.TileEntityPress;
 
-public abstract class CommonProxy implements IProxy {
+public abstract class CommonProxy implements IProxy
+{
     
-    public void registerTileEntities() {
+    public void registerTileEntities()
+    {
     
         GameRegistry.registerTileEntityWithAlternatives(TileEntityCounter.class, "counter", "tile." + "counter");
         GameRegistry.registerTileEntityWithAlternatives(TileEntityGrinder.class, "grinder", "tile." + "grinder");

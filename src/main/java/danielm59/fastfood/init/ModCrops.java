@@ -14,12 +14,14 @@ import danielm59.fastfood.item.seed.ItemSeedTomato;
 import danielm59.fastfood.reference.Reference;
 
 @GameRegistry.ObjectHolder(Reference.MODID)
-public class ModCrops {
+public class ModCrops
+{
     
     public static final BlockCropsFF tomatocrop  = new BlockCropTomato();
     public static final ItemSeedFF   tomatoseeds = new ItemSeedTomato();
     
-    public static void init() {
+    public static void init()
+    {
     
         GameRegistry.registerBlock(tomatocrop, "tomatocrop");
         GameRegistry.registerItem(tomatoseeds, "tomatoseeds");
@@ -29,7 +31,8 @@ public class ModCrops {
     }
     
     @SideOnly(Side.CLIENT)
-    public static void textures() {
+    public static void textures()
+    {
     
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(tomatoseeds, 0, new ModelResourceLocation("fastfood:tomatoseeds", "inventory"));
         

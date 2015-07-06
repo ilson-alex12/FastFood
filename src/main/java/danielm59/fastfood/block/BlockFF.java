@@ -15,9 +15,11 @@ import net.minecraft.world.World;
 import danielm59.fastfood.creativetab.CreativeTabFF;
 import danielm59.fastfood.reference.Reference;
 
-public abstract class BlockFF extends Block {
+public abstract class BlockFF extends Block
+{
     
-    public BlockFF(Material material) {
+    public BlockFF(Material material)
+    {
     
         super(material);
         this.setCreativeTab(CreativeTabFF.FF_TAB);
@@ -25,31 +27,36 @@ public abstract class BlockFF extends Block {
         
     }
     
-    public BlockFF() {
+    public BlockFF()
+    {
     
         this(Material.rock);
         
     }
     
     @Override
-    public String getUnlocalizedName() {
+    public String getUnlocalizedName()
+    {
     
         return String.format("tile.%s:%s", Reference.MODID.toLowerCase(), getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
     
-    protected String getUnwrappedUnlocalizedName(String name) {
+    protected String getUnwrappedUnlocalizedName(String name)
+    {
     
         return name.substring(name.indexOf(".") + 1);
     }
     
     @Override
-    public void breakBlock(World world, BlockPos p, IBlockState state) {
+    public void breakBlock(World world, BlockPos p, IBlockState state)
+    {
     
         dropInventory(world, p);
         super.breakBlock(world, p, state);
     }
     
-    protected void dropInventory(World world, BlockPos p) {
+    protected void dropInventory(World world, BlockPos p)
+    {
     
         TileEntity tileEntity = world.getTileEntity(p);
         
@@ -57,10 +64,12 @@ public abstract class BlockFF extends Block {
         
         IInventory inventory = (IInventory) tileEntity;
         
-        for (int i = 0; i < inventory.getSizeInventory(); i++) {
+        for (int i = 0; i < inventory.getSizeInventory(); i++)
+        {
             ItemStack itemStack = inventory.getStackInSlot(i);
             
-            if (itemStack != null && itemStack.stackSize > 0) {
+            if (itemStack != null && itemStack.stackSize > 0)
+            {
                 Random rand = new Random();
                 
                 float x = p.getX();
@@ -73,7 +82,8 @@ public abstract class BlockFF extends Block {
                 
                 EntityItem entityItem = new EntityItem(world, x + dX, y + dY, z + dZ, itemStack.copy());
                 
-                if (itemStack.hasTagCompound()) {
+                if (itemStack.hasTagCompound())
+                {
                     entityItem.getEntityItem().setTagCompound((NBTTagCompound) itemStack.getTagCompound().copy());
                 }
                 

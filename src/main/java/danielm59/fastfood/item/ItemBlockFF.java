@@ -13,40 +13,51 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import danielm59.fastfood.block.BlockFF;
 
-public class ItemBlockFF extends ItemFF {
+public class ItemBlockFF extends ItemFF
+{
     
     private Block block;
     
-    public ItemBlockFF(BlockFF block) {
+    public ItemBlockFF(BlockFF block)
+    {
     
         super();
         this.block = block;
         
     }
     
-    public boolean onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ) {
+    public boolean onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ)
+    {
     
         IBlockState iblockstate = worldIn.getBlockState(pos);
         Block block = iblockstate.getBlock();
         
-        if (block == Blocks.snow_layer && ((Integer) iblockstate.getValue(BlockSnow.LAYERS_PROP)).intValue() < 1) {
+        if (block == Blocks.snow_layer && ((Integer) iblockstate.getValue(BlockSnow.LAYERS_PROP)).intValue() < 1)
+        {
             side = EnumFacing.UP;
-        } else if (!block.isReplaceable(worldIn, pos)) {
+        } else if (!block.isReplaceable(worldIn, pos))
+        {
             pos = pos.offset(side);
         }
         
-        if (!playerIn.func_175151_a(pos, side, stack)) {
+        if (!playerIn.func_175151_a(pos, side, stack))
+        {
             return false;
-        } else if (stack.stackSize == 0) {
+        } else if (stack.stackSize == 0)
+        {
             return false;
-        } else {
-            if (worldIn.canBlockBePlaced(this.block, pos, false, side, (Entity) null, stack)) {
+        } else
+        {
+            if (worldIn.canBlockBePlaced(this.block, pos, false, side, (Entity) null, stack))
+            {
                 IBlockState iblockstate1 = this.block.onBlockPlaced(worldIn, pos, side, hitX, hitY, hitZ, 0, playerIn);
                 
-                if (worldIn.setBlockState(pos, iblockstate1, 3)) {
+                if (worldIn.setBlockState(pos, iblockstate1, 3))
+                {
                     iblockstate1 = worldIn.getBlockState(pos);
                     
-                    if (iblockstate1.getBlock() == this.block) {
+                    if (iblockstate1.getBlock() == this.block)
+                    {
                         ItemBlock.setTileEntityNBT(worldIn, pos, stack);
                         iblockstate1.getBlock().onBlockPlacedBy(worldIn, pos, iblockstate1, playerIn, stack);
                     }
@@ -61,7 +72,8 @@ public class ItemBlockFF extends ItemFF {
         }
     }
     
-    public Block getBlock() {
+    public Block getBlock()
+    {
     
         return this.block;
     }

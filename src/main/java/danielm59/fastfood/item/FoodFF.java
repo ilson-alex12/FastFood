@@ -12,39 +12,48 @@ import net.minecraft.world.World;
 import danielm59.fastfood.creativetab.CreativeTabFF;
 import danielm59.fastfood.reference.Reference;
 
-public class FoodFF extends ItemFood {
+public class FoodFF extends ItemFood
+{
     
-    public FoodFF(int hunger, float saturation, boolean wolf) {
+    public FoodFF(int hunger, float saturation, boolean wolf)
+    {
     
         super(hunger, saturation, wolf);
         this.setCreativeTab(CreativeTabFF.FF_TAB);
     }
     
     @Override
-    public String getUnlocalizedName() {
+    public String getUnlocalizedName()
+    {
     
         return String.format("item.%s:%s", Reference.MODID.toLowerCase(), getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
     
     @Override
-    public String getUnlocalizedName(ItemStack itemStack) {
+    public String getUnlocalizedName(ItemStack itemStack)
+    {
     
         return String.format("item.%s:%s", Reference.MODID.toLowerCase(), getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
     
-    protected String getUnwrappedUnlocalizedName(String unlocalizedName) {
+    protected String getUnwrappedUnlocalizedName(String unlocalizedName)
+    {
     
         return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
     }
     
     @Override
-    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityPlayer playerIn) {
+    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityPlayer playerIn)
+    {
     
-        if (stack.getItem().hasContainerItem()) {
+        if (stack.getItem().hasContainerItem())
+        {
             
-            if (!playerIn.inventory.addItemStackToInventory(new ItemStack(stack.getItem().getContainerItem(), 1))) {
+            if (!playerIn.inventory.addItemStackToInventory(new ItemStack(stack.getItem().getContainerItem(), 1)))
+            {
                 
-                if (!worldIn.isRemote) {
+                if (!worldIn.isRemote)
+                {
                     
                     Random rand = new Random();
                     BlockPos p = playerIn.getPosition();
@@ -59,7 +68,8 @@ public class FoodFF extends ItemFood {
                     
                     EntityItem entityItem = new EntityItem(worldIn, x + dX, y + dY, z + dZ, new ItemStack(stack.getItem().getContainerItem(), 1));
                     
-                    if (stack.hasTagCompound()) {
+                    if (stack.hasTagCompound())
+                    {
                         
                         entityItem.getEntityItem().setTagCompound((NBTTagCompound) stack.getTagCompound().copy());
                         

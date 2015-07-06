@@ -11,7 +11,8 @@ import danielm59.fastfood.item.FoodFF;
 import danielm59.fastfood.reference.Reference;
 
 @GameRegistry.ObjectHolder(Reference.MODID)
-public class ModFood {
+public class ModFood
+{
     
     public static final FoodFF breaddough   = (FoodFF) new FoodFF(1, 0.1F, false).setUnlocalizedName("breaddough");
     public static final FoodFF pizzabase    = (FoodFF) new FoodFF(3, 0.3F, false).setUnlocalizedName("pizzabase");
@@ -32,7 +33,8 @@ public class ModFood {
     public static final FoodFF gratedcheese = (FoodFF) new FoodFF(2, 0.1F, false).setUnlocalizedName("gratedcheese");
     public static final FoodFF tomatosauce  = (FoodFF) new FoodDrinkableFF(2, 0.3F, false).setUnlocalizedName("tomatosauce").setContainerItem(Items.glass_bottle);
     
-    public static void init() {
+    public static void init()
+    {
     
         GameRegistry.registerItem(breaddough, "breaddough");
         GameRegistry.registerItem(pizzabase, "pizzabase");
@@ -56,7 +58,8 @@ public class ModFood {
     }
     
     @SideOnly(Side.CLIENT)
-    public static void textures() {
+    public static void textures()
+    {
     
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(breaddough, 0, new ModelResourceLocation("fastfood:breaddough", "inventory"));
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(pizzabase, 0, new ModelResourceLocation("fastfood:pizzabase", "inventory"));

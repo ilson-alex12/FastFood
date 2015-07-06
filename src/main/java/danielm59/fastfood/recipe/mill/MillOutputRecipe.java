@@ -2,13 +2,15 @@ package danielm59.fastfood.recipe.mill;
 
 import net.minecraft.item.ItemStack;
 
-public class MillOutputRecipe {
+public class MillOutputRecipe
+{
     
     private String    inputFlour;
     private ItemStack inputContainer;
     private ItemStack output;
     
-    MillOutputRecipe(String inputFlour, ItemStack inputContainer, ItemStack output) {
+    MillOutputRecipe(String inputFlour, ItemStack inputContainer, ItemStack output)
+    {
     
         this.inputFlour = inputFlour;
         this.inputContainer = inputContainer;
@@ -16,19 +18,22 @@ public class MillOutputRecipe {
         
     }
     
-    public String getInputFlour() {
+    public String getInputFlour()
+    {
     
         return inputFlour;
         
     }
     
-    public ItemStack getIntputContainer() {
+    public ItemStack getIntputContainer()
+    {
     
         return inputContainer;
         
     }
     
-    public ItemStack getOutput() {
+    public ItemStack getOutput()
+    {
     
         return output;
         

@@ -1,6 +1,7 @@
 package danielm59.fastfood.reference;
 
-public class Reference {
+public class Reference
+{
     
     public static final String MODID      = "fastfood";
     public static final String MODNAME    = "Fast Food";

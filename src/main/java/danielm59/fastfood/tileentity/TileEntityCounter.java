@@ -2,9 +2,11 @@ package danielm59.fastfood.tileentity;
 
 import net.minecraft.item.ItemStack;
 
-public class TileEntityCounter extends TileEntityFF {
+public class TileEntityCounter extends TileEntityFF
+{
     
-    public TileEntityCounter() {
+    public TileEntityCounter()
+    {
     
         super();
         inventory = new ItemStack[9];
@@ -12,7 +14,8 @@ public class TileEntityCounter extends TileEntityFF {
     }
     
     @Override
-    public String getName() {
+    public String getName()
+    {
     
         return "Counter";
         
