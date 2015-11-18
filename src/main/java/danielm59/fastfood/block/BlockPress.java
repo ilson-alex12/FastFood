@@ -1,21 +1,21 @@
 package danielm59.fastfood.block;
 
+import danielm59.fastfood.FastFood;
+import danielm59.fastfood.reference.GuiId;
+import danielm59.fastfood.tileentity.TileEntityPress;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import danielm59.fastfood.FastFood;
-import danielm59.fastfood.reference.GuiId;
-import danielm59.fastfood.tileentity.TileEntityPress;
 
 public class BlockPress extends BlockCounterBase
 {
     
     public BlockPress()
     {
-    
+        
         super();
         this.setUnlocalizedName("press");
         
@@ -24,7 +24,7 @@ public class BlockPress extends BlockCounterBase
     @Override
     public TileEntity createNewTileEntity(World world, int MetaData)
     {
-    
+        
         return new TileEntityPress();
         
     }
@@ -32,7 +32,7 @@ public class BlockPress extends BlockCounterBase
     @Override
     public boolean onBlockActivated(World world, BlockPos p, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ)
     {
-    
+        
         if (player.isSneaking())
         {
             return true;

@@ -1,9 +1,9 @@
 package danielm59.fastfood.tileentity;
 
-import net.minecraft.item.ItemStack;
-import net.minecraft.server.gui.IUpdatePlayerListBox;
 import danielm59.fastfood.recipe.grinder.GrinderRecipe;
 import danielm59.fastfood.recipe.grinder.GrinderRegistry;
+import net.minecraft.item.ItemStack;
+import net.minecraft.server.gui.IUpdatePlayerListBox;
 
 public class TileEntityGrinder extends TileEntityFF implements IUpdatePlayerListBox
 {
@@ -12,7 +12,7 @@ public class TileEntityGrinder extends TileEntityFF implements IUpdatePlayerList
     
     public TileEntityGrinder()
     {
-    
+        
         super();
         inventory = new ItemStack[2];
         
@@ -21,7 +21,7 @@ public class TileEntityGrinder extends TileEntityFF implements IUpdatePlayerList
     @Override
     public String getName()
     {
-    
+        
         return "Grinder";
         
     }
@@ -29,7 +29,7 @@ public class TileEntityGrinder extends TileEntityFF implements IUpdatePlayerList
     @Override
     public void update()
     {
-    
+        
         if (!worldObj.isRemote)
         {
             
@@ -64,7 +64,7 @@ public class TileEntityGrinder extends TileEntityFF implements IUpdatePlayerList
     
     public float getProgress()
     {
-    
+        
         return (float) currentProcessTime / 100;
         
     }

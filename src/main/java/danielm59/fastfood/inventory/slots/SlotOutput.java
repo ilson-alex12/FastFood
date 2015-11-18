@@ -11,7 +11,7 @@ public class SlotOutput extends Slot
     
     public SlotOutput(IInventory inventory, int slotIndex, int x, int y)
     {
-    
+        
         super(inventory, slotIndex, x, y);
         
     }
@@ -19,7 +19,7 @@ public class SlotOutput extends Slot
     @Override
     public void onPickupFromSlot(EntityPlayer entityPlayer, ItemStack itemStack)
     {
-    
+        
         super.onPickupFromSlot(entityPlayer, itemStack);
         FMLCommonHandler.instance().firePlayerCraftingEvent(entityPlayer, itemStack, inventory);
     }
@@ -27,7 +27,7 @@ public class SlotOutput extends Slot
     @Override
     public boolean isItemValid(ItemStack itemStack)
     {
-    
+        
         return false;
     }
     

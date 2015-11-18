@@ -7,7 +7,7 @@ public class ItemKnife extends ItemFF
     
     public ItemKnife()
     {
-    
+        
         super();
         this.setUnlocalizedName("knife");
         this.setMaxStackSize(1);
@@ -19,21 +19,21 @@ public class ItemKnife extends ItemFF
     @Override
     public boolean getShareTag()
     {
-    
+        
         return true;
         
     }
     
     public boolean hasContainerItem(ItemStack itemStack)
     {
-    
+        
         return true;
     }
     
     @Override
     public ItemStack getContainerItem(ItemStack itemStack)
     {
-    
+        
         ItemStack copiedStack = itemStack.copy();
         
         copiedStack.setItemDamage(copiedStack.getItemDamage() + 1);

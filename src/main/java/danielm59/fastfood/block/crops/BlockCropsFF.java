@@ -2,6 +2,7 @@ package danielm59.fastfood.block.crops;
 
 import java.util.Random;
 
+import danielm59.fastfood.reference.Reference;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.state.IBlockState;
@@ -10,14 +11,13 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
-import danielm59.fastfood.reference.Reference;
 
 public class BlockCropsFF extends BlockCrops implements IGrowable
 {
     
     public BlockCropsFF()
     {
-    
+        
         this.setTickRandomly(true);
         this.setCreativeTab((CreativeTabs) null);
         this.setHardness(0.0F);
@@ -28,27 +28,27 @@ public class BlockCropsFF extends BlockCrops implements IGrowable
     
     public static boolean func_149887_c(int meta)
     {
-    
+        
         return (meta & 7) != 0;
     }
     
     @Override
     public String getUnlocalizedName()
     {
-    
+        
         return String.format("tile.%s:%s", Reference.MODID, getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
     
     protected String getUnwrappedUnlocalizedName(String name)
     {
-    
+        
         return name.substring(name.indexOf(".") + 1);
     }
     
     @Override
     public void setBlockBoundsBasedOnState(IBlockAccess world, BlockPos p)
     {
-    
+        
         IBlockState state = world.getBlockState(p);
         Integer l = (Integer) state.getValue(AGE);
         if (l <= 1)
@@ -72,7 +72,7 @@ public class BlockCropsFF extends BlockCrops implements IGrowable
     @Override
     public int quantityDropped(Random random)
     {
-    
+        
         return random.nextInt(3) + 1;
     }
     
@@ -82,14 +82,14 @@ public class BlockCropsFF extends BlockCrops implements IGrowable
     @Override
     public boolean canPlaceBlockAt(World world, BlockPos p)
     {
-    
+        
         return super.canPlaceBlockAt(world, p) && world.isAirBlock(p.add(0, 1, 0));
     }
     
     @Override
     public EnumPlantType getPlantType(IBlockAccess world, BlockPos p)
     {
-    
+        
         return EnumPlantType.Crop;
     }
     

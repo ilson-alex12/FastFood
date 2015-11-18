@@ -1,9 +1,9 @@
 package danielm59.fastfood.tileentity;
 
-import net.minecraft.item.ItemStack;
-import net.minecraft.server.gui.IUpdatePlayerListBox;
 import danielm59.fastfood.recipe.churn.ChurnRecipe;
 import danielm59.fastfood.recipe.churn.ChurnRegistry;
+import net.minecraft.item.ItemStack;
+import net.minecraft.server.gui.IUpdatePlayerListBox;
 
 public class TileEntityChurn extends TileEntityFF implements IUpdatePlayerListBox
 {
@@ -12,7 +12,7 @@ public class TileEntityChurn extends TileEntityFF implements IUpdatePlayerListBo
     
     public TileEntityChurn()
     {
-    
+        
         super();
         inventory = new ItemStack[2];
         
@@ -21,7 +21,7 @@ public class TileEntityChurn extends TileEntityFF implements IUpdatePlayerListBo
     @Override
     public String getName()
     {
-    
+        
         return "Churn";
         
     }
@@ -29,7 +29,7 @@ public class TileEntityChurn extends TileEntityFF implements IUpdatePlayerListBo
     @Override
     public void update()
     {
-    
+        
         if (!worldObj.isRemote)
         {
             
@@ -64,7 +64,7 @@ public class TileEntityChurn extends TileEntityFF implements IUpdatePlayerListBo
     
     public float getProgress()
     {
-    
+        
         return (float) currentProcessTime / 100;
         
     }

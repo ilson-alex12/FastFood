@@ -10,7 +10,7 @@ public class GrinderRegistry
     
     private static GrinderRegistry           INSTANCE       = new GrinderRegistry();
     private final static List<GrinderRecipe> grinderRecipes = new ArrayList<GrinderRecipe>();
-    
+                                                            
     private GrinderRegistry()
     {
     
@@ -18,32 +18,32 @@ public class GrinderRegistry
     
     public static GrinderRegistry getInstance()
     {
-    
+        
         return INSTANCE;
     }
     
     public static void addRecipe(GrinderRecipe recipe)
     {
-    
+        
         grinderRecipes.add(recipe);
     }
     
     public static void addRecipe(ItemStack input, ItemStack output)
     {
-    
+        
         addRecipe(new GrinderRecipe(input, output));
         
     }
     
     public List<GrinderRecipe> getAllRecipes()
     {
-    
+        
         return grinderRecipes;
     }
     
     public GrinderRecipe getMatchingRecipe(ItemStack inputSlot, ItemStack outputSlot)
     {
-    
+        
         for (GrinderRecipe recipe : grinderRecipes)
         {
             if (inputSlot != null)

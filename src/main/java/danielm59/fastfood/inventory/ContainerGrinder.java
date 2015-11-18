@@ -1,5 +1,7 @@
 package danielm59.fastfood.inventory;
 
+import danielm59.fastfood.inventory.slots.SlotOutput;
+import danielm59.fastfood.tileentity.TileEntityGrinder;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;
@@ -8,22 +10,20 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import danielm59.fastfood.inventory.slots.SlotOutput;
-import danielm59.fastfood.tileentity.TileEntityGrinder;
 
 public class ContainerGrinder extends ContainerFF
 {
     
     public static final int   GRINDER_INPUTS  = 1;
     public static final int   GRINDER_OUTPUTS = 1;
-    
+                                              
     private int               lastProcessTime;
-    
+                              
     private TileEntityGrinder tileEntityGrinder;
-    
+                              
     public ContainerGrinder(InventoryPlayer inventory, TileEntityGrinder tileEntityGrinder, EntityPlayer player)
     {
-    
+        
         this.tileEntityGrinder = tileEntityGrinder;
         tileEntityGrinder.openInventory(player);
         
@@ -69,7 +69,7 @@ public class ContainerGrinder extends ContainerFF
     @Override
     public void onContainerClosed(EntityPlayer entityPlayer)
     {
-    
+        
         super.onContainerClosed(entityPlayer);
         tileEntityGrinder.closeInventory(entityPlayer);
     }
@@ -77,7 +77,7 @@ public class ContainerGrinder extends ContainerFF
     @Override
     public ItemStack transferStackInSlot(EntityPlayer entityPlayer, int slotIndex)
     {
-    
+        
         ItemStack newItemStack = null;
         Slot slot = (Slot) inventorySlots.get(slotIndex);
         
@@ -106,7 +106,7 @@ public class ContainerGrinder extends ContainerFF
     @Override
     public void addCraftingToCrafters(ICrafting iCrafting)
     {
-    
+        
         super.addCraftingToCrafters(iCrafting);
         iCrafting.sendProgressBarUpdate(this, 0, this.tileEntityGrinder.currentProcessTime);
         
@@ -115,7 +115,7 @@ public class ContainerGrinder extends ContainerFF
     @Override
     public void detectAndSendChanges()
     {
-    
+        
         super.detectAndSendChanges();
         
         for (Object crafter : this.crafters)
@@ -136,7 +136,7 @@ public class ContainerGrinder extends ContainerFF
     @SideOnly(Side.CLIENT)
     public void updateProgressBar(int valueType, int updatedValue)
     {
-    
+        
         if (valueType == 0)
         {
             this.tileEntityGrinder.currentProcessTime = updatedValue;

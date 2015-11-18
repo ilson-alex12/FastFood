@@ -8,7 +8,7 @@ public class FoodDrinkableFF extends FoodFF
     
     public FoodDrinkableFF(int hunger, float saturation, boolean wolf)
     {
-    
+        
         super(hunger, saturation, wolf);
         
     }
@@ -16,7 +16,7 @@ public class FoodDrinkableFF extends FoodFF
     @Override
     public EnumAction getItemUseAction(ItemStack stack)
     {
-    
+        
         return EnumAction.DRINK;
         
     }

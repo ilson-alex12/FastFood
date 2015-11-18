@@ -11,7 +11,7 @@ public class ClientProxy extends CommonProxy
     @Override
     public void loadTextures()
     {
-    
+        
         ModBlocks.textures();
         ModItems.textures();
         ModFood.textures();

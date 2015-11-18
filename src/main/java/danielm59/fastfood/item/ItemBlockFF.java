@@ -1,5 +1,6 @@
 package danielm59.fastfood.item;
 
+import danielm59.fastfood.block.BlockFF;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSnow;
 import net.minecraft.block.state.IBlockState;
@@ -11,7 +12,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import danielm59.fastfood.block.BlockFF;
 
 public class ItemBlockFF extends ItemFF
 {
@@ -20,7 +20,7 @@ public class ItemBlockFF extends ItemFF
     
     public ItemBlockFF(BlockFF block)
     {
-    
+        
         super();
         this.block = block;
         
@@ -28,7 +28,7 @@ public class ItemBlockFF extends ItemFF
     
     public boolean onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ)
     {
-    
+        
         IBlockState iblockstate = worldIn.getBlockState(pos);
         Block block = iblockstate.getBlock();
         
@@ -74,7 +74,7 @@ public class ItemBlockFF extends ItemFF
     
     public Block getBlock()
     {
-    
+        
         return this.block;
     }
     

@@ -1,5 +1,7 @@
 package danielm59.fastfood.inventory;
 
+import danielm59.fastfood.inventory.slots.SlotOutput;
+import danielm59.fastfood.tileentity.TileEntityChurn;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;
@@ -8,22 +10,20 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import danielm59.fastfood.inventory.slots.SlotOutput;
-import danielm59.fastfood.tileentity.TileEntityChurn;
 
 public class ContainerChurn extends ContainerFF
 {
     
     public static final int CHURN_INPUTS  = 1;
     public static final int CHURN_OUTPUTS = 1;
-    
+                                          
     private int             lastProcessTime;
-    
+                            
     private TileEntityChurn tileEntityChurn;
-    
+                            
     public ContainerChurn(InventoryPlayer inventory, TileEntityChurn tileEntityChurn, EntityPlayer player)
     {
-    
+        
         this.tileEntityChurn = tileEntityChurn;
         tileEntityChurn.openInventory(player);
         
@@ -69,7 +69,7 @@ public class ContainerChurn extends ContainerFF
     @Override
     public void onContainerClosed(EntityPlayer entityPlayer)
     {
-    
+        
         super.onContainerClosed(entityPlayer);
         tileEntityChurn.closeInventory(entityPlayer);
     }
@@ -77,7 +77,7 @@ public class ContainerChurn extends ContainerFF
     @Override
     public ItemStack transferStackInSlot(EntityPlayer entityPlayer, int slotIndex)
     {
-    
+        
         ItemStack newItemStack = null;
         Slot slot = (Slot) inventorySlots.get(slotIndex);
         
@@ -106,7 +106,7 @@ public class ContainerChurn extends ContainerFF
     @Override
     public void addCraftingToCrafters(ICrafting iCrafting)
     {
-    
+        
         super.addCraftingToCrafters(iCrafting);
         iCrafting.sendProgressBarUpdate(this, 0, this.tileEntityChurn.currentProcessTime);
         
@@ -115,7 +115,7 @@ public class ContainerChurn extends ContainerFF
     @Override
     public void detectAndSendChanges()
     {
-    
+        
         super.detectAndSendChanges();
         
         for (Object crafter : this.crafters)
@@ -136,7 +136,7 @@ public class ContainerChurn extends ContainerFF
     @SideOnly(Side.CLIENT)
     public void updateProgressBar(int valueType, int updatedValue)
     {
-    
+        
         if (valueType == 0)
         {
             this.tileEntityChurn.currentProcessTime = updatedValue;

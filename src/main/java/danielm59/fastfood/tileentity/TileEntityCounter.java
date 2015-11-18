@@ -7,7 +7,7 @@ public class TileEntityCounter extends TileEntityFF
     
     public TileEntityCounter()
     {
-    
+        
         super();
         inventory = new ItemStack[9];
         
@@ -16,7 +16,7 @@ public class TileEntityCounter extends TileEntityFF
     @Override
     public String getName()
     {
-    
+        
         return "Counter";
         
     }

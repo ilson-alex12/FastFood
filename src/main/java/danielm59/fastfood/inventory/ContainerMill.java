@@ -1,5 +1,7 @@
 package danielm59.fastfood.inventory;
 
+import danielm59.fastfood.inventory.slots.SlotOutput;
+import danielm59.fastfood.tileentity.TileEntityMill;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;
@@ -8,8 +10,6 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import danielm59.fastfood.inventory.slots.SlotOutput;
-import danielm59.fastfood.tileentity.TileEntityMill;
 
 public class ContainerMill extends ContainerFF
 {
@@ -17,17 +17,17 @@ public class ContainerMill extends ContainerFF
     public static final int MILL_HIDDEN_INPUTS = 1;
     public static final int MILL_INPUTS        = 1;
     public static final int MILL_OUTPUTS       = 1;
-    
+                                               
     private int             lastIntputProcessTime;
     private int             lastOutputProcessTime;
     private int             lastFlourLevel;
-    
+                            
     private TileEntityMill  tileEntityMill;
     private int             lastInputProcessTime;
-    
+                            
     public ContainerMill(InventoryPlayer inventory, TileEntityMill tileEntityMill, EntityPlayer player)
     {
-    
+        
         this.tileEntityMill = tileEntityMill;
         tileEntityMill.openInventory(player);
         
@@ -73,7 +73,7 @@ public class ContainerMill extends ContainerFF
     @Override
     public void onContainerClosed(EntityPlayer entityPlayer)
     {
-    
+        
         super.onContainerClosed(entityPlayer);
         tileEntityMill.closeInventory(entityPlayer);
     }
@@ -81,7 +81,7 @@ public class ContainerMill extends ContainerFF
     @Override
     public ItemStack transferStackInSlot(EntityPlayer entityPlayer, int slotIndex)
     {
-    
+        
         ItemStack newItemStack = null;
         Slot slot = (Slot) inventorySlots.get(slotIndex);
         
@@ -110,7 +110,7 @@ public class ContainerMill extends ContainerFF
     @Override
     public void addCraftingToCrafters(ICrafting iCrafting)
     {
-    
+        
         super.addCraftingToCrafters(iCrafting);
         iCrafting.sendProgressBarUpdate(this, 0, this.tileEntityMill.currentInputProcessTime);
         iCrafting.sendProgressBarUpdate(this, 1, this.tileEntityMill.currentOutputProcessTime);
@@ -121,7 +121,7 @@ public class ContainerMill extends ContainerFF
     @Override
     public void detectAndSendChanges()
     {
-    
+        
         super.detectAndSendChanges();
         
         for (Object crafter : this.crafters)
@@ -152,7 +152,7 @@ public class ContainerMill extends ContainerFF
     @SideOnly(Side.CLIENT)
     public void updateProgressBar(int valueType, int updatedValue)
     {
-    
+        
         if (valueType == 0)
         {
             this.tileEntityMill.currentInputProcessTime = updatedValue;

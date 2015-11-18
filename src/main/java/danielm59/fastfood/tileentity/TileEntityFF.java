@@ -16,28 +16,28 @@ public class TileEntityFF extends TileEntity implements IInventory
     @Override
     public String getName()
     {
-    
+        
         return null;
     }
     
     @Override
     public boolean hasCustomName()
     {
-    
+        
         return false;
     }
     
     @Override
     public IChatComponent getDisplayName()
     {
-    
+        
         return null;
     }
     
     @Override
     public int getSizeInventory()
     {
-    
+        
         return inventory.length;
         
     }
@@ -45,7 +45,7 @@ public class TileEntityFF extends TileEntity implements IInventory
     @Override
     public ItemStack getStackInSlot(int slotIndex)
     {
-    
+        
         return inventory[slotIndex];
         
     }
@@ -53,7 +53,7 @@ public class TileEntityFF extends TileEntity implements IInventory
     @Override
     public ItemStack decrStackSize(int slotIndex, int decrementAmount)
     {
-    
+        
         ItemStack itemStack = getStackInSlot(slotIndex);
         if (itemStack != null)
         {
@@ -77,7 +77,7 @@ public class TileEntityFF extends TileEntity implements IInventory
     @Override
     public ItemStack getStackInSlotOnClosing(int slotIndex)
     {
-    
+        
         if (inventory[slotIndex] != null)
         {
             ItemStack itemStack = inventory[slotIndex];
@@ -93,7 +93,7 @@ public class TileEntityFF extends TileEntity implements IInventory
     @Override
     public void setInventorySlotContents(int slotIndex, ItemStack itemStack)
     {
-    
+        
         inventory[slotIndex] = itemStack;
         
         if (itemStack != null && itemStack.stackSize > this.getInventoryStackLimit())
@@ -108,14 +108,14 @@ public class TileEntityFF extends TileEntity implements IInventory
     @Override
     public int getInventoryStackLimit()
     {
-    
+        
         return 64;
     }
     
     @Override
     public boolean isUseableByPlayer(EntityPlayer playerIn)
     {
-    
+        
         return true;
     }
     
@@ -134,14 +134,14 @@ public class TileEntityFF extends TileEntity implements IInventory
     @Override
     public boolean isItemValidForSlot(int index, ItemStack stack)
     {
-    
+        
         return true;
     }
     
     @Override
     public int getField(int id)
     {
-    
+        
         return 0;
     }
     
@@ -154,7 +154,7 @@ public class TileEntityFF extends TileEntity implements IInventory
     @Override
     public int getFieldCount()
     {
-    
+        
         return 0;
     }
     
@@ -167,7 +167,7 @@ public class TileEntityFF extends TileEntity implements IInventory
     @Override
     public void readFromNBT(NBTTagCompound nbtTagCompound)
     {
-    
+        
         super.readFromNBT(nbtTagCompound);
         
         // Read in the ItemStacks in the inventory from NBT
@@ -187,7 +187,7 @@ public class TileEntityFF extends TileEntity implements IInventory
     @Override
     public void writeToNBT(NBTTagCompound nbtTagCompound)
     {
-    
+        
         super.writeToNBT(nbtTagCompound);
         
         // Write the ItemStacks in the inventory to NBT

@@ -1,11 +1,5 @@
 package danielm59.fastfood.init;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.model.ModelResourceLocation;
-import net.minecraft.item.Item;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import danielm59.fastfood.block.BlockChurn;
 import danielm59.fastfood.block.BlockCounter;
 import danielm59.fastfood.block.BlockFF;
@@ -14,6 +8,12 @@ import danielm59.fastfood.block.BlockGrinder;
 import danielm59.fastfood.block.BlockMill;
 import danielm59.fastfood.block.BlockPress;
 import danielm59.fastfood.reference.Reference;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.item.Item;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 @GameRegistry.ObjectHolder(Reference.MODID)
 public class ModBlocks
@@ -25,10 +25,10 @@ public class ModBlocks
     public static final BlockFF press   = new BlockPress();
     public static final BlockFF mill    = new BlockMill();
     public static final BlockFF fryer   = new BlockFryer();
-    
+                                        
     public static void init()
     {
-    
+        
         GameRegistry.registerBlock(counter, "counter");
         GameRegistry.registerBlock(grinder, "grinder");
         GameRegistry.registerBlock(churn, "churn");
@@ -41,7 +41,7 @@ public class ModBlocks
     @SideOnly(Side.CLIENT)
     public static void textures()
     {
-    
+        
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(counter), 0, new ModelResourceLocation("fastfood:counter", "inventory"));
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(grinder), 0, new ModelResourceLocation("fastfood:grinder", "inventory"));
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(churn), 0, new ModelResourceLocation("fastfood:churn", "inventory"));

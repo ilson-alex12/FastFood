@@ -7,10 +7,10 @@ public class MillInputRecipe
     
     private ItemStack input;
     private String    output;
-    
+                      
     MillInputRecipe(ItemStack input, String output)
     {
-    
+        
         this.input = input;
         this.output = output;
         
@@ -18,14 +18,14 @@ public class MillInputRecipe
     
     public ItemStack getInput()
     {
-    
+        
         return input;
         
     }
     
     public String getOutput()
     {
-    
+        
         return output;
         
     }

@@ -7,10 +7,10 @@ public class ChurnRecipe
     
     private ItemStack input;
     private ItemStack output;
-    
+                      
     ChurnRecipe(ItemStack input, ItemStack output)
     {
-    
+        
         this.input = input;
         this.output = output;
         
@@ -18,14 +18,14 @@ public class ChurnRecipe
     
     public ItemStack getInput()
     {
-    
+        
         return input;
         
     }
     
     public ItemStack getOutput()
     {
-    
+        
         return output;
         
     }

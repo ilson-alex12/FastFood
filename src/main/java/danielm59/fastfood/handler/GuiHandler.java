@@ -1,9 +1,5 @@
 package danielm59.fastfood.handler;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.BlockPos;
-import net.minecraft.world.World;
-import net.minecraftforge.fml.common.network.IGuiHandler;
 import danielm59.fastfood.client.gui.inventory.GuiChurn;
 import danielm59.fastfood.client.gui.inventory.GuiCounter;
 import danielm59.fastfood.client.gui.inventory.GuiFryer;
@@ -23,6 +19,10 @@ import danielm59.fastfood.tileentity.TileEntityFryer;
 import danielm59.fastfood.tileentity.TileEntityGrinder;
 import danielm59.fastfood.tileentity.TileEntityMill;
 import danielm59.fastfood.tileentity.TileEntityPress;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.BlockPos;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.common.network.IGuiHandler;
 
 public class GuiHandler implements IGuiHandler
 {
@@ -30,7 +30,7 @@ public class GuiHandler implements IGuiHandler
     @Override
     public Object getServerGuiElement(int id, EntityPlayer entityPlayer, World world, int x, int y, int z)
     {
-    
+        
         if (id == GuiId.COUNTER.ordinal())
         {
             
@@ -85,7 +85,7 @@ public class GuiHandler implements IGuiHandler
     @Override
     public Object getClientGuiElement(int id, EntityPlayer entityPlayer, World world, int x, int y, int z)
     {
-    
+        
         if (id == GuiId.COUNTER.ordinal())
         {
             

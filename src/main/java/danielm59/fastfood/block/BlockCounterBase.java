@@ -21,7 +21,7 @@ public abstract class BlockCounterBase extends BlockFF implements ITileEntityPro
     
     public BlockCounterBase()
     {
-    
+        
         super();
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         
@@ -29,7 +29,7 @@ public abstract class BlockCounterBase extends BlockFF implements ITileEntityPro
     
     public void onBlockAdded(World worldIn, BlockPos p, IBlockState state)
     {
-    
+        
         if (!worldIn.isRemote)
         {
             Block block = worldIn.getBlockState(p.offsetNorth()).getBlock();
@@ -59,13 +59,13 @@ public abstract class BlockCounterBase extends BlockFF implements ITileEntityPro
     @SideOnly(Side.CLIENT)
     public IBlockState getStateForEntityRender(IBlockState state)
     {
-    
+        
         return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH);
     }
     
     public IBlockState getStateFromMeta(int meta)
     {
-    
+        
         EnumFacing enumfacing = EnumFacing.getFront(meta);
         
         if (enumfacing.getAxis() == EnumFacing.Axis.Y)
@@ -78,26 +78,26 @@ public abstract class BlockCounterBase extends BlockFF implements ITileEntityPro
     
     public int getMetaFromState(IBlockState state)
     {
-    
+        
         return ((EnumFacing) state.getValue(FACING)).getIndex();
     }
     
     protected BlockState createBlockState()
     {
-    
+        
         return new BlockState(this, new IProperty[]
         { FACING });
     }
     
     public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
     {
-    
+        
         return this.getDefaultState().withProperty(FACING, placer.func_174811_aO().getOpposite());
     }
     
     public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack)
     {
-    
+        
         worldIn.setBlockState(pos, state.withProperty(FACING, placer.func_174811_aO().getOpposite()), 2);
         
     }

@@ -1,10 +1,10 @@
 package danielm59.fastfood.inventory;
 
+import danielm59.fastfood.tileentity.TileEntityCounter;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import danielm59.fastfood.tileentity.TileEntityCounter;
 
 public class ContainerCounter extends ContainerFF
 {
@@ -12,14 +12,14 @@ public class ContainerCounter extends ContainerFF
     public static final int   COUNTER_INVENTORY_ROWS    = 3;
     public static final int   COUNTER_INVENTORY_COLUMNS = 3;
     public static final int   COUNTER_INVENTORY_SIZE    = COUNTER_INVENTORY_ROWS * COUNTER_INVENTORY_COLUMNS;
-    
+                                                        
     private TileEntityCounter tileEntityCounter;
     private int               chestInventoryRows;
     private int               chestInventoryColumns;
-    
+                              
     public ContainerCounter(InventoryPlayer inventoryPlayer, TileEntityCounter tileEntityCounter, EntityPlayer player)
     {
-    
+        
         this.tileEntityCounter = tileEntityCounter;
         tileEntityCounter.openInventory(player);
         
@@ -65,7 +65,7 @@ public class ContainerCounter extends ContainerFF
     @Override
     public void onContainerClosed(EntityPlayer entityPlayer)
     {
-    
+        
         super.onContainerClosed(entityPlayer);
         tileEntityCounter.closeInventory(entityPlayer);
     }
@@ -73,7 +73,7 @@ public class ContainerCounter extends ContainerFF
     @Override
     public ItemStack transferStackInSlot(EntityPlayer entityPlayer, int slotIndex)
     {
-    
+        
         ItemStack newItemStack = null;
         Slot slot = (Slot) inventorySlots.get(slotIndex);
         

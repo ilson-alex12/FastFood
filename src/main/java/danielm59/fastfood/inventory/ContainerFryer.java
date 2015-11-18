@@ -1,5 +1,7 @@
 package danielm59.fastfood.inventory;
 
+import danielm59.fastfood.inventory.slots.SlotOutput;
+import danielm59.fastfood.tileentity.TileEntityFryer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;
@@ -9,22 +11,20 @@ import net.minecraft.inventory.SlotFurnaceFuel;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import danielm59.fastfood.inventory.slots.SlotOutput;
-import danielm59.fastfood.tileentity.TileEntityFryer;
 
 public class ContainerFryer extends ContainerFF
 {
     
     public static final int TOTAL_SLOTS = 5;
-    
+                                        
     private int             lastFryerProcessTime;
     private int             lastOilProcessTime;
-    
+                            
     private TileEntityFryer tileEntityFryer;
-    
+                            
     public ContainerFryer(InventoryPlayer inventory, TileEntityFryer tileEntityFryer, EntityPlayer player)
     {
-    
+        
         this.tileEntityFryer = tileEntityFryer;
         tileEntityFryer.openInventory(player);
         
@@ -59,7 +59,7 @@ public class ContainerFryer extends ContainerFF
     @Override
     public void onContainerClosed(EntityPlayer entityPlayer)
     {
-    
+        
         super.onContainerClosed(entityPlayer);
         
         tileEntityFryer.closeInventory(entityPlayer);
@@ -68,7 +68,7 @@ public class ContainerFryer extends ContainerFF
     @Override
     public ItemStack transferStackInSlot(EntityPlayer entityPlayer, int slotIndex)
     {
-    
+        
         ItemStack newItemStack = null;
         Slot slot = (Slot) inventorySlots.get(slotIndex);
         
@@ -97,7 +97,7 @@ public class ContainerFryer extends ContainerFF
     @Override
     public void addCraftingToCrafters(ICrafting iCrafting)
     {
-    
+        
         super.addCraftingToCrafters(iCrafting);
         iCrafting.sendProgressBarUpdate(this, 0, this.tileEntityFryer.currentFryerProcessTime);
         iCrafting.sendProgressBarUpdate(this, 1, this.tileEntityFryer.currentOilProcessTime);
@@ -107,7 +107,7 @@ public class ContainerFryer extends ContainerFF
     @Override
     public void detectAndSendChanges()
     {
-    
+        
         super.detectAndSendChanges();
         
         for (Object crafter : this.crafters)
@@ -133,7 +133,7 @@ public class ContainerFryer extends ContainerFF
     @SideOnly(Side.CLIENT)
     public void updateProgressBar(int valueType, int updatedValue)
     {
-    
+        
         if (valueType == 0)
         {
             this.tileEntityFryer.currentFryerProcessTime = updatedValue;

@@ -7,10 +7,10 @@ public class OilRecipe
     
     private ItemStack input;
     private ItemStack output;
-    
+                      
     OilRecipe(ItemStack input, ItemStack output)
     {
-    
+        
         this.input = input;
         this.output = output;
         
@@ -18,14 +18,14 @@ public class OilRecipe
     
     public ItemStack getInput()
     {
-    
+        
         return input;
         
     }
     
     public ItemStack getOutput()
     {
-    
+        
         return output;
         
     }

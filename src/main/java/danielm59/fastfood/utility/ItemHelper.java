@@ -8,7 +8,7 @@ public class ItemHelper
     
     public static ItemStack cloneItemStack(ItemStack itemStack, int stackSize)
     {
-    
+        
         ItemStack clonedItemStack = itemStack.copy();
         clonedItemStack.stackSize = stackSize;
         return clonedItemStack;
@@ -16,7 +16,7 @@ public class ItemHelper
     
     public static boolean equalsIgnoreStackSize(ItemStack itemStack1, ItemStack itemStack2)
     {
-    
+        
         if (itemStack1 != null && itemStack2 != null)
         {
             // Sort on itemID

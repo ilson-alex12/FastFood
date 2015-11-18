@@ -1,9 +1,9 @@
 package danielm59.fastfood.tileentity;
 
-import net.minecraft.item.ItemStack;
-import net.minecraft.server.gui.IUpdatePlayerListBox;
 import danielm59.fastfood.recipe.press.PressRecipe;
 import danielm59.fastfood.recipe.press.PressRegistry;
+import net.minecraft.item.ItemStack;
+import net.minecraft.server.gui.IUpdatePlayerListBox;
 
 public class TileEntityPress extends TileEntityFF implements IUpdatePlayerListBox
 {
@@ -12,7 +12,7 @@ public class TileEntityPress extends TileEntityFF implements IUpdatePlayerListBo
     
     public TileEntityPress()
     {
-    
+        
         super();
         inventory = new ItemStack[3];
         
@@ -21,7 +21,7 @@ public class TileEntityPress extends TileEntityFF implements IUpdatePlayerListBo
     @Override
     public String getName()
     {
-    
+        
         return "Press";
         
     }
@@ -29,7 +29,7 @@ public class TileEntityPress extends TileEntityFF implements IUpdatePlayerListBo
     @Override
     public void update()
     {
-    
+        
         if (!worldObj.isRemote)
         {
             
@@ -69,7 +69,7 @@ public class TileEntityPress extends TileEntityFF implements IUpdatePlayerListBo
     
     public float getProgress()
     {
-    
+        
         return (float) currentProcessTime / 100;
         
     }

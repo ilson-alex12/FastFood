@@ -7,10 +7,10 @@ public class FryerRecipe
     
     private ItemStack input;
     private ItemStack output;
-    
+                      
     FryerRecipe(ItemStack input, ItemStack output)
     {
-    
+        
         this.input = input;
         this.output = output;
         
@@ -18,14 +18,14 @@ public class FryerRecipe
     
     public ItemStack getInput()
     {
-    
+        
         return input;
         
     }
     
     public ItemStack getOutput()
     {
-    
+        
         return output;
         
     }

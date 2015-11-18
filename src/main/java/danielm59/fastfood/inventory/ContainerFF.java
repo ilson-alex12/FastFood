@@ -1,21 +1,21 @@
 package danielm59.fastfood.inventory;
 
+import danielm59.fastfood.utility.ItemHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import danielm59.fastfood.utility.ItemHelper;
 
 public class ContainerFF extends Container
 {
     
     protected final int PLAYER_INVENTORY_ROWS    = 3;
     protected final int PLAYER_INVENTORY_COLUMNS = 9;
-    
+                                                 
     @Override
     public boolean canInteractWith(EntityPlayer entityPlayer)
     {
-    
+        
         return true;
         
     }
@@ -23,7 +23,7 @@ public class ContainerFF extends Container
     @Override
     protected boolean mergeItemStack(ItemStack itemStack, int slotMin, int slotMax, boolean ascending)
     {
-    
+        
         boolean slotFound = false;
         int currentSlotIndex = ascending ? slotMax - 1 : slotMin;
         

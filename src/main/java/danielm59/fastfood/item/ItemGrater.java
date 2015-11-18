@@ -7,7 +7,7 @@ public class ItemGrater extends ItemFF
     
     public ItemGrater()
     {
-    
+        
         super();
         this.setUnlocalizedName("grater");
         this.setMaxStackSize(1);
@@ -19,21 +19,21 @@ public class ItemGrater extends ItemFF
     @Override
     public boolean getShareTag()
     {
-    
+        
         return true;
         
     }
     
     public boolean hasContainerItem(ItemStack itemStack)
     {
-    
+        
         return true;
     }
     
     @Override
     public ItemStack getContainerItem(ItemStack itemStack)
     {
-    
+        
         ItemStack copiedStack = itemStack.copy();
         
         copiedStack.setItemDamage(copiedStack.getItemDamage() + 1);

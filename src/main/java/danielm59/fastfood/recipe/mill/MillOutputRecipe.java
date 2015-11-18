@@ -8,10 +8,10 @@ public class MillOutputRecipe
     private String    inputFlour;
     private ItemStack inputContainer;
     private ItemStack output;
-    
+                      
     MillOutputRecipe(String inputFlour, ItemStack inputContainer, ItemStack output)
     {
-    
+        
         this.inputFlour = inputFlour;
         this.inputContainer = inputContainer;
         this.output = output;
@@ -20,21 +20,21 @@ public class MillOutputRecipe
     
     public String getInputFlour()
     {
-    
+        
         return inputFlour;
         
     }
     
     public ItemStack getIntputContainer()
     {
-    
+        
         return inputContainer;
         
     }
     
     public ItemStack getOutput()
     {
-    
+        
         return output;
         
     }

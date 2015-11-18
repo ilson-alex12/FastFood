@@ -10,7 +10,7 @@ public class PressRegistry
     
     private static PressRegistry           INSTANCE     = new PressRegistry();
     private final static List<PressRecipe> pressRecipes = new ArrayList<PressRecipe>();
-    
+                                                        
     private PressRegistry()
     {
     
@@ -18,32 +18,32 @@ public class PressRegistry
     
     public static PressRegistry getInstance()
     {
-    
+        
         return INSTANCE;
     }
     
     public static void addRecipe(PressRecipe recipe)
     {
-    
+        
         pressRecipes.add(recipe);
     }
     
     public static void addRecipe(ItemStack inputTop, ItemStack inputBottom, ItemStack output)
     {
-    
+        
         addRecipe(new PressRecipe(inputTop, inputBottom, output));
         
     }
     
     public List<PressRecipe> getAllRecipes()
     {
-    
+        
         return pressRecipes;
     }
     
     public PressRecipe getMatchingRecipe(ItemStack inputTopSlot, ItemStack inputBottomSlot, ItemStack outputSlot)
     {
-    
+        
         for (PressRecipe recipe : pressRecipes)
         {
             if (inputTopSlot != null)
