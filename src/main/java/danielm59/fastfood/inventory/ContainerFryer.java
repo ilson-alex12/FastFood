@@ -19,6 +19,10 @@ public class ContainerFryer extends ContainerFF
                                         
     private int             lastFryerProcessTime;
     private int             lastOilProcessTime;
+    private int             lastOilLevel;
+    private int             lastBurnTime;
+    private int             lastMaxBurnTime;
+    private int             lastHeat;
                             
     private TileEntityFryer tileEntityFryer;
                             
@@ -101,6 +105,10 @@ public class ContainerFryer extends ContainerFF
         super.addCraftingToCrafters(iCrafting);
         iCrafting.sendProgressBarUpdate(this, 0, this.tileEntityFryer.currentFryerProcessTime);
         iCrafting.sendProgressBarUpdate(this, 1, this.tileEntityFryer.currentOilProcessTime);
+        iCrafting.sendProgressBarUpdate(this, 2, this.tileEntityFryer.oilLevel);
+        iCrafting.sendProgressBarUpdate(this, 3, this.tileEntityFryer.burnTime);
+        iCrafting.sendProgressBarUpdate(this, 4, this.tileEntityFryer.maxBurnTime);
+        iCrafting.sendProgressBarUpdate(this, 5, (int) (this.tileEntityFryer.heat * 100));
         
     }
     
@@ -112,15 +120,31 @@ public class ContainerFryer extends ContainerFF
         
         for (Object crafter : this.crafters)
         {
-            ICrafting icrafting = (ICrafting) crafter;
+            ICrafting iCrafting = (ICrafting) crafter;
             
             if (this.lastFryerProcessTime != this.tileEntityFryer.currentFryerProcessTime)
             {
-                icrafting.sendProgressBarUpdate(this, 0, this.tileEntityFryer.currentFryerProcessTime);
+                iCrafting.sendProgressBarUpdate(this, 0, this.tileEntityFryer.currentFryerProcessTime);
             }
             if (this.lastOilProcessTime != this.tileEntityFryer.currentOilProcessTime)
             {
-                icrafting.sendProgressBarUpdate(this, 0, this.tileEntityFryer.currentOilProcessTime);
+                iCrafting.sendProgressBarUpdate(this, 1, this.tileEntityFryer.currentOilProcessTime);
+            }
+            if (this.lastOilLevel != this.tileEntityFryer.oilLevel)
+            {
+                iCrafting.sendProgressBarUpdate(this, 2, this.tileEntityFryer.oilLevel);
+            }
+            if (this.lastBurnTime != this.tileEntityFryer.burnTime)
+            {
+                iCrafting.sendProgressBarUpdate(this, 3, this.tileEntityFryer.burnTime);
+            }
+            if (this.lastMaxBurnTime != this.tileEntityFryer.maxBurnTime)
+            {
+                iCrafting.sendProgressBarUpdate(this, 4, this.tileEntityFryer.maxBurnTime);
+            }
+            if (this.lastHeat != (int) (this.tileEntityFryer.heat * 100))
+            {
+                iCrafting.sendProgressBarUpdate(this, 5, (int) (this.tileEntityFryer.heat * 100));
             }
             
         }
@@ -141,6 +165,22 @@ public class ContainerFryer extends ContainerFF
         if (valueType == 1)
         {
             this.tileEntityFryer.currentOilProcessTime = updatedValue;
+        }
+        if (valueType == 2)
+        {
+            this.tileEntityFryer.oilLevel = updatedValue;
+        }
+        if (valueType == 3)
+        {
+            this.tileEntityFryer.burnTime = updatedValue;
+        }
+        if (valueType == 4)
+        {
+            this.tileEntityFryer.maxBurnTime = updatedValue;
+        }
+        if (valueType == 5)
+        {
+            this.tileEntityFryer.heat = (double) updatedValue / 100;
         }
         
     }

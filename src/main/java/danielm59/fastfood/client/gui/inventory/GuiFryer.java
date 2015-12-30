@@ -45,7 +45,20 @@ public class GuiFryer extends GuiContainer
         int yStart = (height - ySize) / 2;
         this.drawTexturedModalRect(xStart, yStart, 0, 0, xSize, ySize);
         
-        // TODO add progress and status bars
+        int oilProgress = (int) (tileEntityFryer.getOilProgress() * 14);
+        drawTexturedModalRect(xStart + 28, yStart + 36, 176, 31, 12, oilProgress);
+        
+        int oilLevel = (int) (tileEntityFryer.getOilLevel() * 72);
+        drawTexturedModalRect(xStart + 8, yStart + 7 + (72 - oilLevel), 176, 45 + (72 - oilLevel), 12, oilLevel);
+        
+        int fryerProgress = (int) (tileEntityFryer.getFryerProgress() * 24);
+        drawTexturedModalRect(xStart + 85, yStart + 34, 176, 14, fryerProgress, 17);
+        
+        int heatLevel = (int) (tileEntityFryer.getHeat() * 72);
+        drawTexturedModalRect(xStart + 156, yStart + 7 + (72 - heatLevel), 188, 45 + (72 - heatLevel), 12, heatLevel);
+        
+        int burnProgress = (int) (tileEntityFryer.getBurnProgress() * 14);
+        drawTexturedModalRect(xStart + 62, yStart + 36 + (14 - burnProgress), 176, 14 - burnProgress, 14, burnProgress);
         
     }
     

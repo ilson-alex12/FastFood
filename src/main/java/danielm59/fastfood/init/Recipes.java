@@ -38,7 +38,8 @@ public class Recipes
         GameRegistry.addRecipe(new ShapelessOreRecipe(ModFood.beefburger, ModFood.beefpatty, ModFood.roll));
         GameRegistry.addRecipe(new ShapelessOreRecipe(ModFood.breaddough, ModItems.wheatflour, Items.water_bucket));
         GameRegistry.addRecipe(new ShapelessOreRecipe(ModFood.gratedcheese, ModItems.grater, ModFood.cheese));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModFood.sunflowerseeds, 3), Blocks.double_plant, ModItems.knife));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModFood.sunflowerseeds, 3), Blocks.double_plant, new ItemStack(ModItems.knife, 1, OreDictionary.WILDCARD_VALUE)));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(ModFood.rawfries, Items.potato, new ItemStack(ModItems.knife, 1, OreDictionary.WILDCARD_VALUE)));
         
         GameRegistry.addRecipe(new ShapedOreRecipe(ModFood.pizzabase, "dd", 'd', ModFood.breaddough));
         GameRegistry.addRecipe(new ShapedOreRecipe(ModFood.rawbread, "ddd", 'd', ModFood.breaddough));
@@ -63,6 +64,8 @@ public class Recipes
         MillRegistry.addOutputRecipe("wheat flour", new ItemStack(ModItems.flourbag, 1), new ItemStack(ModItems.wheatflour, 1));
         
         FryerRegistry.addOilRecipe(new ItemStack(ModItems.cookingoil, 1), new ItemStack(ModItems.cookingoil.getContainerItem()));
+        
+        FryerRegistry.addFryerRecipe(new ItemStack(ModFood.rawfries, 1), new ItemStack(ModFood.fries, 1));
     }
     
 }

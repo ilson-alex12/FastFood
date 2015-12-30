@@ -5,8 +5,7 @@ import danielm59.fastfood.item.ItemFF;
 import danielm59.fastfood.item.ItemGrater;
 import danielm59.fastfood.item.ItemKnife;
 import danielm59.fastfood.reference.Reference;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.model.ModelResourceLocation;
+import danielm59.fastfood.utility.TextureHelper;
 import net.minecraft.init.Items;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -41,13 +40,13 @@ public class ModItems
     public static void textures()
     {
         
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(knife, 0, new ModelResourceLocation("fastfood:knife", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(grater, 0, new ModelResourceLocation("fastfood:grater", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(flourbag, 0, new ModelResourceLocation("fastfood:flourbag", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(wheatflour, 0, new ModelResourceLocation("fastfood:wheatflour", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(millstone, 0, new ModelResourceLocation("fastfood:millstone", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(fryer, 0, new ModelResourceLocation("fastfood:fryer", "inventory"));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(cookingoil, 0, new ModelResourceLocation("fastfood:cookingoil", "inventory"));
+        TextureHelper.register(knife);
+        TextureHelper.register(grater);
+        TextureHelper.register(flourbag);
+        TextureHelper.register(wheatflour);
+        TextureHelper.register(millstone);
+        TextureHelper.register(fryer);
+        TextureHelper.register(cookingoil);
         
     }
     
