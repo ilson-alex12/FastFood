@@ -57,7 +57,7 @@ public class Recipes
         ChurnRegistry.addRecipe(new ItemStack(ModFood.butter, 1), new ItemStack(ModFood.cheese, 1));
         
         PressRegistry.addRecipe(new ItemStack(ModFood.tomato, 1), new ItemStack(Items.glass_bottle, 1), new ItemStack(ModFood.tomatosauce, 1));
-        PressRegistry.addRecipe(new ItemStack(ModFood.sunflowerseeds, 1), new ItemStack(Items.glass_bottle, 1), new ItemStack(ModItems.cookingoil, 1));
+        PressRegistry.addRecipe(new ItemStack(ModFood.sunflowerseeds, 8), new ItemStack(Items.glass_bottle, 1), new ItemStack(ModItems.cookingoil, 1));
         
         MillRegistry.addInputRecipe(new ItemStack(Items.wheat, 1), "wheat flour");
         
