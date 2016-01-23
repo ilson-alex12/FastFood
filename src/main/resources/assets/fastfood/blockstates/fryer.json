@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "fastfood:fryer" },
+        "facing=south": { "model": "fastfood:fryer", "y": 180 },
+        "facing=west":  { "model": "fastfood:fryer", "y": 270 },
+        "facing=east":  { "model": "fastfood:fryer", "y": 90 }
+    }
+}

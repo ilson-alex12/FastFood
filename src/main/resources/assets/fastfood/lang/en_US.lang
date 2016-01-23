@@ -27,7 +27,10 @@ item.fastfood:pizzabase.name=Pizza Base
 item.fastfood:rawpizza.name=Raw Pizza
 item.fastfood:pizza.name=Pizza
 item.fastfood:rawbread.name=Raw Bread
-
+item.fastfood:sunflowerseeds.name=Sunflower Seeds
+item.fastfood:cookingoil.name=Cooking Oil
+item.fastfood:rawfries.name=Raw Fries
+item.fastfood:fries.name=Fries
 
 # Blocks
 
@@ -36,6 +39,7 @@ tile.fastfood:grinder.name=Meat Grinder
 tile.fastfood:churn.name=Churn
 tile.fastfood:press.name=Press
 tile.fastfood:mill.name=Flour Mill
+item.fastfood:fryer.name=Fryer
 
 #Crops
 
