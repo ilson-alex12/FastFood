@@ -47,9 +47,9 @@ public class TileEntityGrinder extends TileEntityFF implements ITickable
                     {
                         inventory[1] = recipe.getOutput().copy();
                     }
-                    if (inventory[0].getItem().hasContainerItem())
+                    if (inventory[0].getItem().hasContainerItem(inventory[0]))
                     {
-                        setInventorySlotContents(0, new ItemStack(inventory[0].getItem().getContainerItem()));
+                        setInventorySlotContents(0, inventory[0].getItem().getContainerItem(inventory[0]));
                     } else
                     {
                         decrStackSize(0, 1);

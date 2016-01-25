@@ -28,7 +28,7 @@ group= "danielm59.fastfood" // http://maven.apache.org/guides/mini/guide-naming-
 archivesBaseName = "[1.8]Fast Food"
 
 minecraft {
-    version = "1.8.9-11.15.0.1715"
+    version = "1.8.9-11.15.0.1719"
     runDir = "eclipse"
 	replace '@VERSION@', project.version
 	mappings = "stable_20"

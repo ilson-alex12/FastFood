@@ -57,9 +57,9 @@ public class TileEntityMill extends TileEntityFF implements ITickable
                     currentInputProcessTime = 0;
                     FlourLevel = FlourLevel + 2;
                     FlourType = recipe.getOutput();
-                    if (inventory[0].getItem().hasContainerItem())
+                    if (inventory[0].getItem().hasContainerItem(inventory[0]))
                     {
-                        setInventorySlotContents(0, new ItemStack(inventory[0].getItem().getContainerItem()));
+                        setInventorySlotContents(0, inventory[0].getItem().getContainerItem(inventory[0]));
                     } else
                     {
                         decrStackSize(0, 1);
@@ -96,9 +96,9 @@ public class TileEntityMill extends TileEntityFF implements ITickable
                     {
                         inventory[2] = recipe.getOutput().copy();
                     }
-                    if (inventory[1].getItem().hasContainerItem())
+                    if (inventory[1].getItem().hasContainerItem(inventory[1]))
                     {
-                        setInventorySlotContents(1, new ItemStack(inventory[1].getItem().getContainerItem()));
+                        setInventorySlotContents(1, inventory[1].getItem().getContainerItem(inventory[1]));
                     } else
                     {
                         decrStackSize(1, 1);

@@ -18,12 +18,11 @@ public class ContainerMill extends ContainerFF
     public static final int MILL_INPUTS        = 1;
     public static final int MILL_OUTPUTS       = 1;
                                                
-    private int             lastIntputProcessTime;
+    private int             lastInputProcessTime;
     private int             lastOutputProcessTime;
     private int             lastFlourLevel;
                             
     private TileEntityMill  tileEntityMill;
-    private int             lastInputProcessTime;
                             
     public ContainerMill(InventoryPlayer inventory, TileEntityMill tileEntityMill, EntityPlayer player)
     {

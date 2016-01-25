@@ -55,25 +55,29 @@ public class BlockFryer extends BlockCounterBase
         }
     }
     
+    @Override
     public void setBlockBoundsForItemRender()
     {
         
         this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
     }
     
+    @Override
     public boolean isOpaqueCube()
     {
         
         return false;
     }
     
+    @Override
     public boolean isFullCube()
     {
         
         return false;
     }
     
-    public void addCollisionBoxesToList(World worldIn, BlockPos pos, IBlockState state, AxisAlignedBB mask, List list, Entity collidingEntity)
+    @Override
+    public void addCollisionBoxesToList(World worldIn, BlockPos pos, IBlockState state, AxisAlignedBB mask, List<AxisAlignedBB>  list, Entity collidingEntity)
     {
         
         this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
