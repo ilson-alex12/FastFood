@@ -98,7 +98,7 @@ public class ContainerFryer extends ContainerFF
         return newItemStack;
     }
     
-    @Override
+/*    @Override
     public void addCraftingToCrafters(ICrafting iCrafting)
     {
         
@@ -110,7 +110,7 @@ public class ContainerFryer extends ContainerFF
         iCrafting.sendProgressBarUpdate(this, 4, this.tileEntityFryer.maxBurnTime);
         iCrafting.sendProgressBarUpdate(this, 5, (int) (this.tileEntityFryer.heat * 100));
         
-    }
+    }*/
     
     @Override
     public void detectAndSendChanges()

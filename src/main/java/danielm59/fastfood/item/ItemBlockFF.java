@@ -32,7 +32,7 @@ public class ItemBlockFF extends ItemFF
         IBlockState iblockstate = worldIn.getBlockState(pos);
         Block block = iblockstate.getBlock();
         
-        if (block == Blocks.snow_layer && ((Integer) iblockstate.getValue(BlockSnow.LAYERS_PROP)).intValue() < 1)
+        if (block == Blocks.snow_layer && ((Integer) iblockstate.getValue(BlockSnow.LAYERS)).intValue() < 1)
         {
             side = EnumFacing.UP;
         } else if (!block.isReplaceable(worldIn, pos))
@@ -40,7 +40,7 @@ public class ItemBlockFF extends ItemFF
             pos = pos.offset(side);
         }
         
-        if (!playerIn.func_175151_a(pos, side, stack))
+        if (!playerIn.canPlayerEdit(pos, side, stack))
         {
             return false;
         } else if (stack.stackSize == 0)
@@ -58,7 +58,7 @@ public class ItemBlockFF extends ItemFF
                     
                     if (iblockstate1.getBlock() == this.block)
                     {
-                        ItemBlock.setTileEntityNBT(worldIn, pos, stack);
+                        ItemBlock.setTileEntityNBT(worldIn, playerIn, pos, stack);
                         iblockstate1.getBlock().onBlockPlacedBy(worldIn, pos, iblockstate1, playerIn, stack);
                     }
                     

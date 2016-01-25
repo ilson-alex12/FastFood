@@ -103,14 +103,14 @@ public class ContainerPress extends ContainerFF
         return newItemStack;
     }
     
-    @Override
+/*    @Override
     public void addCraftingToCrafters(ICrafting iCrafting)
     {
         
         super.addCraftingToCrafters(iCrafting);
         iCrafting.sendProgressBarUpdate(this, 0, this.tileEntityPress.currentProcessTime);
         
-    }
+    }*/
     
     @Override
     public void detectAndSendChanges()

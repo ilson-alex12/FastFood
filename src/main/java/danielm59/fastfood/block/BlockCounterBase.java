@@ -32,10 +32,10 @@ public abstract class BlockCounterBase extends BlockFF implements ITileEntityPro
         
         if (!worldIn.isRemote)
         {
-            Block block = worldIn.getBlockState(p.offsetNorth()).getBlock();
-            Block block1 = worldIn.getBlockState(p.offsetSouth()).getBlock();
-            Block block2 = worldIn.getBlockState(p.offsetWest()).getBlock();
-            Block block3 = worldIn.getBlockState(p.offsetEast()).getBlock();
+            Block block = worldIn.getBlockState(p.north()).getBlock();
+            Block block1 = worldIn.getBlockState(p.south()).getBlock();
+            Block block2 = worldIn.getBlockState(p.west()).getBlock();
+            Block block3 = worldIn.getBlockState(p.east()).getBlock();
             EnumFacing enumfacing = (EnumFacing) state.getValue(FACING);
             
             if (enumfacing == EnumFacing.NORTH && block.isFullBlock() && !block1.isFullBlock())
@@ -92,13 +92,13 @@ public abstract class BlockCounterBase extends BlockFF implements ITileEntityPro
     public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
     {
         
-        return this.getDefaultState().withProperty(FACING, placer.func_174811_aO().getOpposite());
+        return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
     }
     
     public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack)
     {
         
-        worldIn.setBlockState(pos, state.withProperty(FACING, placer.func_174811_aO().getOpposite()), 2);
+        worldIn.setBlockState(pos, state.withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 2);
         
     }
     

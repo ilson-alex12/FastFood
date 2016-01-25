@@ -6,9 +6,9 @@ import danielm59.fastfood.recipe.mill.MillRegistry;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.server.gui.IUpdatePlayerListBox;
+import net.minecraft.util.ITickable;
 
-public class TileEntityMill extends TileEntityFF implements IUpdatePlayerListBox
+public class TileEntityMill extends TileEntityFF implements ITickable 
 {
     
     public int    currentInputProcessTime;

@@ -3,9 +3,9 @@ package danielm59.fastfood.tileentity;
 import danielm59.fastfood.recipe.churn.ChurnRecipe;
 import danielm59.fastfood.recipe.churn.ChurnRegistry;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.gui.IUpdatePlayerListBox;
+import net.minecraft.util.ITickable;
 
-public class TileEntityChurn extends TileEntityFF implements IUpdatePlayerListBox
+public class TileEntityChurn extends TileEntityFF implements ITickable 
 {
     
     public int currentProcessTime;

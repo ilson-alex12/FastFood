@@ -75,7 +75,7 @@ public class TileEntityFF extends TileEntity implements IInventory
     }
     
     @Override
-    public ItemStack getStackInSlotOnClosing(int slotIndex)
+    public ItemStack removeStackFromSlot(int slotIndex)
     {
         
         if (inventory[slotIndex] != null)
@@ -204,5 +204,4 @@ public class TileEntityFF extends TileEntity implements IInventory
         }
         nbtTagCompound.setTag("Items", tagList);
     }
-    
 }

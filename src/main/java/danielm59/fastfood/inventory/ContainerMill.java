@@ -107,7 +107,7 @@ public class ContainerMill extends ContainerFF
         return newItemStack;
     }
     
-    @Override
+/*    @Override
     public void addCraftingToCrafters(ICrafting iCrafting)
     {
         
@@ -116,7 +116,7 @@ public class ContainerMill extends ContainerFF
         iCrafting.sendProgressBarUpdate(this, 1, this.tileEntityMill.currentOutputProcessTime);
         iCrafting.sendProgressBarUpdate(this, 2, this.tileEntityMill.FlourLevel);
         
-    }
+    }*/
     
     @Override
     public void detectAndSendChanges()

@@ -14,10 +14,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.server.gui.IUpdatePlayerListBox;
+import net.minecraft.util.ITickable;
 import net.minecraft.util.MathHelper;
 
-public class TileEntityFryer extends TileEntityFF implements IUpdatePlayerListBox
+public class TileEntityFryer extends TileEntityFF implements ITickable 
 {
     
     // TODO save/load data

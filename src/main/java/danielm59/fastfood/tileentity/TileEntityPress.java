@@ -3,9 +3,9 @@ package danielm59.fastfood.tileentity;
 import danielm59.fastfood.recipe.press.PressRecipe;
 import danielm59.fastfood.recipe.press.PressRegistry;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.gui.IUpdatePlayerListBox;
+import net.minecraft.util.ITickable;
 
-public class TileEntityPress extends TileEntityFF implements IUpdatePlayerListBox
+public class TileEntityPress extends TileEntityFF implements ITickable
 {
     
     public int currentProcessTime;
