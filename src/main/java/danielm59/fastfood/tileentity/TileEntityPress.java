@@ -47,11 +47,11 @@ public class TileEntityPress extends TileEntityFF implements IUpdatePlayerListBo
                     {
                         inventory[2] = recipe.getOutput().copy();
                     }
-                    if (inventory[0].getItem().hasContainerItem())
+                    if (inventory[0].getItem().hasContainerItem(inventory[0]))
                     {
                         setInventorySlotContents(0, new ItemStack(inventory[0].getItem().getContainerItem()));
                     }
-                    if (inventory[1].getItem().hasContainerItem())
+                    if (inventory[1].getItem().hasContainerItem(inventory[1]))
                     {
                         setInventorySlotContents(1, new ItemStack(inventory[1].getItem().getContainerItem()));
                     } else

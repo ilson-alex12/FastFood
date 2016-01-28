@@ -46,7 +46,7 @@ public class FoodFF extends ItemFood
     public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityPlayer playerIn)
     {
         
-        if (stack.getItem().hasContainerItem())
+        if (stack.getItem().hasContainerItem(stack))
         {
             
             if (!playerIn.inventory.addItemStackToInventory(new ItemStack(stack.getItem().getContainerItem(), 1)))

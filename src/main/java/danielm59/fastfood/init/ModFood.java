@@ -4,8 +4,6 @@ import danielm59.fastfood.item.FoodDrinkableFF;
 import danielm59.fastfood.item.FoodFF;
 import danielm59.fastfood.reference.Reference;
 import danielm59.fastfood.utility.TextureHelper;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;

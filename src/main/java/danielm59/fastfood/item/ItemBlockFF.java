@@ -58,7 +58,7 @@ public class ItemBlockFF extends ItemFF
                     
                     if (iblockstate1.getBlock() == this.block)
                     {
-                        ItemBlock.setTileEntityNBT(worldIn, pos, stack);
+                        ItemBlock.setTileEntityNBT(worldIn, pos, stack, playerIn);
                         iblockstate1.getBlock().onBlockPlacedBy(worldIn, pos, iblockstate1, playerIn, stack);
                     }
                     
