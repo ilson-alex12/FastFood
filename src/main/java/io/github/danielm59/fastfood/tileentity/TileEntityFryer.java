@@ -20,7 +20,6 @@ import net.minecraft.util.MathHelper;
 public class TileEntityFryer extends TileEntityFF implements ITickable 
 {
     
-    // TODO save/load data
     public int           currentFryerProcessTime;
     public int           currentOilProcessTime;
     public int           oilLevel;
