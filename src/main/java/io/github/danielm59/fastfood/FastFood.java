@@ -9,7 +9,7 @@ import io.github.danielm59.fastfood.init.ModItems;
 import io.github.danielm59.fastfood.init.Recipes;
 import io.github.danielm59.fastfood.proxy.IProxy;
 import io.github.danielm59.fastfood.reference.Reference;
-import io.github.danielm59.m59Libs.utility.LogHelper;
+import io.github.danielm59.m59Libs.log.LogHelper;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
