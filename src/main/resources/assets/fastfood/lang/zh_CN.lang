@@ -1,0 +1,51 @@
+#########永恒乐园汉化组——ilson_alex——汉化#######
+# Items
+#物品
+item.fastfood:knife.name=刀
+item.fastfood:grater.name=擦菜板
+
+# Food
+#食物
+item.fastfood:roll.name=饼
+item.fastfood:rawbacon.name=生培根
+item.fastfood:bacon.name=培根
+item.fastfood:baconroll.name=培根卷
+item.fastfood:rawmince.name=生碎肉
+item.fastfood:rawbeefpatty.name=生牛肉饼
+item.fastfood:beefpatty.name=牛肉饼
+item.fastfood:beefburger.name=牛肉汉堡
+item.fastfood:tomato.name=番茄
+item.fastfood:tomatoseeds.name=番茄种子
+item.fastfood:butter.name=黄油
+item.fastfood:cheese.name=奶酪
+item.fastfood:gratedcheese.name=磨碎的奶酪
+item.fastfood:tomatosauce.name=番茄酱
+item.fastfood:flourbag.name=面粉袋
+item.fastfood:wheatflour.name=面粉
+item.fastfood:millstone.name=磨石
+item.fastfood:breaddough.name=面团
+item.fastfood:pizzabase.name=披萨面饼
+item.fastfood:rawpizza.name=生披萨
+item.fastfood:pizza.name=披萨
+item.fastfood:rawbread.name=生面包
+item.fastfood:sunflowerseeds.name=葵花籽
+item.fastfood:cookingoil.name=食用油
+item.fastfood:rawfries.name=生薯条
+item.fastfood:fries.name=薯条
+
+# Blocks
+#方块
+tile.fastfood:counter.name=柜台
+tile.fastfood:grinder.name=绞肉机
+tile.fastfood:churn.name=搅拌机
+tile.fastfood:press.name=压榨机
+tile.fastfood:mill.name=磨坊
+item.fastfood:fryer.name=油炸锅
+
+#Crops
+＃作物
+tile.fastfood:tomatocrop.name=番茄
+
+# Creative Tabs
+
+itemGroup.fastfood=快餐
